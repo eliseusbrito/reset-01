@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5061120e-c340-4d96-87ea-90bc71242a16" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.java" afterDir="false" />
     </list>
@@ -28,12 +29,13 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.AppBetter (1)">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="App" />
       <module name="aula-01b" />
@@ -41,8 +43,50 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AppBetter (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Exercicio3Melhorado.AppBetter" />
+      <module name="aula-01b" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Exercicio3Melhorado.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AppBetter" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Exercicio3.AppBetter" />
+      <module name="aula-01b" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Exercicio3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Exercicio3.Application" />
+      <module name="aula-01b" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Exercicio3.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.AppBetter (1)" />
+        <item itemvalue="Application.Application" />
+        <item itemvalue="Application.AppBetter" />
         <item itemvalue="Application.App" />
       </list>
     </recent_temporary>
@@ -61,29 +105,33 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
+    <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser" timestamp="1583610848402">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="83" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1583610848402" />
     <state x="463" y="122" key="FileChooserDialogImpl" timestamp="1583587447786">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="463" y="122" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1583587447786" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1583588005592">
+    <state width="1323" height="148" key="GridCell.Tab.0.bottom" timestamp="1583613588884">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583588005592" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1583588005591">
+    <state width="1323" height="148" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1583613588884" />
+    <state width="1323" height="148" key="GridCell.Tab.0.center" timestamp="1583613588883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583588005591" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1583588005591">
+    <state width="1323" height="148" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1583613588883" />
+    <state width="1323" height="148" key="GridCell.Tab.0.left" timestamp="1583613588883">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583588005591" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1583588005591">
+    <state width="1323" height="148" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1583613588883" />
+    <state width="1323" height="148" key="GridCell.Tab.0.right" timestamp="1583613588884">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583588005591" />
-    <state x="65" y="0" key="new project wizard" timestamp="1583587311258">
+    <state width="1323" height="148" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1583613588884" />
+    <state x="65" y="0" key="new project wizard" timestamp="1583607396597">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1583587311258" />
+    <state x="65" y="0" key="new project wizard/0.0.1366.728@0.0.1366.728" timestamp="1583607396597" />
   </component>
 </project>
