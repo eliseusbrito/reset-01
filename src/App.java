@@ -4,5 +4,6 @@ public class App {
         System.out.println("outras coisas");
         System.out.println("sem criatividade");
         System.out.println("pra mensagens");
+        System.out.println("Agora eu sei usar o GitHub");
     }
 }
