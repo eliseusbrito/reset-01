@@ -21,9 +21,8 @@ public class Application {
         System.out.println("\n------------------------------------------------------------------------------------\n\t\t\tSIMULADOR DE COMBATE RPG\n\n\t\t\t\t\t\tCódigo v 1.0: Eliseu Brito - Programa RESET CWI\n------------------------------------------------------------------------------------");
         System.out.println();
         Scanner sc = new Scanner(System.in);
-        //System.out.print("Digite 1 para relatório padrão e 2 para detalhado: ");
-        //int x= sc.nextInt();
-        int x = 2;
+        System.out.print("Digite 1 para relatório padrão e 2 para detalhado: ");
+        int x= sc.nextInt();
         System.out.println();
         //Ataques
         guerreiro.atacarArmas(barbaro, machado);//ranza(guerreiro) ataca ragnar(barbaro)
