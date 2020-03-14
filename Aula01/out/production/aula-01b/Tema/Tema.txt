@@ -1,0 +1,108 @@
+Tema de Casa:
+
+Criar um simulador de combate de RPG, que permita simular um combate entre diversos personagens de diferentes classes, identificando quando um personagem morrer em combate.
+
+***CHECK LIST***
+
+ok Deve ser possível criar as seguintes classes de personagens: ok
+
+ok Todos eles possuem as seguintes características:
+
+Nome
+Vida
+Ataque
+Defesa
+Caracaterísticas específicas ok
+
+ok Os magos e feiticeiros possuem mana. ok
+ok Os druidas e clérigos possuem fé.ok
+
+Regras:
+
+ok Todas as classes podem atacar qualquer outra classe de personagem ok
+
+ok Para que um personagem realize um ataque, deve ser informado o personagem alvo ok
+
+ok No caso de guerreiros e bárbaros, além do alvo deve ser informada a arma utilizadaok
+
+ok No caso de magos e feiticeiros, além do alvo deve ser informada a magia utilizada ok
+
+ok No caso de druidas e clérigos, além do alvo deve ser informado o poder divino utilizado ok
+
+ok Armas possuem nome e poder de ataque ok
+
+ok Magias possuem nome, poder e custo de mana ok
+
+ok Poderes divinos possuem nome, intensidade e custo de fé ok
+
+ok Quando magias são utilizadas, a mana é reduzida de acordo com o custo da magia ok
+
+ok Quando poderes divinos são utilizadas, a fé é reduzida de acordo com o custo do poder divino ok
+
+ok O poder final do ataque é calculado da seguinte forma:
+poder final de ataque = (poder da arma ou magia ou poder divino) * ataque do atacante ok
+
+ok O dano final deve ser calculado da seguinte forma:
+dano = poder final de ataque - defesa do alvo ok 
+
+ok O roteiro de combate fica por conta da criatividade do desenvolvedor ok
+
+ok O combate deve possuir, ao menos, 1 personagem de cada classe e 2 ataques de cada personagem ok
+
+ok Cada ataque deverá imprimir o resultado do ataque seguindo o formato:
+1)Ramza atacou Ragnar com machado causando 45 de dano
+2)Ragnar atacou Beatrice com bola de fogo causando 23 de dano
+3)Ragnar atacou Ramza com bola de fogo causando 21 de dano
+4)Ragnar atacou Ragnar com bola de fogo causando 18 de dano
+5)Beatrice atacou Ragnar com arma espiritual causando 11 de dano ok
+
+ok No final do combate deverá imprimir nome, vida, mana e fé de cada personagem ok
+
+Regras Bônus:
+
+ok Personagens mortos podem ser atacados normalmente ok
+
+ok Ataques de personagens mortos devem ser ignorados ok
+
+ok Quando um ataque resultar na morte do alvo, isso deve ser impresso no registro do ataque ok
+
+ok Magos, feiticeitos, druidas e clérigos deve ter o ataque ignorado se não possuirem mana ou fé suficiente ok 
+
+
+Pesquisa:
+Guerreiros -  		Lightfury (Warrior)
+Bárbaros   -  Imik	(Barbarian)
+Magos	     		(magicians)
+Feiticeiros		 	(Sorcerers)
+Druidas				(Druids)
+Clérigos				(Clerics)
+
+Lembretes:
+Ranza 		Guerreiro
+Ragnar 		Barbaro
+Niele 		Mago
+Sorcerer	Feiticeiro
+Beatrice	Druida
+Goldmoon 	Clerigo
+
+
+if(vida<=0){System.out.println("Um personagem morto atacou e ataque será ignorado. "
+                +nome + " atacou " + druida.nome + " com " + armas.nome+" sem causar danos.");
+                    return;}//Ataques de personagens mortos devem ser ignoraos
+
+
+if(druida.vida==0){System.out.print(druida.nome+" morreu no ataque!!! ");}//Quando um ataque resultar na morte do alvo, isso deve ser impresso no registro do ataque
+
+
+if(druida.vida<0){
+            System.out.print("Um personagem morto foi atacado("+druida.nome+")!!!  ");}//Personagens mortos podem ser atacados normalmente
+
+
+
+if(mana>0){
+            System.out.println(nome + " atacou " + clerigo.nome + " com " + magias.nome
+                    + " causando " + df.format(dano) + " de dano");
+        } else {
+            System.out.println(nome + " atacou " + clerigo.nome + " com " + magias.nome
+                    + " não causando dano, pois saldo de mana = "+mana+" e ataque foi desconsiderado");//Magos, feiticeitos, druidas e clérigos deve ter o ataque ignorado se não possuirem mana ou fé suficiente
+
