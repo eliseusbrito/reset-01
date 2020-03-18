@@ -1,20 +1,17 @@
 package Tema_Desafio01;
 import java.util.Scanner;
-
 public class Application {
 
-
+    static Criacao ca = new Criacao();//ca --> criacao app
+    static public int tipoimpr;//tipo de impressao
     public static void main(String[] args) {
+        int r = 0;//numero da rodada
         Scanner sc = new Scanner(System.in);
-        Menu menu = new Menu();
-        menu.rodaMenu();
-        Criacao criacao = new Criacao();
-
-        int x = 1;
-   //     System.out.print("Digite quantos personagens vc deseja criar: ");
-    //    int x= sc.nextInt();
-
+        System.out.println("\n------------------------------------------------------------------------------------------------\n\t\t\tSIMULADOR DE COMBATE RPG\n\n\t\t\t\t\t\tCódigo Tema02_ Desafio01: Eliseu Brito - Programa RESET CWI\n------------------------------------------------------------------------------------------------");
         System.out.println();
+        System.out.print("Digite 1 para relatório padrão e 2 para detalhado: ");
+        tipoimpr = sc.nextInt();
+        ca.criarPersonagem();
         //Armas, Poderes e Magias
         Arma machado = new Arma("Machado", 10);
         Arma bolaDeFogo = new Arma("Bola de fogo", 5);
@@ -22,104 +19,120 @@ public class Application {
         Magia fire = new Magia("Fire", 10, 10);
         PoderDivino armaEspiritual = new PoderDivino("Arma Espiritual", 10, 5);
         PoderDivino cajado = new PoderDivino("Cajado", 10, 7);
-
-
-        //Personagens com Herança
-        Guerreiro ramza = new Guerreiro("Ramza", 3, 5, 5);
-        Barbaro ragnar = new Barbaro("Ragnar", 3, 6, 5);
-        Mago niele = new Mago("Niele", 3, 7, 5,50);
-        Feiticeiro sorcerer = new Feiticeiro("Sorcerer", 3, 8, 5,50);
-        Druida beatrice = new Druida("Beatrice", 3, 9, 5,50);
-        Clerigo goldmoon = new Clerigo("Goldmoon", 3, 9, 5,50);
-
-
-        System.out.println("Voltou para o App");
-
-
-/*
-        int a = criacao.getListaGuerreiros.size();
-        System.out.println(listaGuerreiros.get(0));
-
-        getListaGuerreiros().size(),
-
-        for (Clerigo clerigo : listaClerigos) {
-            System.out.println("Clerigo -->  Nome:" + clerigo.nome + " Vida: " + clerigo.vida+" Ataque: " + clerigo.ataque + " Defesa: " + clerigo.defesa);
-        }
-*/
-
-
-
-
-
-
-        // System.out.println("A listaGuerreiros tem "+a+" elementos");
-
- /*       for (Guerreiro guerreiro : listaGuerreiros) {
-            System.out.println(guerreiro);
-        }
-*/
-
-
-
         //Ataques
-        ramza.atacarArmas(ragnar, machado);//ramza(guerreiro) ataca ragnar(barbaro)
- //       if (x == 2) {Guerreiro.imprimeGB();}
-        ragnar.atacarArmas(beatrice, bolaDeFogo);//ragnar(barbaro) ataca beatrice(druida)
- //       if (x == 2) { Barbaro.imprimeBD();  }
-        ragnar.atacarArmas(ramza, bolaDeFogo);//ragnar(barbaro) ataca ramza(guerreiro)
-  //     if (x == 2) { Barbaro.imprimeBG(); }
-        ragnar.atacarArmas(ragnar, bolaDeFogo);//ragnar(barbaro) ataca ragnar(barbaro)
- //       if (x == 2) { Barbaro.imprimeBB();}
-        beatrice.atacarPoderesDivinos(ragnar, armaEspiritual);//druida(beatrice) ataca ragnar(barbaro)
- //       if (x == 2) { Druida.imprimeDB();}
-        niele.atacarMagias(ragnar, raio);//niele(mago) ataca ragnar(barbaro)
- //       if (x == 2) { Mago.imprimeMB();}
-        ragnar.atacarArmas(beatrice, bolaDeFogo);
- //       if (x == 2) { Barbaro.imprimeBD();}
-        ragnar.atacarArmas(ramza,bolaDeFogo);//ragnar(barbaro) ataca ramza(guerreiro)
- //       if (x == 2) { Barbaro.imprimeBG();}
-        goldmoon.atacarPoderesDivinos(sorcerer,cajado);//goldmoon(clerigo) ataca feiticeiro(feiticeiro)
- //       if (x == 2) { Clerigo.imprimeCF();}
-        sorcerer.atacarMagias(ragnar,fire);
- //       if (x == 2) { Feiticeiro.imprimeFB();}
-        sorcerer.atacarMagias(niele,fire);
- //       if (x == 2) { Feiticeiro.imprimeFM();}
-        sorcerer.atacarMagias(goldmoon,fire);
- //       if (x == 2) { Feiticeiro.imprimeFC();}
-        ramza.atacarArmas(beatrice,machado);
-  //      if (x == 2) { Guerreiro.imprimeGD();}
-        beatrice.atacarPoderesDivinos(ramza,armaEspiritual);
-  //      if (x == 2) { Druida.imprimeDG();}
-        goldmoon.atacarPoderesDivinos(niele,cajado);
-  //      if (x == 2) { Clerigo.imprimeCM();}
-        niele.atacarMagias(goldmoon,raio);
-  //      if (x == 2) { Mago.imprimeMC();}
-        sorcerer.atacarMagias(niele,fire);
- //       if (x == 2) { Feiticeiro.imprimeFM();}
-        sorcerer.atacarMagias(niele,fire);
- //       if (x == 2) { Feiticeiro.imprimeFM();}
-        sorcerer.atacarMagias(niele,fire);
- //       if (x == 2) { Feiticeiro.imprimeFM();}
-        sorcerer.atacarMagias(niele,fire);
- //       if (x == 2) { Feiticeiro.imprimeFM();}
-        ragnar.atacarArmas(beatrice, bolaDeFogo);
- //       if (x == 2) { Barbaro.imprimeBD();}
-        ramza.atacarArmas(beatrice,machado);
- //       if (x == 2) { Guerreiro.imprimeGD();}
-        ramza.atacarArmas(beatrice,machado);
-//        if (x == 2) { Guerreiro.imprimeGD();}
-        sorcerer.atacarMagias(ramza,fire);
-//        if (x == 2) { Feiticeiro.imprimeFG();}
-        sorcerer.atacarMagias(ramza,fire);
-//        if (x == 2) { Feiticeiro.imprimeFG();}
+        boolean continuar = true;
+        char opcao;
+        while (continuar) {
+            r = r + 1;
+            System.out.println("Rodada " + r);
+            System.out.println("Escolha o ATACANTE: G - GUERREIRO, B - BARBARO, D - DRUIDA, C - CLERIGO, M - MAGO ou F - FEITICEIRO");
+            String cpl = sc.next();//cpl = classe primeiro lutador
+            System.out.println("Agora escolha o número do Personagem atacante: 1 - 2 - 3 ...");
+            int ppl = sc.nextInt();//ppl = personagem primeiro lutador
+            ppl = ppl - 1;
+            System.out.println("Escolha o ALVO: G - GUERREIRO, B - BARBARO, D - DRUIDA, C - CLERIGO, M - MAGO ou F - FEITICEIRO");
+            String csl = sc.next();//csl = classe segundo lutador
+            System.out.println("e por fim o número do Personagem Alvo: 1 - 2 - 3 ...");
+            int psl = sc.nextInt();//ppl = personagem segundo lutador
+            psl = psl - 1;
+            String cc = cpl + csl;
+
+            if (cc.equals("GB")) {
+                ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaBarbaros().get(psl), machado);}
+            if (cc.equals("GD")) {
+                ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaDruidas().get(psl), machado);}
+            if (cc.equals("GC")) {
+                ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaClerigos().get(psl), machado);}
+            if (cc.equals("GM")) {
+                ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaMagos().get(psl), machado);}
+            if (cc.equals("GF")) {
+                ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaFeiticeiros().get(psl), machado);}
+            if (cc.equals("GG")) {
+                ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaGuerreiros().get(psl), machado);}
+
+            if (cc.equals("BG")) {
+                ca.getListaBarbaros().get(ppl).atacarArmas(ca.getListaGuerreiros().get(psl), bolaDeFogo);}
+            if (cc.equals("BD")) {
+                ca.getListaBarbaros().get(ppl).atacarArmas(ca.getListaDruidas().get(psl), bolaDeFogo);}
+            if (cc.equals("BC")) {
+                ca.getListaBarbaros().get(ppl).atacarArmas(ca.getListaClerigos().get(psl), bolaDeFogo);}
+            if (cc.equals("BM")) {
+                ca.getListaBarbaros().get(ppl).atacarArmas(ca.getListaMagos().get(psl), bolaDeFogo);}
+            if (cc.equals("BF")) {
+                ca.getListaBarbaros().get(ppl).atacarArmas(ca.getListaFeiticeiros().get(psl), bolaDeFogo);}
+            if (cc.equals("BB")) {
+                ca.getListaBarbaros().get(ppl).atacarArmas(ca.getListaBarbaros().get(psl), bolaDeFogo);}
+
+            if (cc.equals("DG")) {
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaGuerreiros().get(psl), armaEspiritual); }
+            if (cc.equals("DB")) {
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaBarbaros().get(psl), armaEspiritual); }
+            if (cc.equals("DC")) {
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaClerigos().get(psl), armaEspiritual); }
+            if (cc.equals("DM")) {
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaMagos().get(psl), armaEspiritual); }
+            if (cc.equals("DF")) {
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaFeiticeiros().get(psl), armaEspiritual); }
+            if (cc.equals("DD")) {
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaDruidas().get(psl), armaEspiritual); }
+
+            if (cc.equals("CG")) {
+                ca.getListaClerigos().get(ppl).atacarPoderesDivinos(ca.getListaGuerreiros().get(psl), cajado); }
+            if (cc.equals("CB")) {
+                ca.getListaClerigos().get(ppl).atacarPoderesDivinos(ca.getListaBarbaros().get(psl), cajado); }
+            if (cc.equals("CD")) {
+                ca.getListaClerigos().get(ppl).atacarPoderesDivinos(ca.getListaDruidas().get(psl), cajado); }
+            if (cc.equals("CM")) {
+                ca.getListaClerigos().get(ppl).atacarPoderesDivinos(ca.getListaMagos().get(psl), cajado); }
+            if (cc.equals("CF")) {
+                ca.getListaClerigos().get(ppl).atacarPoderesDivinos(ca.getListaFeiticeiros().get(psl), cajado); }
+            if (cc.equals("CC")) {
+                ca.getListaClerigos().get(ppl).atacarPoderesDivinos(ca.getListaClerigos().get(psl), cajado); }
+
+            if (cc.equals("MG")) {
+                ca.getListaMagos().get(ppl).atacarMagias(ca.getListaGuerreiros().get(psl), raio); }
+            if (cc.equals("MB")) {
+                ca.getListaMagos().get(ppl).atacarMagias(ca.getListaBarbaros().get(psl), raio); }
+            if (cc.equals("MD")) {
+                ca.getListaMagos().get(ppl).atacarMagias(ca.getListaDruidas().get(psl), raio); }
+            if (cc.equals("MC")) {
+                ca.getListaMagos().get(ppl).atacarMagias(ca.getListaClerigos().get(psl), raio); }
+            if (cc.equals("MF")) {
+                ca.getListaMagos().get(ppl).atacarMagias(ca.getListaFeiticeiros().get(psl), raio); }
+            if (cc.equals("MM")) {
+                ca.getListaMagos().get(ppl).atacarMagias(ca.getListaMagos().get(psl), raio); }
+
+            if (cc.equals("FG")) {
+                ca.getListaFeiticeiros().get(ppl).atacarMagias(ca.getListaGuerreiros().get(psl), fire); }
+            if (cc.equals("FB")) {
+                ca.getListaFeiticeiros().get(ppl).atacarMagias(ca.getListaBarbaros().get(psl), fire); }
+            if (cc.equals("FD")) {
+                ca.getListaFeiticeiros().get(ppl).atacarMagias(ca.getListaDruidas().get(psl), fire); }
+            if (cc.equals("FC")) {
+                ca.getListaFeiticeiros().get(ppl).atacarMagias(ca.getListaClerigos().get(psl), fire); }
+            if (cc.equals("FM")) {
+                ca.getListaFeiticeiros().get(ppl).atacarMagias(ca.getListaMagos().get(psl), fire); }
+            if (cc.equals("FF")) {
+                ca.getListaFeiticeiros().get(ppl).atacarMagias(ca.getListaFeiticeiros().get(psl), fire); }
+
+            System.out.println("Voce quer mais um ataque?  S - Sim   N - Não");
+            opcao = sc.next().charAt(0);
+            if (opcao == 'N') {
+                continuar = false;
+            }
+        }
         System.out.println("");
         System.out.println("SITUAÇÃO FINAL COMBATE");
-        System.out.println("Personagem: " + ramza.nome + "     Vida: " + ramza.vida);
-        System.out.println("Personagem: " + ragnar.nome + "     Vida: " + ragnar.vida);
-        System.out.println("Personagem: " + beatrice.nome + "     Vida: " + beatrice.vida + "     Fé: " + beatrice.fe);
-        System.out.println("Personagem: " + goldmoon.nome + "      Vida: " + goldmoon.vida + "       Fé: " + goldmoon.fe);
-        System.out.println("Personagem: " + sorcerer.nome + "     Vida: " + sorcerer.vida + "     Mana: " + sorcerer.mana);
-        System.out.println("Personagem: " + niele.nome + "     Vida: " + niele.vida + "     Mana: " + niele.mana);
-        sc.close();
-    }
-}
+        for (Guerreiro guerreiro : ca.getListaGuerreiros()) {
+            System.out.println("Personagem: " + guerreiro.nome + "   Vida: " + guerreiro.vida);}
+        for (Barbaro barbaro : ca.getListaBarbaros()) {
+            System.out.println("Personagem: " + barbaro.nome + "   Vida: " + barbaro.vida);        }
+        for (Druida druida : ca.getListaDruidas()) {
+            System.out.println("Personagem: " + druida.nome + "   Vida: " + druida.vida + "    Fé: " + druida.fe);        }
+        for (Clerigo clerigo : ca.getListaClerigos()) {
+            System.out.println("Personagem: " + clerigo.nome + "   Vida: " + clerigo.vida + "    Fé: " + clerigo.fe);        }
+        for (Feiticeiro feiticeiro : ca.getListaFeiticeiros()) {
+            System.out.println("Personagem: " + feiticeiro.nome + "   Vida: " + feiticeiro.vida + "    Mana: " + feiticeiro.mana);        }
+        for (Mago mago : ca.getListaMagos()) {
+            System.out.println("Personagem: " + mago.nome + "   Vida: " + mago.vida + "    Mana: " + mago.mana);        }
+    }}

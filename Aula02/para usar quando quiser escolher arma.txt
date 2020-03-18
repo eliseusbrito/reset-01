@@ -1,0 +1,30 @@
+ if(cpl.equals("G") || cpl.equals("B")){
+            System.out.println("Qual arma vc gostaria de usar para o HOMEM DE ARMAS");
+            System.out.println("Digite 1-Machado  2-Bola de Fogo");
+            opcaoArma = sc.nextInt();
+            //if (opcaoArma == "1"){ }
+            //if (opcaoArma == "2"){ artemp = bolaDeFogo;}
+
+            //ca.impBarbaros();
+            //ca.impGuerreiros();
+            }
+
+
+ if (cc.equals("GB")) {
+                if(opcaoArma==1){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaBarbaros().get(psl),machado);}
+                if(opcaoArma==2){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaBarbaros().get(psl),bolaDeFogo);}}
+            if (cc.equals("GD")) {
+                if(opcaoArma==1){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaDruidas().get(psl), machado);}
+                if(opcaoArma==2){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaDruidas().get(psl), bolaDeFogo);}}
+            if (cc.equals("GC")) {
+                if(opcaoArma==1){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaClerigos().get(psl), machado);}
+                if(opcaoArma==2){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaClerigos().get(psl), bolaDeFogo);}}
+            if (cc.equals("GM")) {
+                if(opcaoArma==1){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaMagos().get(psl), machado);}
+                if(opcaoArma==2){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaMagos().get(psl), bolaDeFogo);}}
+            if (cc.equals("GF")) {
+                if(opcaoArma==1){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaFeiticeiros().get(psl), machado);
+                if(opcaoArma==2)ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaFeiticeiros().get(psl), bolaDeFogo);}}
+            if (cc.equals("GG")) {
+                if(opcaoArma==1){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaGuerreiros().get(psl), machado);}
+                if(opcaoArma==2){ca.getListaGuerreiros().get(ppl).atacarArmas(ca.getListaGuerreiros().get(psl), bolaDeFogo);}}

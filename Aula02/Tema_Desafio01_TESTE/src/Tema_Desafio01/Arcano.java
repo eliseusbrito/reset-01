@@ -10,21 +10,21 @@ public class Arcano extends Personagem {
     }
 
     public void atacarMagias(Personagem alvo, Magia magia) {
-        if(vida<=0){System.out.print("Ataque será ignorado pois " +nome+" esta morto!!! "+
-                nome + " atacou " + nome + " com " + nome
+        if(vida<=0){System.out.println("Um personagem morto atacou e ataque será ignorado. "+
+                nome + " atacou " + alvo.nome + " com " + magia.nome
                 + " sem causar danos");
             return;}
         double dano = calcularDano(alvo.defesa,magia.poder);
         if(mana>0){vida = vida - 1;}
         mana = mana - magia.custoDeMana;
-        if(vida==0 && mana>0){System.out.print(nome+" morreu no ataque!!! ");}//Quando um ataque resultar na morte do alvo, isso deve ser impresso no registro do ataque
+        if(vida==0 && mana>0){System.out.print(alvo.nome+" morreu no ataque!!! ");}//Quando um ataque resultar na morte do alvo, isso deve ser impresso no registro do ataque
         if(vida<0){
             System.out.print("Um personagem morto foi atacado("+nome+")!!!  " );}//Personagens mortos podem ser atacados normalmente
         if(mana>0){
-            System.out.println(nome + " atacou " + nome + " com " + magia.nome
+            System.out.println(nome + " atacou " + alvo.nome + " com " + magia.nome
                     + " causando " + df.format(dano) + " de dano. ");
         } else {
-            System.out.println(nome + " atacou " + nome + " com " + magia.nome
+            System.out.println(nome + " atacou " + alvo.nome + " com " + magia.nome
                     + " não causando dano, pois saldo de mana = "+mana+" e ataque foi desconsiderado. ");
         }
     }

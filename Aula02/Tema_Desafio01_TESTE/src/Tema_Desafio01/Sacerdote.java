@@ -10,22 +10,21 @@ public class Sacerdote extends Personagem {
     }
 
     public void atacarPoderesDivinos(Personagem alvo, PoderDivino poderDivino) {
-        if(vida<=0){System.out.println("Ataque será ignorado pois " +nome+" esta morto!!! "+
-                nome + " atacou " + nome + " com " + poderDivino.nome
+        if(vida<=0){System.out.println("Um personagem morto atacou e ataque será ignorado. "+
+                nome + " atacou " + alvo.nome + " com " + poderDivino.nome
                 + " sem causar danos");
             return;}
         double dano = calcularDano(alvo.defesa, poderDivino.poder);
-
         if(fe>0){vida = vida - 1;}
         fe = fe-poderDivino.custoDeFe;
-        if(vida==0 && fe>0){System.out.print(nome+" morreu no ataque!!! ");}//Quando um ataque resultar na morte do alvo, isso deve ser impresso no registro do ataque
+        if(vida==0 && fe>0){System.out.print(alvo.nome+" morreu no ataque!!! ");}//Quando um ataque resultar na morte do alvo, isso deve ser impresso no registro do ataque
         if(vida<0){
-            System.out.print("Um personagem morto foi atacado("+nome+")!!!  ");}//Personagens mortos podem ser atacados normalmente
+            System.out.print("Um personagem morto foi atacado("+alvo.nome+")!!!  ");}//Personagens mortos podem ser atacados normalmente
         if(fe>0){
-            System.out.println(nome + " atacou " + nome + " com " + poderDivino.nome
+            System.out.println(nome + " atacou " + alvo.nome + " com " + poderDivino.nome
                     + " causando " + df.format(dano) + " de dano. ");
         } else {
-            System.out.println(nome + " atacou " + nome + " com " + poderDivino.nome
+            System.out.println(nome + " atacou " + alvo.nome + " com " + poderDivino.nome
                     + " não causando dano, pois saldo de fé = "+fe+" e ataque foi desconsiderado. ");
         }}
 
