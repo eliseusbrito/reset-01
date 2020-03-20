@@ -39,6 +39,8 @@ public class Application {
             r = r + 1;
             System.out.println("Rodada " + r);
             System.out.println("Escolha o ATACANTE: G - GUERREIRO, B - BARBARO, D - DRUIDA, C - CLERIGO, M - MAGO ou F - FEITICEIRO");
+            //ca.listarPersonagens();
+            ca.listarPersonagensVivos();
             String cpl = sc.next();//cpl = classe primeiro lutador
             System.out.println("Agora escolha o número do Personagem atacante: 1 - 2 - 3 ...");
             int ppl = sc.nextInt();//ppl = personagem primeiro lutador
@@ -46,6 +48,7 @@ public class Application {
 
             if (cpl.equals("G")||cpl.equals("B")){
                 System.out.println("Escolha o ALVO: G - GUERREIRO, B - BARBARO, D - DRUIDA, C - CLERIGO, M - MAGO ou F - FEITICEIRO");
+                ca.listarPersonagensVivos();
                 String csl = sc.next();//csl = classe segundo lutador
                 System.out.println("e por fim o número do Personagem Alvo: 1 - 2 - 3 ...");
 
@@ -110,17 +113,26 @@ public class Application {
                     for (int i = 0; i < listaDeAlvos.size(); i++) {
                           System.out.println(listaDeAlvos.get(i));}
 
+                    for (String x : listaDeAlvos) {
+                    System.out.println(x); }
+
+
                 //fulano.atacar(alvos, magiaEmArea);
 
 
+/*
                 ca.getListaDruidas().get(ppl).atacarPoderesDivinos(listaDeAlvos().getNome("Niele"),massaDeRelampagos);
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaGuerreiros().get(psl), armaEspiritual);
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaGuerreiros().get(psl), armaEspiritual);
 
-
+                ca.getListaDruidas().get(0);
+*/
 
                 }
 
                 if((habilidadeEscolhida==1||habilidadeEscolhida==2||habilidadeEscolhida==4||habilidadeEscolhida==5)) {
                 System.out.println("Escolha o ALVO: G - GUERREIRO, B - BARBARO, D - DRUIDA, C - CLERIGO, M - MAGO ou F - FEITICEIRO");
+                    ca.listarPersonagensVivos();
                     String csl = sc.next();//csl = classe segundo lutador
                     System.out.println("e por fim o número do Personagem Alvo: 1 - 2 - 3 ...");
 
@@ -208,7 +220,6 @@ public class Application {
                 }
                 }
             }
-
 
             System.out.println("Voce quer mais um ataque?  S - Sim   N - Não");
             opcao = sc.next().charAt(0);

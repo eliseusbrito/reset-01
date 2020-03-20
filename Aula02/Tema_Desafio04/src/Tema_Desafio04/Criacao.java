@@ -3,6 +3,8 @@ package Tema_Desafio04;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
+
 import static Tema_Desafio04.Application.tipoimpr;
 
 public class Criacao {
@@ -161,40 +163,96 @@ public class Criacao {
 
     public void impGuerreiros(){
         if(listaGuerreiros.size()>0){
-            System.out.println("Lista de Guerreiros:");
+            System.out.println("Guerreiros:");
             for (Guerreiro guerreiro : listaGuerreiros) {
                 System.out.println("    Nome:" + guerreiro.nome + " Vida:" + guerreiro.vida+" Ataque:" + guerreiro.ataque + " Defesa:" + guerreiro.defesa + "  Arma:"+ guerreiro.arma.getNome());
             }}}
+    public void impGuerreirosVivos(){
+        if(listaGuerreiros.size()>0){
+            System.out.println("Guerreiros Vivos:");
+            for (int i = 0; i < listaGuerreiros.size(); i++) {
+                if(listaGuerreiros.get(i).getVida()>0){
+                    System.out.print("  "+(i+1)+" -  "+listaGuerreiros.get(i).getNome()+"     \n");}else{
+                    System.out.print("  Todos mortos\n");}}}}
+
+
     public void impBarbaros(){
         if(listaBarbaros.size()>0){
-            System.out.println("Lista de Barbaros:");
+            System.out.println("Barbaros:");
             for (Barbaro barbaro : listaBarbaros) {
                 System.out.println("    Nome:" + barbaro.nome + " Vida:" + barbaro.vida+" Ataque:" + barbaro.ataque + " Defesa:" + barbaro.defesa+ "  Arma:"+ barbaro.arma.getNome());
             }}}
+
+    public void impBarbarosVivos(){
+        if(listaBarbaros.size()>0){
+            System.out.println("Barbaros Vivos:");
+            for (int i = 0; i < listaBarbaros.size(); i++) {
+                if(listaBarbaros.get(i).getVida()>0){
+                    System.out.print("  "+(i+1)+" -  "+listaBarbaros.get(i).getNome()+"     \n");}else{
+                    System.out.print("  Todos mortos\n");}}}}
+
     public void impDruidas(){
         if(listaDruidas.size()>0){
-            System.out.println("Lista de Druidas:");
+            System.out.println("Druidas:");
             for (Druida druida : listaDruidas) {
                 System.out.println("    Nome:" + druida.nome + " Vida:" + druida.vida+" Ataque:" + druida.ataque + " Defesa:" + druida.defesa+ " Fé:"+druida.fe);
             }}}
+    public void impDruidasVivos(){
+        if(listaDruidas.size()>0){
+            System.out.println("Druidas Vivos:");
+            for (int i = 0; i < listaDruidas.size(); i++) {
+                if(listaDruidas.get(i).getVida()>0){
+                    System.out.print("  "+(i+1)+" -  "+listaDruidas.get(i).getNome()+"     \n");}else{
+                    System.out.print("  Todos mortos\n");}}}}
+
+
     public void impMagos(){
         if(listaMagos.size()>0){
-            System.out.println("Lista de Magos:");
+            System.out.println("Magos:");
             for (Mago mago : listaMagos) {
                 System.out.println("    Nome:" + mago.nome + " Vida:" + mago.vida+" Ataque:" + mago.ataque + " Defesa:" + mago.defesa+ " Mana:"+mago.mana);
             }}}
+
+    public void impMagosVivos(){
+        if(listaMagos.size()>0){
+            System.out.println("Magos Vivos:");
+            for (int i = 0; i < listaMagos.size(); i++) {
+                if(listaMagos.get(i).getVida()>0){
+                    System.out.print("  "+(i+1)+" -  "+listaMagos.get(i).getNome()+"     \n");}else{
+                    System.out.print("  Todos mortos\n");}}}}
+
     public void impFeiticeiros(){
         if(listaFeiticeiros.size()>0){
-            System.out.println("Lista de Feiticeiros:");
+            System.out.println("Feiticeiros:");
             for (Feiticeiro feiticeiro : listaFeiticeiros) {
                 System.out.println("    Nome:" + feiticeiro.nome + " Vida:" + feiticeiro.vida+" Ataque:" + feiticeiro.ataque + " Defesa:" + feiticeiro.defesa+" Mana:"+feiticeiro.mana);
             }}}
+
+    public void impFeiticeirosVivos(){
+        if(listaFeiticeiros.size()>0){
+            System.out.println("Feiticeiros Vivos:");
+            for (int i = 0; i < listaFeiticeiros.size(); i++) {
+                if(listaFeiticeiros.get(i).getVida()>0){
+                    System.out.print("  "+(i+1)+" -  "+listaFeiticeiros.get(i).getNome()+"     \n");}else{
+                    System.out.print("  Todos mortos\n");}}}}
+
+
     public void impClerigos(){
         if(listaClerigos.size()>0){
-            System.out.println("Lista de Clerigos:");
+            System.out.println("Clerigos:");
             for (Clerigo clerigo : listaClerigos) {
                 System.out.println("    Nome:" + clerigo.nome + " Vida:" + clerigo.vida+" Ataque:" + clerigo.ataque + " Defesa:" + clerigo.defesa+ " Fé:"+clerigo.fe);
             }}}
+
+    public void impClerigosVivos(){
+        if(listaClerigos.size()>0){
+            System.out.println("Clerigos Vivos:");
+            for (int i = 0; i < listaClerigos.size(); i++) {
+                if(listaClerigos.get(i).getVida()>0){
+                    System.out.print("  "+(i+1)+" -  "+listaClerigos.get(i).getNome()+"     \n");}else{
+                    System.out.print("  Todos mortos\n");}}}}
+
+
 
     public void criarRapido(){
 
@@ -213,6 +271,14 @@ public class Criacao {
         impMagos();
         impFeiticeiros();
         impClerigos();
+    }
+    public void listarPersonagensVivos(){
+        impGuerreirosVivos();
+        impBarbarosVivos();
+        impDruidasVivos();
+        impMagosVivos();
+        impFeiticeirosVivos();
+        impClerigosVivos();
     }
 
 
