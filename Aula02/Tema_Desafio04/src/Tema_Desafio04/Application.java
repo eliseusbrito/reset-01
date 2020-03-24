@@ -39,7 +39,7 @@ public class Application {
             r = r + 1;
             System.out.println("Rodada " + r);
             System.out.println("Escolha o ATACANTE: G - GUERREIRO, B - BARBARO, D - DRUIDA, C - CLERIGO, M - MAGO ou F - FEITICEIRO");
-            //ca.listarPersonagens();
+            //ca.double vidaPersonagens();
             ca.listarPersonagensVivos();
             String cpl = sc.next();//cpl = classe primeiro lutador
             System.out.println("Agora escolha o número do Personagem atacante: 1 - 2 - 3 ...");
@@ -112,23 +112,16 @@ public class Application {
                     }
                     for (int i = 0; i < listaDeAlvos.size(); i++) {
                           System.out.println(listaDeAlvos.get(i));}
-
-                    for (String x : listaDeAlvos) {
-                    System.out.println(x); }
-
-
                 //fulano.atacar(alvos, magiaEmArea);
-
-
 /*
-                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(listaDeAlvos().getNome("Niele"),massaDeRelampagos);
-                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaGuerreiros().get(psl), armaEspiritual);
-                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaGuerreiros().get(psl), armaEspiritual);
-
-                ca.getListaDruidas().get(0);
-*/
-
+                for (int i = 0; i < listaDeAlvos.size(); i++) {
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(listaDeAlvos.get(i),massaDeRelampagos);
                 }
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaGuerreiros().get(psl), armaEspiritual);
+                ca.getListaDruidas().get(ppl).atacarPoderesDivinos(ca.getListaGuerreiros().get(psl), armaEspiritual);
+                ca.getListaDruidas().get(0);
+                }
+*/
 
                 if((habilidadeEscolhida==1||habilidadeEscolhida==2||habilidadeEscolhida==4||habilidadeEscolhida==5)) {
                 System.out.println("Escolha o ALVO: G - GUERREIRO, B - BARBARO, D - DRUIDA, C - CLERIGO, M - MAGO ou F - FEITICEIRO");
