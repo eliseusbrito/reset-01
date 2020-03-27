@@ -19,8 +19,15 @@ public class FilmeGerenciador {
         if (filme.getDataDeLancamento().isAfter(LocalDate.now())) {
             System.out.println("A data digitada foi maior que data atual. O filme não foi cadastrado.");
             return null;        }
+        if (filme.getNome().equals(null)||filme.getNome().equals(null)||filme.getDiretor().equals(null)||filme.getDataDeLancamento().equals(null)||filme.getCategoriaFilme().equals(null)||filme.getSinopse().equals(null)){
+            System.out.println("Algum campo não foi prenchido. O Filme não foi cadastrado.");
+            return null;        }
+        if (filme.getNome().equals("")||filme.getNome().equals("")||filme.getDiretor().equals("")||filme.getDataDeLancamento().equals("")||filme.getCategoriaFilme().equals("")||filme.getSinopse().equals("")){
+            System.out.println("Algum campo não foi prenchido. O Filme não foi cadastrado.");
+            return null;        }
         return acervo.salvar(filme);
     }
+
 
     public List<Filme> listar() {
         return acervo.listar();

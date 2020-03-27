@@ -5,6 +5,9 @@ public class Curiosidade {
     private String descricao;
     private CategoriaCuriosidade categoriaCuriosidade;
 
+    public Curiosidade() {
+        }
+
     public Curiosidade(String descricao, CategoriaCuriosidade categoriaCuriosidade) {
         this.descricao = descricao;
         this.categoriaCuriosidade = categoriaCuriosidade;

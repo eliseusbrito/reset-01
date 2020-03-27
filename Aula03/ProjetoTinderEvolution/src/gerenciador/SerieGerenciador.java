@@ -22,8 +22,14 @@ public class SerieGerenciador {
         if (serie.getNumeroDeTemporadas()<=0) {
             System.out.println("Deve ter no mínimo uma temporada. A série não foi cadastrada.");
             return null;        }
-        if (serie.getNumeroDeEpisodios()>=serie.getNumeroDeTemporadas()) {
+        if (serie.getNumeroDeEpisodios()<serie.getNumeroDeTemporadas()) {
             System.out.println("Deve ter no mínimo um episodio por Temporada. A série não foi cadastrada.");
+            return null;        }
+        if (serie.getNome().equals(null)||serie.getDiretor().equals(null)||serie.getDataDeLancamento().equals(null)||serie.getNumeroDeTemporadas().equals(null)||serie.getNumeroDeEpisodios().equals(null)||serie.getCategoriaSerie().equals(null)||serie.getSinopse().equals(null)){
+            System.out.println("Algum campo não foi prenchido. A Série não foi cadastrada.");
+            return null;        }
+        if (serie.getNome().equals("")||serie.getDiretor().equals("")||serie.getDataDeLancamento().equals("")||serie.getNumeroDeTemporadas().equals("")||serie.getNumeroDeEpisodios().equals("")||serie.getCategoriaSerie().equals("")||serie.getSinopse().equals("")){
+            System.out.println("Algum campo não foi prenchido. A Série não foi cadastrada.");
             return null;        }
 
         return acervo.salvar(serie);

@@ -1,45 +1,39 @@
 package console;
 
-import java.util.Scanner;
-
 public class App {
     public static void main(String[] args) {
-        MusicaMenu musicaMenu = new MusicaMenu();
-        UsuarioMenu usuarioMenu = new UsuarioMenu();
-        FilmeMenu filmeMenu = new FilmeMenu();
-        SerieMenu serieMenu = new SerieMenu();
-        JogoMenu jogoMenu = new JogoMenu();
-        EsporteMenu esporteMenu = new EsporteMenu();
-        CuriosidadeMenu curiosidadeMenu = new CuriosidadeMenu();
+        Opcoes opcoes = new Opcoes();
+        AvaliacaoMenu avaliacao = new AvaliacaoMenu();
 
-        System.out.println("Bem vindo ao Tinder Evolution\n");
+        System.out.println("\nBem vindo ao Tinder Evolution\n");
         char opcao=' ';
         while (opcao != 'X') {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("Digite a opção");
-            System.out.println(" [U] - Usuário\n [M] - Música \n [F] - Filmes \n [S] - Séries \n [J] - Jogos \n [E] - Esportes \n [C] - Curiosidades \n [X] - Sair");
-            opcao = sc.next().charAt(0);
+            opcao = MeuScannerCustomizado.nextChar("Digite a opção\n [U] - Usuário\n [M] - Música\n [F] - Filmes\n [S] - Séries\n [J] - Jogos\n [E] - Esportes\n [C] - Curiosidades\n [A] - Avaliações\n [P] - Pesquisas\n [M] - Match\n [X] - Sair\n > ");
             switch (opcao) {
                 case 'U':
-                    usuarioMenu.opcoes();
+                    opcoes.listarOpcoes('U');
                     break;
                 case 'M':
-                    musicaMenu.opcoes();
+ //                 musicaMenu.opcoes();
+                    opcoes.listarOpcoes('M');
                     break;
                 case 'F':
-                    filmeMenu.opcoes();
+                    opcoes.listarOpcoes('F');
                     break;
                 case 'S':
-                    serieMenu.opcoes();
+                    opcoes.listarOpcoes('S');
                     break;
                 case 'J':
-                    jogoMenu.opcoes();
+                    opcoes.listarOpcoes('J');
                     break;
                 case 'E':
-                    esporteMenu.opcoes();
+                    opcoes.listarOpcoes('E');
                     break;
                 case 'C':
-                    curiosidadeMenu.opcoes();
+                    opcoes.listarOpcoes('C');
+                    break;
+                case 'A':
+                    avaliacao.avaliarMusica();
                     break;
                 case 'X':
                     System.out.println("Saindo...");

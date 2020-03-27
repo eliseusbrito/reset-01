@@ -2,8 +2,6 @@ package gerenciador;
 
 import Acervo.EsporteAcervo;
 import dominio.Esporte;
-
-import java.time.LocalDate;
 import java.util.List;
 
 public class EsporteGerenciador {
@@ -27,6 +25,12 @@ public class EsporteGerenciador {
                 System.out.println("Nome já existente. O esporte não foi cadastrado. ");
                 return esporteExistente;
             }       }
+        if (esporte.getNome().equals(null)) {
+            System.out.println("Algum campo não foi prenchido. O esporte não foi cadastrado.");
+                return null;}
+        if (esporte.getNome().equals("")) {
+            System.out.println("Algum campo não foi prenchido. O esporte não foi cadastrado.");
+                return null;}
         return acervo.salvar(esporte);
     }
 

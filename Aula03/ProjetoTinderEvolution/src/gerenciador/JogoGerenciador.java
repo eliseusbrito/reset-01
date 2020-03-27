@@ -30,6 +30,12 @@ public class JogoGerenciador {
         if (jogo.getDataDeLancamento().isAfter(LocalDate.now())) {
             System.out.println("A data digitada foi maior que data atual. O jogo não foi cadastrado.");
             return null;        }
+        if (jogo.getNome().equals(null)||jogo.getDataDeLancamento().equals(null)||jogo.getCategoriaJogo().equals(null)||jogo.getPlataformaJogo().equals(null)){
+            System.out.println("Algum campo não foi prenchido. O Jogo não foi cadastrado.");
+            return null;        }
+        if (jogo.getNome().equals("")||jogo.getDataDeLancamento().equals("")||jogo.getCategoriaJogo().equals("")||jogo.getPlataformaJogo().equals("")){
+            System.out.println("Algum campo não foi prenchido. O Jogo não foi cadastrado.");
+            return null;        }
         return acervo.salvar(jogo);
     }
 

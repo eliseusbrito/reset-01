@@ -44,7 +44,9 @@ public class UsuarioAcervo {
         usuarioParaEditar.setEmail(usuarioAtualizado.getEmail());
         usuarioParaEditar.setTelefone(usuarioAtualizado.getTelefone());
         usuarioParaEditar.setDataDeNascimento(usuarioAtualizado.getDataDeNascimento());
-        usuarioParaEditar.setCEP(usuarioAtualizado.getCEP());
+        usuarioParaEditar.setBio(usuarioAtualizado.getBio());
+        usuarioParaEditar.setLocalizacao(usuarioAtualizado.getLocalizacao());
+
 
         return usuarioParaEditar;
 

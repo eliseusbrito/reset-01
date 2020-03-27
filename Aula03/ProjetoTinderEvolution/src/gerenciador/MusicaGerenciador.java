@@ -19,8 +19,6 @@ public class MusicaGerenciador {
         }
     }
 
-
-
     private MusicaAcervo acervo = new MusicaAcervo();
 
     public Musica salvar(Musica musica) {
@@ -33,6 +31,16 @@ public class MusicaGerenciador {
         if (musica.getDataDeLancamento().isAfter(LocalDate.now())) {
             System.out.println("A data digitada foi maior que data atual. A música não foi cadastrada.");
             return null;        }
+        if (musica.getNome().equals(null)||musica.getArtista().equals(null)||musica.getAutor().equals(null)||musica.getDataDeLancamento().equals(null)||musica.getEstiloMusical().equals(null)){
+            System.out.println("Algum campo não foi prenchido. A música não foi cadastrada.");
+            return null;        }
+        if (musica.getNome().equals("")||musica.getArtista().equals("")||musica.getAutor().equals("")||musica.getDataDeLancamento().equals("")||musica.getEstiloMusical().equals("")){
+            System.out.println("Algum campo não foi prenchido. A música não foi cadastrada.");
+            return null;        }
+        if (musica.getNome().isEmpty() || musica.getArtista().isEmpty() || musica.getAutor().isEmpty() || musica.getDataDeLancamento().equals(null) || musica.getEstiloMusical().equals(null)) {
+            System.out.println("Algum campo não foi prenchido. A música não foi cadastrada.");
+            return null;
+        }
         return acervo.salvar(musica);
     }
 
@@ -54,9 +62,3 @@ public class MusicaGerenciador {
         return false;
     }
 }
-
-//### Música
-//- Não pode existir duas músicas com o mesmo nome
-//- A data de lançamento não pode ser uma data futura
-//- Os estilos aceitos são { funk | pagode | rock | indie | sertanejo | metal }
-//- Todos os campos são obrigatórios

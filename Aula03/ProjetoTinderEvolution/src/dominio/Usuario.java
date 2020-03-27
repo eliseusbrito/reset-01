@@ -7,24 +7,18 @@ public class Usuario {
     private int id;
     private String nome;
     private String email;
-    private double telefone;
+    private String telefone;
     private LocalDate dataDeNascimento;
-    String CEP;
+    private String bio;
+    private String localizacao;
 
-    public Usuario(String nome, String email, double telefone, LocalDate dataDeNascimento, String CEP) {
+    public Usuario(String nome, String email, String telefone, LocalDate dataDeNascimento, String bio, String localizacao) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
         this.dataDeNascimento = dataDeNascimento;
-        this.CEP = CEP;
-    }
-    public Usuario(int id, String nome, String email, double telefone, LocalDate dataDeNascimento, String CEP) {
-        this.id = id;
-        this.nome = nome;
-        this.email = email;
-        this.telefone = telefone;
-        this.dataDeNascimento = dataDeNascimento;
-        this.CEP = CEP;
+        this.bio = bio;
+        this.localizacao = localizacao;
     }
 
     public int getId() {
@@ -51,11 +45,11 @@ public class Usuario {
         this.email = email;
     }
 
-    public double getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
 
-    public void setTelefone(double telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -67,12 +61,20 @@ public class Usuario {
         this.dataDeNascimento = dataDeNascimento;
     }
 
-    public String getCEP() {
-        return CEP;
+    public String getBio() {
+        return bio;
     }
 
-    public void setCEP(String CEP) {
-        this.CEP = CEP;
+    public void setBio(String bio) {
+        this.bio = bio;
+    }
+
+    public String getLocalizacao() {
+        return localizacao;
+    }
+
+    public void setLocalizacao(String localizacao) {
+        this.localizacao = localizacao;
     }
 
     @Override
@@ -83,7 +85,8 @@ public class Usuario {
                 ", email='" + email + '\'' +
                 ", telefone=" + telefone +
                 ", dataDeNascimento=" + dataDeNascimento +
-                ", CEP='" + CEP + '\'' +
+                ", bio='" + bio + '\'' +
+                ", localizacao='" + localizacao + '\'' +
                 '}';
     }
 }

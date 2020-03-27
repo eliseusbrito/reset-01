@@ -2,8 +2,6 @@ package gerenciador;
 
 import Acervo.CuriosidadeAcervo;
 import dominio.Curiosidade;
-
-import java.time.LocalDate;
 import java.util.List;
 
 public class CuriosidadeGerenciador {
@@ -27,6 +25,13 @@ public class CuriosidadeGerenciador {
                 System.out.println("Descrição já existente. A curiosidade não foi cadastrada. ");
                 return curiosidadeExistente;
             }       }
+        if (curiosidade.getDescricao().equals(null)||curiosidade.getCategoriaCuriosidade().equals(null)){
+            System.out.println("Algum campo não foi prenchido. A Curiosidade não foi cadastrada.");
+            return null;}
+        if (curiosidade.getDescricao().equals("")||curiosidade.getCategoriaCuriosidade().equals("")){
+                System.out.println("Algum campo não foi prenchido. A Curiosidade não foi cadastrada.");
+            return null; }
+
         return acervo.salvar(curiosidade);
     }
 

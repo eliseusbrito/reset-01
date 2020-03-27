@@ -8,12 +8,12 @@ public class Serie {
     private String nome;
     private String diretor;
     private LocalDate dataDeLancamento;
-    private int numeroDeTemporadas;
-    private int numeroDeEpisodios;
+    private Integer numeroDeTemporadas;
+    private Integer numeroDeEpisodios;
     private CategoriaSerie categoriaSerie;
     private String sinopse;
 
-    public Serie(String nome, String diretor, LocalDate dataDeLancamento, int numeroDeTemporadas, int numeroDeEpisodios, CategoriaSerie categoriaSerie, String sinopse) {
+    public Serie(String nome, String diretor, LocalDate dataDeLancamento, Integer numeroDeTemporadas, Integer numeroDeEpisodios, CategoriaSerie categoriaSerie, String sinopse) {
         this.nome = nome;
         this.diretor = diretor;
         this.dataDeLancamento = dataDeLancamento;
@@ -55,19 +55,19 @@ public class Serie {
         this.dataDeLancamento = dataDeLancamento;
     }
 
-    public int getNumeroDeTemporadas() {
+    public Integer getNumeroDeTemporadas() {
         return numeroDeTemporadas;
     }
 
-    public void setNumeroDeTemporadas(int numeroDeTemporadas) {
+    public void setNumeroDeTemporadas(Integer numeroDeTemporadas) {
         this.numeroDeTemporadas = numeroDeTemporadas;
     }
 
-    public int getNumeroDeEpisodios() {
+    public Integer getNumeroDeEpisodios() {
         return numeroDeEpisodios;
     }
 
-    public void setNumeroDeEpisodios(int numeroDeEpisodios) {
+    public void setNumeroDeEpisodios(Integer numeroDeEpisodios) {
         this.numeroDeEpisodios = numeroDeEpisodios;
     }
 

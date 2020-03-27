@@ -13,7 +13,6 @@ public class UsuarioGerenciador {
     private UsuarioAcervo acervo = new UsuarioAcervo();
 
     public Usuario salvar(Usuario usuario){
-        System.out.println("vai rodar salvar usuario em Gerenciador");
         List<Usuario> usuarios = acervo.listar();
         for (Usuario usuarioExistente : usuarios) {
             if (usuario.getEmail().equals(usuarioExistente.getEmail())) {
@@ -23,6 +22,12 @@ public class UsuarioGerenciador {
         //if (usuario.getDataDeNascimento().isAfter(LocalDate.now())) {
         if (usuario.getDataDeNascimento().plusYears(18).isAfter(LocalDate.now())){
         System.out.println("Você tem menos de 18 anos. Seu usuário não foi cadastrado.");
+            return null;        }
+        if (usuario.getNome().equals(null)||usuario.getEmail().equals(null)||usuario.getTelefone().equals(null)||usuario.getDataDeNascimento().equals(null)||usuario.getBio().equals(null)||usuario.getLocalizacao().equals(null)){
+            System.out.println("Algum campo não foi prenchido. O usuário não foi cadastrado.");
+            return null;        }
+        if (usuario.getNome().equals("")||usuario.getEmail().equals("")||usuario.getTelefone().equals("")||usuario.getDataDeNascimento().equals("")||usuario.getBio().equals("")||usuario.getLocalizacao().equals("")){
+            System.out.println("Algum campo não foi prenchido. O usuário não foi cadastrado.");
             return null;        }
         return acervo.salvar(usuario);
     }
@@ -57,7 +62,4 @@ public class UsuarioGerenciador {
     }
 
 }
-//### Usuário
-//- O e-mail não pode repetir
-//- O usuário deve ter mais de 18 anos de idade
-//- Todos os campos são obrigatórios
+
