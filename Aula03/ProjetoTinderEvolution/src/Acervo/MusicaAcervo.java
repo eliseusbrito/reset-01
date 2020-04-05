@@ -2,11 +2,13 @@ package Acervo;
 
 import dominio.Musica;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MusicaAcervo {
+import static dominio.EstiloMusical.ROCK;
 
+public class MusicaAcervo {
     private static int contador = 1;
     private static final List<Musica> musicas = new ArrayList<>();
 

@@ -5,12 +5,20 @@ public class AvaliacaoMusica {
     private int id;
     private int idUsuario;
     private int idMusica;
-    private boolean avaliacaoMusica;
+    private boolean avalMusica;
 
-    public AvaliacaoMusica(int idUsuario, int idMusica, boolean avaliacaoMusica) {
+    public AvaliacaoMusica(int idUsuario, int idMusica, boolean avalMusica) {
         this.idUsuario = idUsuario;
         this.idMusica = idMusica;
-        this.avaliacaoMusica = avaliacaoMusica;
+        this.avalMusica = avalMusica;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public int getIdUsuario() {
@@ -29,20 +37,21 @@ public class AvaliacaoMusica {
         this.idMusica = idMusica;
     }
 
-    public boolean isAvaliacaoMusica() {
-        return avaliacaoMusica;
+    public boolean isAvalMusica() {
+        return avalMusica;
     }
 
-    public void setAvaliacaoMusica(boolean avaliacaoMusica) {
-        this.avaliacaoMusica = avaliacaoMusica;
+    public void setAvalMusica(boolean avalMusica) {
+        this.avalMusica = avalMusica;
     }
 
     @Override
     public String toString() {
         return "AvaliacaoMusica{" +
-                "idUsuario=" + idUsuario +
+                "id=" + id +
+                ", idUsuario=" + idUsuario +
                 ", idMusica=" + idMusica +
-                ", avaliacaoMusica=" + avaliacaoMusica +
+                ", avalMusica=" + avalMusica +
                 '}';
     }
 }

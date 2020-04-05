@@ -2,8 +2,13 @@ package console;
 
 public class App {
     public static void main(String[] args) {
+        CadastroInicial cadastroInicial = new CadastroInicial();
+        cadastroInicial.todos();
+
         Opcoes opcoes = new Opcoes();
         AvaliacaoMenu avaliacao = new AvaliacaoMenu();
+        PesquisaMenu pesquisa = new PesquisaMenu();
+
 
         System.out.println("\nBem vindo ao Tinder Evolution\n");
         char opcao=' ';
@@ -33,7 +38,13 @@ public class App {
                     opcoes.listarOpcoes('C');
                     break;
                 case 'A':
-                    avaliacao.avaliarMusica();
+                    avaliacao.opcoes();
+                    break;
+                case 'P':
+                    pesquisa.opcoes();
+                    break;
+                case 'T':
+
                     break;
                 case 'X':
                     System.out.println("Saindo...");

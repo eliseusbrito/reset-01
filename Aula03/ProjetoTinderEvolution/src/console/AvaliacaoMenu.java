@@ -1,11 +1,20 @@
 package console;
 
 import dominio.AvaliacaoMusica;
+import dominio.Musica;
+import gerenciador.AvaliacaoMusicaGerenciador;
+import gerenciador.MusicaGerenciador;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class AvaliacaoMenu {
+
+    private AvaliacaoMusicaGerenciador gerenciador;
+
+    public AvaliacaoMenu() {
+        this.gerenciador = new AvaliacaoMusicaGerenciador();
+    }
 
     public void opcoes() {
         char opcao = ' ';
@@ -39,7 +48,6 @@ public class AvaliacaoMenu {
     }
 
     public AvaliacaoMusica avaliarMusica() {
-
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite o Usuário que quer Avaliar: \n  > ");
@@ -54,13 +62,27 @@ public class AvaliacaoMenu {
             AvaliacaoMusica avaliacaoMusica = new AvaliacaoMusica(usuario, musica, avalMusica);
             List<AvaliacaoMusica> avaliaMusica = new ArrayList();
             avaliaMusica.add(avaliacaoMusica);
-//            return gerenciador.salvar;
+            System.out.println(avaliacaoMusica);
+            return gerenciador.salvar(avaliacaoMusica);
         } else {
             boolean avalMusica = false;
             AvaliacaoMusica avaliacaoMusica = new AvaliacaoMusica(usuario, musica, avalMusica);
+            List<AvaliacaoMusica> avaliaMusica = new ArrayList();
+            avaliaMusica.add(avaliacaoMusica);
+            return gerenciador.salvar(avaliacaoMusica);
         }
-        return avaliarMusica();
+
+
     }
+
+
+    public List<AvaliacaoMusica> listar(){
+        System.out.println("\nListagem de Avaliações...");
+        List<AvaliacaoMusica> avaliacaos = gerenciador.listar();
+        for (AvaliacaoMusica avaliacao : avaliacaos) {
+            System.out.println(avaliacao);       }
+        return avaliacaos;    }
+
 
     public void avaliarFilme() {
     }

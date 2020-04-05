@@ -1,12 +1,30 @@
 package gerenciador;
 
+import Acervo.AvaliacaoMusicaAcervo;
 import dominio.AvaliacaoMusica;
+import dominio.Curiosidade;
+import dominio.Musica;
 
-//public class AvaliacaoMusicaGerenciador {
+import java.util.List;
 
-//    public AvaliacaoMusica salvar(){
-//       return acervo.salvar(avaliacaoMusica);
-//
-//    }
+public class AvaliacaoMusicaGerenciador {
 
-//}
+
+        AvaliacaoMusicaAcervo acervo = new AvaliacaoMusicaAcervo();
+
+        public AvaliacaoMusica salvar (AvaliacaoMusica avaliacaoMusica){
+
+            List<AvaliacaoMusica> avaliacaoMusicas = acervo.listar();
+
+            return acervo.salvar(avaliacaoMusica);
+
+        }
+
+
+    public List<AvaliacaoMusica> listar() {
+        return acervo.listar();
+    }
+
+    }
+
+
