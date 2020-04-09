@@ -17,7 +17,7 @@ public class Opcoes {
             switch (opcao) {
                 case 'C':
                     if(opcaon2=='M'){musicaMenu.cadastrar();}
-                    if(opcaon2=='C'){curiosidadeMenu.cadastrar();}
+                    if(opcaon2=='I'){curiosidadeMenu.cadastrar();}
                     if(opcaon2=='E'){esporteMenu.cadastrar();}
                     if(opcaon2=='F'){filmeMenu.cadastrar();}
                     if(opcaon2=='J'){jogoMenu.cadastrar();}
@@ -26,7 +26,7 @@ public class Opcoes {
                     break;
                 case 'L':
                     if(opcaon2=='M'){musicaMenu.listar();}
-                    if(opcaon2=='C'){curiosidadeMenu.listar();}
+                    if(opcaon2=='I'){curiosidadeMenu.listar();}
                     if(opcaon2=='E'){esporteMenu.listar();}
                     if(opcaon2=='F'){filmeMenu.listar();}
                     if(opcaon2=='J'){jogoMenu.listar();}
@@ -35,7 +35,7 @@ public class Opcoes {
                     break;
                 case 'P':
                     if(opcaon2=='M'){musicaMenu.pesquisar();}
-                    if(opcaon2=='C'){curiosidadeMenu.pesquisar();}
+                    if(opcaon2=='I'){curiosidadeMenu.pesquisar();}
                     if(opcaon2=='E'){esporteMenu.pesquisar();}
                     if(opcaon2=='F'){filmeMenu.pesquisar();}
                     if(opcaon2=='J'){jogoMenu.pesquisar();}
@@ -44,7 +44,7 @@ public class Opcoes {
                     break;
                 case 'D':
                     if(opcaon2=='M'){musicaMenu.deletar();}
-                    if(opcaon2=='C'){curiosidadeMenu.deletar();}
+                    if(opcaon2=='I'){curiosidadeMenu.deletar();}
                     if(opcaon2=='E'){esporteMenu.deletar();}
                     if(opcaon2=='F'){filmeMenu.deletar();}
                     if(opcaon2=='J'){jogoMenu.deletar();}
@@ -53,7 +53,7 @@ public class Opcoes {
                     break;
                 case 'E':
                     if(opcaon2=='M'){musicaMenu.editar();}
-                    if(opcaon2=='C'){curiosidadeMenu.editar();};
+                    if(opcaon2=='I'){curiosidadeMenu.editar();};
                     if(opcaon2=='E'){esporteMenu.editar();}
                     if(opcaon2=='F'){filmeMenu.editar();}
                     if(opcaon2=='J'){jogoMenu.editar();}

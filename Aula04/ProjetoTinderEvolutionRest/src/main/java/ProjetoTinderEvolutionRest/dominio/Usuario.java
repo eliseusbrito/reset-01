@@ -1,6 +1,8 @@
 package ProjetoTinderEvolutionRest.dominio;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Usuario {
 
@@ -12,6 +14,13 @@ public class Usuario {
     private String bio;
     private Double latitude;
     private Double longitude;
+    private List<Musica> musicasCurtidas = new ArrayList<>();
+    private List<Filme> filmesCurtidos = new ArrayList<>();
+    private List<Serie> seriesCurtidas = new ArrayList<>();
+    private List<Jogo> jogosCurtidos = new ArrayList<>();
+    private List<Esporte> esportesCurtidos = new ArrayList<>();
+    private List<Curiosidade> curiosidades = new ArrayList<>();
+    private List<Usuario> usuariosCurtidos = new ArrayList<>();
 
     public Usuario(String nome, String email, String telefone, LocalDate dataDeNascimento, String bio, Double latitude, Double longitude) {
         this.nome = nome;
@@ -23,8 +32,69 @@ public class Usuario {
         this.longitude = longitude;
     }
 
+    public Usuario(){
+
+    }
+
+
     public int getId() {
         return id;
+    }
+
+    public List<Musica> getMusicasCurtidas() {
+        return musicasCurtidas;
+    }
+
+    public void setMusicasCurtidas(List<Musica> musicasCurtidas) {
+        this.musicasCurtidas = musicasCurtidas;
+    }
+
+    public List<Filme> getFilmesCurtidos() {
+        return filmesCurtidos;
+    }
+
+    public void setFilmesCurtidos(List<Filme> filmesCurtidos) {
+        this.filmesCurtidos = filmesCurtidos;
+    }
+
+    public List<Serie> getSeriesCurtidas() {
+        return seriesCurtidas;
+    }
+
+    public void setSeriesCurtidas(List<Serie> seriesCurtidas) {
+        this.seriesCurtidas = seriesCurtidas;
+    }
+
+    public List<Jogo> getJogosCurtidos() {
+        return jogosCurtidos;
+    }
+
+    public void setJogosCurtidos(List<Jogo> jogosCurtidos) {
+        this.jogosCurtidos = jogosCurtidos;
+    }
+
+    public List<Esporte> getEsportesCurtidos() {
+        return esportesCurtidos;
+    }
+
+    public void setEsportesCurtidos(List<Esporte> esportesCurtidos) {
+        this.esportesCurtidos = esportesCurtidos;
+    }
+
+    public List<Curiosidade> getCuriosidades() {
+        return curiosidades;
+    }
+
+    public void setCuriosidades(List<Curiosidade> curiosidades) {
+        this.curiosidades = curiosidades;
+    }
+
+    public List<Usuario> getUsuariosCurtidos() {
+        return usuariosCurtidos;
+    }
+
+    public void setUsuariosCurtidos(List<Usuario> usuariosCurtidos) {
+        this.usuariosCurtidos = usuariosCurtidos;
     }
 
     public void setId(int id) {
@@ -87,17 +157,34 @@ public class Usuario {
         this.longitude = longitude;
     }
 
+    // Adiciona músicas curtidas
+    public void salvarMusica(Musica musica) {
+        musicasCurtidas.add(musica);
+    }
+
+    // Adiciona filme curtidos
+    public void salvarFilme(Filme filme) {
+        filmesCurtidos.add(filme);
+    }
+
     @Override
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
-                ", nome='" + nome + '\'' +
+                ",\n nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", telefone='" + telefone + '\'' +
-                ", dataDeNascimento=" + dataDeNascimento +
+                ",\n dataDeNascimento=" + dataDeNascimento +
                 ", bio='" + bio + '\'' +
-                ", latitude=" + latitude +
+                ",\n latitude=" + latitude +
                 ", longitude=" + longitude +
+                ",\n musicasCurtidas=" + musicasCurtidas +
+                ",\n filmesCurtidos=" + filmesCurtidos +
+                ",\n seriesCurtidas=" + seriesCurtidas +
+                ",\n jogosCurtidos=" + jogosCurtidos +
+                ",\n esportesCurtidos=" + esportesCurtidos +
+                ",\n curiosidades=" + curiosidades +
+                ",\n usuariosCurtidos=" + usuariosCurtidos +
                 '}';
     }
 }

@@ -179,6 +179,58 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "LikeMusica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/likes/musica/1/Eliseu/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica",
+								"1",
+								"Eliseu",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListaMusicasCurtidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/likes/musica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica"
+							]
+						}
+					},
+					"response": []
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -527,7 +579,7 @@
 					"response": []
 				},
 				{
-					"name": "DeletarMusicaPorId",
+					"name": "DeletarFilmePorId",
 					"request": {
 						"method": "DELETE",
 						"header": [],
@@ -813,6 +865,73 @@
 							"port": "8080",
 							"path": [
 								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurtirMusica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/likes/musica/1/avaliador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica",
+								"1",
+								"avaliador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarMusicasCurtidas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/likes/musica/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurtirFilme",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/likes/filme/1/avaliador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"filme",
+								"1",
+								"avaliador",
+								"1"
 							]
 						}
 					},

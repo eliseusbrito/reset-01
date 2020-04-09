@@ -21,9 +21,9 @@ public class UsuarioGerenciador {
         if (usuario.getDataDeNascimento().plusYears(18).isAfter(LocalDate.now())){
         System.out.println("Você tem menos de 18 anos. Seu usuário não foi cadastrado.");
             return null;        }
-        if (usuario.getNome().equals(null)||usuario.getEmail().equals(null)||usuario.getTelefone().equals(null)||usuario.getDataDeNascimento().equals(null)||usuario.getBio().equals(null)||usuario.getLatitude().equals(null)||usuario.getLatitude().equals(null)){
-            System.out.println("Algum campo não foi prenchido. O usuário não foi cadastrado.");
-            return null;        }
+//        if (usuario.getNome().equals(null)||usuario.getEmail().equals(null)||usuario.getTelefone().equals(null)||usuario.getDataDeNascimento().equals(null)||usuario.getBio().equals(null)||usuario.getLatitude().equals(null)||usuario.getLatitude().equals(null)){
+//            System.out.println("Algum campo não foi prenchido. O usuário não foi cadastrado.");
+//            return null;        }
         if (usuario.getNome().equals("")||usuario.getEmail().equals("")||usuario.getTelefone().equals("")||usuario.getDataDeNascimento().equals("")||usuario.getBio().equals("")||usuario.getLatitude().equals("")||usuario.getLatitude().equals("")){
             System.out.println("Algum campo não foi prenchido. O usuário não foi cadastrado.");
             return null;        }

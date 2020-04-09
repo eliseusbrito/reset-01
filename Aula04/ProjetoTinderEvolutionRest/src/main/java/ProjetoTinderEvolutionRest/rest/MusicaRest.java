@@ -8,17 +8,19 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static ProjetoTinderEvolutionRest.acervo.MusicaAcervo.musicas;
+
 @RestController
 @RequestMapping("/musica")
 
 public class MusicaRest {
     private static int contador = 1;
 
-    private List<Musica> listaMusicas = new ArrayList<>();
+ //   private List<Musica> listaMusicas = new ArrayList<>();
 
     private MusicaGerenciador gerenciador = new MusicaGerenciador();
 
-////GET: CODIGO ORIGINAL REST
+//GET: CODIGO ORIGINAL REST
 //    @GetMapping
 //    public List<Musica> listarTodosMusicas() {
 //        System.out.println("listou todos as musicas");
@@ -57,8 +59,8 @@ public class MusicaRest {
         return null;
     }
 
-////POST: CODIGO ORIGINAL REST
-//    @PostMapping  
+//POST: CODIGO ORIGINAL REST
+//    @PostMapping
 //    public Musica cadastrar(@RequestBody Musica musica) {
 //        musica.setId(contador);
 //        listaMusicas.add(musica);
@@ -93,45 +95,37 @@ public class MusicaRest {
 //  CODIGO ALTERADO PARA USAR REGRAS do Gerenciador
     @PutMapping("{id}")
     public Musica editar(@PathVariable("id") int id, @RequestBody Musica body) {
-        List<Musica> musicas = gerenciador.listar();
-        for (Musica musica : musicas) {
-            if (musica.getId() == id) {
-                musica.setNome(body.getNome());
-                musica.setArtista(body.getArtista());
-                musica.setAutor(body.getAutor());
-                musica.setDataDeLancamento(body.getDataDeLancamento());
-                musica.setEstiloMusical(body.getEstiloMusical());
-                System.out.println("atualizado a musica informada: [" + id + "] - " + musica);
-                return musica;
-            }
-        }
-        System.out.println("Não havia musica para atualizar: [" + id + "]");
-        return null;
+                return gerenciador.editar(id, body);
     }
 
 ////DELETE: CODIGO ORIGINAL REST
 //    @DeleteMapping("{id}")
 //    public void excluir(@PathVariable("id") int id) {
-//        for (Musica musica : listaMusicas) {
-//            if (musica.getId() == id) {
-//                listaMusicas.remove(musica.getId()-1);
+//        Musica musica = procurar(id);
+//        if(musica==null){System.out.println("Não havia musica para deletar");}
+//        else {
+//        if (musica.getId() == id) {
+//                listaMusicas.remove(musica);
 //                System.out.println("deletou a musica informado: [" + id + "]");
 //            }
-//        }
-//        System.out.println("Não havia musica para deletar");
-//        }
-//}
-//  CODIGO ALTERADO PARA USAR REGRAS do Gerenciador
+//        }}
+//    public Musica procurar(int id){
+//        for (Musica musica : listaMusicas) {
+//            if(musica.getId()==id) {
+//                return musica;
+//            }}
+//        return null;
+//    }
+
+    //  CODIGO ALTERADO PARA USAR REGRAS do Gerenciador
     @DeleteMapping("{id}")
     public void excluir(@PathVariable("id") int id) {
-        List<Musica> musicas = gerenciador.listar();
-        for (Musica musica : musicas) {
-            if (musica.getId() == id) {
-                musicas.remove(musica.getId()-1);
-                System.out.println("deletou a musica informado: [" + id + "]");
-            }
+        Musica musica = gerenciador.pesquisar(id);
+        System.out.println(musica);
+        if(musica==null){throw new RuntimeException("Não havia musica para deletar");
+        }else{
+            gerenciador.deletar(musica.getId());
+            System.out.println("Deletou a musica informada: [" + id + "]");
         }
-        System.out.println("Não havia musica para deletar");
     }
 }
-

@@ -1,7 +1,7 @@
 package ProjetoTinderEvolutionRest.console;
 
 import ProjetoTinderEvolutionRest.acervo.*;
-import ProjetoTinderEvolutionRest.acervo.MatchAcervo;
+import ProjetoTinderEvolutionRest.acervo.LikeDisUsuarioAcervo;
 import ProjetoTinderEvolutionRest.dominio.*;
 import java.time.LocalDate;
 import static ProjetoTinderEvolutionRest.dominio.CategoriaCuriosidade.COMPORTAMENTO;
@@ -101,22 +101,22 @@ public class CadastroInicial {
         acervo.salvar(avaliacaoMusica8);
     }
     public void Usuarios(){
-        MatchAcervo acervo = new MatchAcervo();
-        Match match1 = new Match(1,2,true);
+        LikeDisUsuarioAcervo acervo = new LikeDisUsuarioAcervo();
+        LikeDislikeUsuario match1 = new LikeDislikeUsuario(1,2,true);
         acervo.salvar(match1);
-        Match match2 = new Match(1,3,true);
+        LikeDislikeUsuario match2 = new LikeDislikeUsuario(1,3,true);
         acervo.salvar(match2);
-        Match match3 = new Match(2,1,true);
+        LikeDislikeUsuario match3 = new LikeDislikeUsuario(2,1,true);
         acervo.salvar(match3);
-        Match match4 = new Match(2,4,true);
+        LikeDislikeUsuario match4 = new LikeDislikeUsuario(2,4,true);
         acervo.salvar(match4);
-        Match match5 = new Match(3,1,true);
+        LikeDislikeUsuario match5 = new LikeDislikeUsuario(3,1,true);
         acervo.salvar(match5);
-        Match match6 = new Match(3,4,true);
+        LikeDislikeUsuario match6 = new LikeDislikeUsuario(3,4,true);
         acervo.salvar(match6);
-        Match match7 = new Match(1,4,false);
+        LikeDislikeUsuario match7 = new LikeDislikeUsuario(1,4,false);
         acervo.salvar(match7);
-        Match match8 = new Match(2,3,true);
+        LikeDislikeUsuario match8 = new LikeDislikeUsuario(2,3,true);
         acervo.salvar(match8);
     }
 

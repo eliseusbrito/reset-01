@@ -1,19 +1,18 @@
 package ProjetoTinderEvolutionRest.console;
 
 import ProjetoTinderEvolutionRest.acervo.UsuarioAcervo;
-import ProjetoTinderEvolutionRest.dominio.Match;
-import ProjetoTinderEvolutionRest.gerenciador.MatchGerenciador;
-import ProjetoTinderEvolutionRest.acervo.MatchAcervo;
+import ProjetoTinderEvolutionRest.dominio.LikeDislikeUsuario;
+import ProjetoTinderEvolutionRest.gerenciador.LikeDislikeGerenciador;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ProjetoTinderEvolutionRest.acervo.MatchAcervo.avalUsuarios;
+import static ProjetoTinderEvolutionRest.acervo.LikeDisUsuarioAcervo.avalUsuarios;
 import static ProjetoTinderEvolutionRest.acervo.UsuarioAcervo.usuarios;
 
-public class MatchMenu {
+public class LikeDislikeUsuarioMenu {
 
-    private MatchGerenciador gerenciador = new MatchGerenciador();
+    private LikeDislikeGerenciador gerenciador = new LikeDislikeGerenciador();
     private UsuarioAcervo usuarioAcervo = new UsuarioAcervo();
     boolean avalUsuario;
     List<String> listaTeste =  new ArrayList<>();
@@ -21,7 +20,7 @@ public class MatchMenu {
     public void entradaDados(){
     char opcao=' ';
     while (opcao != 'X') {
-        opcao = MeuScannerCustomizado.nextChar("Digite a opção\n [A] - Avaliar com Like ou Dislike\n [M] - Listar Matches\n [U] - Usuario Comum\n [X] - Sair\n > ");
+        opcao = MeuScannerCustomizado.nextChar("Digite a opção\n [A] - Avaliar Usuario com Like ou Dislike\n [M] - Listar Matches\n [U] - Usuario Comum\n [X] - Sair\n > ");
         switch (opcao) {
             case 'A':
                 salvar();
@@ -41,7 +40,7 @@ public class MatchMenu {
         }
     }}
 
-    public Match salvar() {
+    public LikeDislikeUsuario salvar() {
             UsuarioMenu usuarioMenu = new UsuarioMenu();
             usuarioMenu.listar();
 
@@ -53,7 +52,7 @@ public class MatchMenu {
 
             if(opcaoLD=='L'){avalUsuario = true;}
             if(opcaoLD=='D'){avalUsuario = false;}
-            Match match = new Match(usuarioD, usuarioR, avalUsuario);
+            LikeDislikeUsuario match = new LikeDislikeUsuario(usuarioD, usuarioR, avalUsuario);
             System.out.println(match);
             System.out.println("criou objeto curtidaUsuario");
             return gerenciador.salvar(match);
@@ -70,26 +69,26 @@ public class MatchMenu {
             System.out.println(x);
 
             //        System.out.println("Listagem de Matches do usuário "+usuarios.get(idUsuEsc-1).getNome()+" :");
-//        int a = avalUsuarios.get(idUsuEsc-1).getIdUsuarioD();
+//        int a = avalUsuarios.get(idUsuEsc-1).getidUsuarioAvaliador();
 //        String aa = Integer.toString(a);
-//        int b = avalUsuarios.get(idUsuEsc-1).getIdUsuarioR();
+//        int b = avalUsuarios.get(idUsuEsc-1).getidUsuarioAvaliado();
 //        String bb = Integer.toString(b);
 //        String cc = aa + bb;
 //        int c = Integer.parseInt(cc);
 //        System.out.println("c = "+c);
 //        for (int y = 0; y < avalUsuarios.size(); y++) {
 //            System.out.println("y = "+y);
-//            int d = avalUsuarios.get(y).getIdUsuarioR();
+//            int d = avalUsuarios.get(y).getidUsuarioAvaliado();
 //            String dd = Integer.toString(d);
-//            int e = avalUsuarios.get(y).getIdUsuarioD();
+//            int e = avalUsuarios.get(y).getidUsuarioAvaliador();
 //            String ee = Integer.toString(e);
 //            String ff = dd + ee;
 //            int f = Integer.parseInt(ff);
 //            if (c == f) {
 //                if (avalUsuarios.get(idUsuEsc).isAvalUsuario() == true) {
 //                    if (avalUsuarios.get(y).isAvalUsuario() == true) {
-//                        System.out.print("Match entre " + usuarios.get(avalUsuarios.get(idUsuEsc).getIdUsuarioD() - 1).getNome());
-//                        System.out.println(" e " + usuarios.get(avalUsuarios.get(y).getIdUsuarioD() - 1).getNome());
+//                        System.out.print("Match entre " + usuarios.get(avalUsuarios.get(idUsuEsc).getidUsuarioAvaliador() - 1).getNome());
+//                        System.out.println(" e " + usuarios.get(avalUsuarios.get(y).getidUsuarioAvaliador() - 1).getNome());
 //                    }}}}
         }
 
@@ -102,17 +101,17 @@ public class MatchMenu {
             System.out.println("Lista de Todos Matches");
             for (int i = 0; i < avalUsuarios.size(); i++) {
                 //System.out.println(avalUsuarios.get(i));
-                int a = avalUsuarios.get(i).getIdUsuarioD();
+                int a = avalUsuarios.get(i).getidUsuarioAvaliador();
                 String aa = Integer.toString(a);
-                int b = avalUsuarios.get(i).getIdUsuarioR();
+                int b = avalUsuarios.get(i).getidUsuarioAvaliado();
                 String bb = Integer.toString(b);
                 String cc = aa + bb;
                 int c = Integer.parseInt(cc);
                 for (int y = 0; y < avalUsuarios.size(); y++) {
                     //System.out.println("y = "+y);
-                    int d = avalUsuarios.get(y).getIdUsuarioR();
+                    int d = avalUsuarios.get(y).getidUsuarioAvaliado();
                     String dd = Integer.toString(d);
-                    int e = avalUsuarios.get(y).getIdUsuarioD();
+                    int e = avalUsuarios.get(y).getidUsuarioAvaliador();
                     String ee = Integer.toString(e);
                     String ff = dd + ee;
                     int f = Integer.parseInt(ff);
@@ -120,9 +119,9 @@ public class MatchMenu {
                         if (avalUsuarios.get(i).isAvalUsuario() == true) {
                             if (avalUsuarios.get(y).isAvalUsuario() == true) {
 
-                                listaTeste.add(usuarios.get(avalUsuarios.get(i).getIdUsuarioD() - 1).getNome() + "&" + usuarios.get(avalUsuarios.get(y).getIdUsuarioD() - 1).getNome());
-                                System.out.print("Match entre " + usuarios.get(avalUsuarios.get(i).getIdUsuarioD() - 1).getNome());
-                                System.out.println(" e " + usuarios.get(avalUsuarios.get(y).getIdUsuarioD() - 1).getNome());
+                                listaTeste.add(usuarios.get(avalUsuarios.get(i).getidUsuarioAvaliador() - 1).getNome() + "&" + usuarios.get(avalUsuarios.get(y).getidUsuarioAvaliador() - 1).getNome());
+                                System.out.print("Match entre " + usuarios.get(avalUsuarios.get(i).getidUsuarioAvaliador() - 1).getNome());
+                                System.out.println(" e " + usuarios.get(avalUsuarios.get(y).getidUsuarioAvaliador() - 1).getNome());
                             }
                         }
                     }
