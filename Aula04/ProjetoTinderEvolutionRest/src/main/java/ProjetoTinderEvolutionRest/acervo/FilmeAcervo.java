@@ -7,7 +7,7 @@ import java.util.List;
 
 public class FilmeAcervo {
     private static int contador = 1;
-    private static final List<Filme> filmes = new ArrayList<>();
+    public static final List<Filme> filmes = new ArrayList<>();
 
     public Filme salvar(Filme filme) {
         filme.setId(contador++);

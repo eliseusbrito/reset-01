@@ -2,12 +2,15 @@ package ProjetoTinderEvolutionRest.gerenciador;
 
 import ProjetoTinderEvolutionRest.acervo.FilmeAcervo;
 import ProjetoTinderEvolutionRest.dominio.Filme;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+@Service
 
 public class FilmeGerenciador {
     private FilmeAcervo acervo = new FilmeAcervo();
+
 
     public Filme salvar(Filme filme) {
         List<Filme> filmes = acervo.listar();

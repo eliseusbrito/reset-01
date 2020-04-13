@@ -18,24 +18,26 @@ public class LikeDislikeRest {
     private LikeDislikeGerenciador gerenciadorLikeDislike= new LikeDislikeGerenciador();
 
     //Musica
-    @GetMapping("/musica/{id-usuario}")
-    public List<Musica> listarMusicasCurtidas(@PathVariable("id-usuario") int id) {
+    @GetMapping("/musica/{id}")
+    public List<Musica> listarMusicasCurtidas(@PathVariable("id") int id) {
         return gerenciadorLikeDislike.listarMusicasUsuarios(id);
     }
 
-    @PostMapping("/musica/{id-musica}/avaliador/{id-avaliador}")//http://localhost:8080/likes/musica/1/avaliador/1
-    public Usuario curtirMusica(@PathVariable("id-musica") int id, @PathVariable("id-avaliador") int idAvaliador) {
-        return gerenciadorLikeDislike.curtirMusica(id, idAvaliador);
+    @PostMapping("/musica/{idMusica}/avaliador/{idAvaliador}")//http://localhost:8080/likes/musica/1/avaliador/1
+    public Usuario curtirMusica(@PathVariable("idMusica") int idMusica, @PathVariable("idAvaliador") int idAvaliador) {
+        System.out.println("IdMusica: "+idMusica);
+        System.out.println("idAvaliador: "+idAvaliador);
+        return gerenciadorLikeDislike.curtirMusica(idMusica, idAvaliador);
     }
 
     //Filme
-    @GetMapping("/filme/{id-usuario}")
-    public List<Filme> listarFilmesCurtidas(@PathVariable("id-usuario") int id) {
+    @GetMapping("/filme/{id}")
+    public List<Filme> listarFilmesCurtidas(@PathVariable("id") int id) {
         return gerenciadorLikeDislike.listarFilmesUsuarios(id);
     }
 
-    @PostMapping("/filme/{id-filme}/avaliador/{id-avaliador}")
-    public Usuario curtirFilme(@PathVariable("id-filme") int id, @PathVariable("id-avaliador") int idAvaliador) {
+    @PostMapping("/filme/{id}/avaliador/{idAvaliador}")
+    public Usuario curtirFilme(@PathVariable("id") int id, @PathVariable("idAvaliador") int idAvaliador) {
 //        Usuario curtirFilme = new Usuario();
         System.out.println(id);
         System.out.println(idAvaliador);

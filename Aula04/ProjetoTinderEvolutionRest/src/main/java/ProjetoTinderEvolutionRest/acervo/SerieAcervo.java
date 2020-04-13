@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SerieAcervo {
     private static int contador = 1;
-    private static final List<Serie> series = new ArrayList<>();
+    public static final List<Serie> series = new ArrayList<>();
 
     public Serie salvar(Serie serie) {
         serie.setId(contador++);

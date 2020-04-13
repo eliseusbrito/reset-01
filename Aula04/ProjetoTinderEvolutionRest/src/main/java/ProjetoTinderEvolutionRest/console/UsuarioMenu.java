@@ -51,13 +51,15 @@ public class UsuarioMenu {
         return usuarios;
     }
 
-  public void pesquisar(){
+  public Usuario pesquisar(){
         int id = MeuScannerCustomizado.nextInt("\nPesquisa o Usuário...\n Qual o Id do Usuário? \n >");
         Usuario usuario = gerenciador.pesquisar(id);
         if (usuario == null) {
             System.out.println("Usuário não encontrado.");
+            return usuario;
         } else {
             System.out.println(usuario);
+            return usuario;
         }    }
 
   public void deletar() {

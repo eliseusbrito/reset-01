@@ -16,8 +16,9 @@ public class InputUsuario {
         double latitude = MeuScannerCustomizado.nextDouble("Digite sua latitude: ");
         double longitude = MeuScannerCustomizado.nextDouble("Digite sua longitude: ");
         String local = latitude+", "+longitude;
+        String foto = MeuScannerCustomizado.nextLine("Digite a url de sua foto: ");
 
-        Usuario usuario = new Usuario(nome,email,telefone, LocalDate.of(ano, mes, dia),bio,latitude,longitude);
+        Usuario usuario = new Usuario(nome,email,telefone, LocalDate.of(ano, mes, dia),bio,latitude,longitude,foto);
         return usuario;
     }
 }

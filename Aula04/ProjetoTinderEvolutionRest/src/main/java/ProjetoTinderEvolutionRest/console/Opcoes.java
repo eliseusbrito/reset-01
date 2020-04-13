@@ -12,11 +12,11 @@ public class Opcoes {
         UsuarioMenu usuarioMenu = new UsuarioMenu();
 
         char opcao=' ';
-        while (opcao != 'X') {
-            opcao = MeuScannerCustomizado.nextChar("Digite a opção\n [C] - Cadastrar \n [L] - Listar\n [P] - Pesquisar\n [D] - Deletar\n [E] - Editar\n [X] - Sair\n > ");
+        while (opcao != 'V') {
+            opcao = MeuScannerCustomizado.nextChar("Digite a opção\n [C] - Cadastrar \n [L] - Listar\n [P] - Pesquisar\n [D] - Deletar\n [E] - Editar\n [V] - Voltar\n > ");
             switch (opcao) {
                 case 'C':
-                    if(opcaon2=='M'){musicaMenu.cadastrar();}
+                    if(opcaon2=='m'){musicaMenu.cadastrar();}
                     if(opcaon2=='I'){curiosidadeMenu.cadastrar();}
                     if(opcaon2=='E'){esporteMenu.cadastrar();}
                     if(opcaon2=='F'){filmeMenu.cadastrar();}
@@ -25,7 +25,7 @@ public class Opcoes {
                     if(opcaon2=='U'){usuarioMenu.cadastrar();}
                     break;
                 case 'L':
-                    if(opcaon2=='M'){musicaMenu.listar();}
+                    if(opcaon2=='m'){musicaMenu.listar();}
                     if(opcaon2=='I'){curiosidadeMenu.listar();}
                     if(opcaon2=='E'){esporteMenu.listar();}
                     if(opcaon2=='F'){filmeMenu.listar();}
@@ -34,7 +34,7 @@ public class Opcoes {
                     if(opcaon2=='U'){usuarioMenu.listar();}
                     break;
                 case 'P':
-                    if(opcaon2=='M'){musicaMenu.pesquisar();}
+                    if(opcaon2=='m'){musicaMenu.pesquisar();}
                     if(opcaon2=='I'){curiosidadeMenu.pesquisar();}
                     if(opcaon2=='E'){esporteMenu.pesquisar();}
                     if(opcaon2=='F'){filmeMenu.pesquisar();}
@@ -43,7 +43,7 @@ public class Opcoes {
                     if(opcaon2=='U'){usuarioMenu.pesquisar();}
                     break;
                 case 'D':
-                    if(opcaon2=='M'){musicaMenu.deletar();}
+                    if(opcaon2=='m'){musicaMenu.deletar();}
                     if(opcaon2=='I'){curiosidadeMenu.deletar();}
                     if(opcaon2=='E'){esporteMenu.deletar();}
                     if(opcaon2=='F'){filmeMenu.deletar();}
@@ -52,7 +52,7 @@ public class Opcoes {
                     if(opcaon2=='U'){usuarioMenu.deletar();}
                     break;
                 case 'E':
-                    if(opcaon2=='M'){musicaMenu.editar();}
+                    if(opcaon2=='m'){musicaMenu.editar();}
                     if(opcaon2=='I'){curiosidadeMenu.editar();};
                     if(opcaon2=='E'){esporteMenu.editar();}
                     if(opcaon2=='F'){filmeMenu.editar();}

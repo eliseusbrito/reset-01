@@ -5,6 +5,7 @@ import ProjetoTinderEvolutionRest.acervo.UsuarioAcervo;
 import ProjetoTinderEvolutionRest.dominio.Musica;
 import ProjetoTinderEvolutionRest.dominio.Usuario;
 import ProjetoTinderEvolutionRest.gerenciador.MusicaGerenciador;
+import ProjetoTinderEvolutionRest.console.UsuarioMenu;
 import ProjetoTinderEvolutionRest.gerenciador.UsuarioGerenciador;
 
 import java.util.ArrayList;
@@ -14,32 +15,30 @@ import static ProjetoTinderEvolutionRest.acervo.LikeDisUsuarioAcervo.avalUsuario
 import static ProjetoTinderEvolutionRest.acervo.UsuarioAcervo.usuarios;
 
 public class ListaMenu {
+    Usuario sapo = new Usuario();
 
     public void opcoes() {
         char opcao = ' ';
-        while (opcao != 'X') {
-            opcao = MeuScannerCustomizado.nextChar("Digite qual item você quer listar\n [M] - Música\n [F] - Filmes\n [S] - Séries\n [J] - Jogos\n [E] - Esportes\n [C] - Curiosidades\n [A] - Avaliações\n [X] - Sair\n > ");
+        while (opcao != 'V') {
+            opcao = MeuScannerCustomizado.nextChar("\nDigite qual item você quer listar\n [M] - Música\n [F] - Filmes\n [S] - Séries\n [J] - Jogos\n [E] - Esportes\n [C] - Curiosidades\n [V] - Voltar\n > ");
             switch (opcao) {
                 case 'M':
                     listaMusica();
                     break;
                 case 'F':
-                    //listafilme();
+                    listaFilme();
                     break;
                 case 'S':
-                    //listaSerie();
+                    listaSerie();
                     break;
                 case 'J':
-                    //listaJogo();
+                    listaJogo();
                     break;
                 case 'E':
-                    //listaEsporte();
+                    listaEsporte();
                     break;
                 case 'C':
-                    //listaCuriosidade();
-                    break;
-                case 'A':
-                    listarAvaliacoes();
+                    listaCuriosidade();
                     break;
                 case 'X':
                     System.out.println("Saindo...");
@@ -62,56 +61,50 @@ public class ListaMenu {
 //        avaliacaoMusicaAcervo.listaPorUsuario(idUsuario);
 //    }
 
-    public void listaMusica() {
-        UsuarioMenu usuarioMenu = new UsuarioMenu();
-        Usuario usuario = new Usuario();
-        //List<Musica> musicasCurtidas = new ;
-        usuarioMenu.listar();
-        System.out.println("\nLista músicas curtidas de determinado usuário");
+    public Usuario listaMusica() {
+        UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
         int idUsuario = MeuScannerCustomizado.nextInt("Digite o Usuario:\n >");
-        for (int i = 0; i < usuarios.size(); i++) {
-            if(usuarios.get(i).getId()==idUsuario){
-        System.out.println("[" + usuarios.get(i).getId() + "  " + usuarios.get(i).getNome());
-        System.out.println("[" + usuarios.get(i).getMusicasCurtidas());
-       // System.out.println(musicasCurtidas.get());
-               // for (int x = 0; x < musicasCurtidas.size(); x++) {
-              //  System.out.println(usuario.getMusicasCurtidas());}
-
-                //private List<Musica> musicasCurtidas = new ArrayList<>();
-
-//                for (int i = 0; i < usuarios.size(); i++) {
-                MusicaGerenciador gerenciadorDeMusica = new MusicaGerenciador();
-                List<Musica> musicasCurtidas = new ArrayList<>();
-                for (Musica id : usuario.getMusicasCurtidas()) {
-                    Musica musicaCurtida = gerenciadorDeMusica.pesquisar(idUsuario);
-                    musicasCurtidas.add(musicaCurtida);
-                }
-                System.out.println(musicasCurtidas);
-
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        usuario.listarMusicasCurtidas(usuario.getId(),usuario.getNome());
+        return usuario;
             };
 
+    public Usuario listaFilme() {
+        UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
+        int idUsuario = MeuScannerCustomizado.nextInt("Digite o Usuario:\n >");
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        usuario.listarFilmesCurtidos(usuario.getId(),usuario.getNome());
+        return usuario;
+    };
+    public Usuario listaSerie() {
+        UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
+        int idUsuario = MeuScannerCustomizado.nextInt("Digite o Usuario:\n >");
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        usuario.listarSeriesCurtidas(usuario.getId(),usuario.getNome());
+        return usuario;
+    };
 
+    public Usuario listaJogo() {
+        UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
+        int idUsuario = MeuScannerCustomizado.nextInt("Digite o Usuario:\n >");
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        usuario.listarJogosCurtidos(usuario.getId(),usuario.getNome());
+        return usuario;
+    };
 
-//        return usuarioCurtirMusica;
-    }}
+    public Usuario listaEsporte() {
+        UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
+        int idUsuario = MeuScannerCustomizado.nextInt("Digite o Usuario:\n >");
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        usuario.listarEsportesCurtidos(usuario.getId(),usuario.getNome());
+        return usuario;
+    };
 
-
-
-
-    public void listarAvaliacoes(){
-        for (int i = 0; i < avalUsuarios.size(); i++) {
-            System.out.println(avalUsuarios.get(i).getId()+" "+avalUsuarios.get(i).getidUsuarioAvaliador()+" "+avalUsuarios.get(i).getidUsuarioAvaliado());
-        }
-
-
-    }
-
+    public Usuario listaCuriosidade() {
+        UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
+        int idUsuario = MeuScannerCustomizado.nextInt("Digite o Usuario:\n >");
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        usuario.listarCuriosidadesCurtidas(usuario.getId(),usuario.getNome());
+        return usuario;
+    };
 }
-
-//### Listas
-//        - Listar músicas  de determinado usuário
-//        - Listar filmes curtidos de determinado usuário
-//        - Listar séries  de determinado usuário
-//        - Listar jogos curtidos de determinado usuário
-//        - Listar esportes curtidos de determinado usuário
-//        - Listar curiosidades determinado usuário

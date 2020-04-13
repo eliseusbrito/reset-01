@@ -2,10 +2,12 @@ package ProjetoTinderEvolutionRest.gerenciador;
 
 import ProjetoTinderEvolutionRest.acervo.MusicaAcervo;
 import ProjetoTinderEvolutionRest.dominio.Musica;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
 
+@Service
 public class MusicaGerenciador {
 
     public Musica editar(int id, Musica musicaAtualizada) {

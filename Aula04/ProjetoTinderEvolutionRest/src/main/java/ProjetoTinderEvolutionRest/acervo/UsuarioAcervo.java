@@ -1,11 +1,7 @@
 package ProjetoTinderEvolutionRest.acervo;
 
-import ProjetoTinderEvolutionRest.dominio.Filme;
-import ProjetoTinderEvolutionRest.dominio.Musica;
-import ProjetoTinderEvolutionRest.dominio.Usuario;
-import ProjetoTinderEvolutionRest.gerenciador.FilmeGerenciador;
-import ProjetoTinderEvolutionRest.gerenciador.MusicaGerenciador;
-import ProjetoTinderEvolutionRest.gerenciador.UsuarioGerenciador;
+import ProjetoTinderEvolutionRest.dominio.*;
+import ProjetoTinderEvolutionRest.gerenciador.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,9 +9,12 @@ import java.util.List;
 public class UsuarioAcervo {
     private static int contador = 1;
     public static final List<Usuario> usuarios = new ArrayList<>();
-//    private UsuarioAcervo gerenciadorUsuarioAcervo = new UsuarioAcervo();/////////////////
     private MusicaGerenciador gerenciadorMusica = new MusicaGerenciador();
     private FilmeGerenciador gerenciadorFilme = new FilmeGerenciador();
+    private SerieGerenciador gerenciadorSerie = new SerieGerenciador();
+    private JogoGerenciador gerenciadorJogo = new JogoGerenciador();
+    private EsporteGerenciador gerenciadorEsporte = new EsporteGerenciador();
+    private CuriosidadeGerenciador gerenciadorCuriosidade = new CuriosidadeGerenciador();
 
     public Usuario salvar(Usuario usuario) {
         usuario.setId(contador++);
@@ -45,7 +44,6 @@ public class UsuarioAcervo {
     }
 
     public Usuario editar(final Usuario usuarioParaEditar, final Usuario usuarioAtualizado) {
-
         usuarioParaEditar.setNome(usuarioAtualizado.getNome());
         usuarioParaEditar.setEmail(usuarioAtualizado.getEmail());
         usuarioParaEditar.setTelefone(usuarioAtualizado.getTelefone());
@@ -54,31 +52,113 @@ public class UsuarioAcervo {
         usuarioParaEditar.setLatitude(usuarioAtualizado.getLatitude());
         usuarioParaEditar.setLongitude(usuarioAtualizado.getLongitude());
         return usuarioParaEditar;
-
     }
 
     public Usuario curtirMusica(int idMusica, int idUsuario) {
+        System.out.println("idMusica: "+idMusica);
+        System.out.println("idUsuario: "+idUsuario);
         Usuario usuarioCurtirMusica = pesquisar(idUsuario);
+        System.out.println("usuarioCurtirMusica: "+usuarioCurtirMusica);
         Musica musicaCurtida = gerenciadorMusica.pesquisar(idMusica);
+        System.out.println("musicaCurtida: "+musicaCurtida);
         usuarioCurtirMusica.salvarMusica(musicaCurtida);
-        System.out.println(usuarioCurtirMusica);
+        System.out.println("usuarioCurtirMusica: "+usuarioCurtirMusica);
         return usuarioCurtirMusica;
     }
 
+    public Usuario descurtirMusica(int idMusica, int idUsuario) {
+        Usuario usuarioDesCurtirMusica = pesquisar(idUsuario);
+        Musica musicaDesCurtida = gerenciadorMusica.pesquisar(idMusica);
+        usuarioDesCurtirMusica.removerMusica(musicaDesCurtida);
+        return usuarioDesCurtirMusica;
+    }
+
     public Usuario curtirFilme(int idFilme, int idUsuario) {
+        System.out.println("idFilme: "+idFilme);
+        System.out.println("idUsuario: "+idUsuario);
         Usuario usuarioCurtirFilme = pesquisar(idUsuario);
-        Filme filmeCurtida = gerenciadorFilme.pesquisar(idFilme);
-        usuarioCurtirFilme.salvarFilme(filmeCurtida);
-        System.out.println(usuarioCurtirFilme);
+        System.out.println("usuarioCurtirFilme: "+usuarioCurtirFilme);
+        Filme filmeCurtido = gerenciadorFilme.pesquisar(idFilme);
+        System.out.println("filmeCurtido: "+filmeCurtido);
+        usuarioCurtirFilme.salvarFilme(filmeCurtido);
         return usuarioCurtirFilme;
     }
 
-//    public Usuario curtirUsuario(int idUsuario, int idUsuario) {
-//        Usuario usuarioCurtirMusica = pesquisar(idUsuario);
-//        Musica musicaCurtida = gerenciadorMusica.pesquisar(idMusica);
-//        usuarioCurtirMusica.salvarMusica(musicaCurtida);
-//        return usuarioCurtirMusica;
-//    }
+    public Usuario descurtirFilme(int idFilme, int idUsuario) {
+        Usuario usuarioDesCurtirFilme = pesquisar(idUsuario);
+        Filme filmeDesCurtido = gerenciadorFilme.pesquisar(idFilme);
+        usuarioDesCurtirFilme.removerFilme(filmeDesCurtido);
+        return usuarioDesCurtirFilme;
+    }
+
+    public Usuario curtirUsuario(int idUsuarioCurtido, int idUsuarioCurtindo) {
+        Usuario usuarioCurtindoUsuario = pesquisar(idUsuarioCurtindo);
+        Usuario usuarioCurtido = pesquisar(idUsuarioCurtido);
+        usuarioCurtindoUsuario.salvarUsuario(usuarioCurtido);
+        return usuarioCurtido;
+    }
+
+    public Usuario descurtirUsuario(int idUsuarioDescurtido, int idUsuarioDescurtindo) {
+        Usuario usuarioDescurtindoUsuario = pesquisar(idUsuarioDescurtindo);
+        Usuario usuarioDescurtido = pesquisar(idUsuarioDescurtido);
+        usuarioDescurtindoUsuario.removerUsuario(usuarioDescurtido);
+        return usuarioDescurtido;
+    }
+    public Usuario curtirSerie(int idSerie, int idUsuario) {
+        Usuario usuarioCurtirSerie = pesquisar(idUsuario);
+        Serie serieCurtida = gerenciadorSerie.pesquisar(idSerie);
+        usuarioCurtirSerie.salvarSerie(serieCurtida);
+        return usuarioCurtirSerie;
+    }
+
+    public Usuario descurtirSerie(int idSerie, int idUsuario) {
+        Usuario usuarioDesCurtirSerie = pesquisar(idUsuario);
+        Serie serieDesCurtida = gerenciadorSerie.pesquisar(idSerie);
+        usuarioDesCurtirSerie.removerSerie(serieDesCurtida);
+        return usuarioDesCurtirSerie;
+    }
+
+    public Usuario curtirJogo(int idJogo, int idUsuario) {
+        Usuario usuarioCurtirJogo = pesquisar(idUsuario);
+        Jogo jogoCurtida = gerenciadorJogo.pesquisar(idJogo);
+        usuarioCurtirJogo.salvarJogo(jogoCurtida);
+        return usuarioCurtirJogo;
+    }
+
+    public Usuario descurtirJogo(int idJogo, int idUsuario) {
+        Usuario usuarioDesCurtirJogo = pesquisar(idUsuario);
+        Jogo jogoDesCurtida = gerenciadorJogo.pesquisar(idJogo);
+        usuarioDesCurtirJogo.removerJogo(jogoDesCurtida);
+        return usuarioDesCurtirJogo;
+    }
+
+    public Usuario curtirEsporte(int idEsporte, int idUsuario) {
+        Usuario usuarioCurtirEsporte = pesquisar(idUsuario);
+        Esporte esporteCurtida = gerenciadorEsporte.pesquisar(idEsporte);
+        usuarioCurtirEsporte.salvarEsporte(esporteCurtida);
+        return usuarioCurtirEsporte;
+    }
+
+    public Usuario descurtirEsporte(int idEsporte, int idUsuario) {
+        Usuario usuarioDesCurtirEsporte = pesquisar(idUsuario);
+        Esporte esporteDesCurtida = gerenciadorEsporte.pesquisar(idEsporte);
+        usuarioDesCurtirEsporte.removerEsporte(esporteDesCurtida);
+        return usuarioDesCurtirEsporte;
+    }
+
+    public Usuario curtirCuriosidade(int idCuriosidade, int idUsuario) {
+        Usuario usuarioCurtirCuriosidade = pesquisar(idUsuario);
+        Curiosidade curiosidadeCurtida = gerenciadorCuriosidade.pesquisar(idCuriosidade);
+        usuarioCurtirCuriosidade.salvarCuriosidade(curiosidadeCurtida);
+        return usuarioCurtirCuriosidade;
+    }
+
+    public Usuario descurtirCuriosidade(int idCuriosidade, int idUsuario) {
+        Usuario usuarioDesCurtirCuriosidade = pesquisar(idUsuario);
+        Curiosidade curiosidadeDesCurtida = gerenciadorCuriosidade.pesquisar(idCuriosidade);
+        usuarioDesCurtirCuriosidade.removerCuriosidade(curiosidadeDesCurtida);
+        return usuarioDesCurtirCuriosidade;
+    }
 
 
 }

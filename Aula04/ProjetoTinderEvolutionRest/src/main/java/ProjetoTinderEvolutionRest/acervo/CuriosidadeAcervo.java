@@ -7,7 +7,7 @@ import java.util.List;
 
 public class CuriosidadeAcervo {
     private static int contador = 1;
-    private static final List<Curiosidade> curiosidades = new ArrayList<>();
+    public static final List<Curiosidade> curiosidades = new ArrayList<>();
 
     public Curiosidade salvar(Curiosidade curiosidade) {
         curiosidade.setId(contador++);

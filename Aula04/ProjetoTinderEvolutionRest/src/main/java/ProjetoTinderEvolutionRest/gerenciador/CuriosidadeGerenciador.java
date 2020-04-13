@@ -20,12 +20,6 @@ public class CuriosidadeGerenciador {
     private CuriosidadeAcervo acervo = new CuriosidadeAcervo();
 
     public Curiosidade salvar(Curiosidade curiosidade) {
-        List<Curiosidade> curiosidades = acervo.listar();
-        for (Curiosidade curiosidadeExistente : curiosidades) {
-            if (curiosidade.getDescricao().equals(curiosidadeExistente.getDescricao())) {
-                System.out.println("Descrição já existente. A curiosidade não foi cadastrada. ");
-                return curiosidadeExistente;
-            }       }
         if (curiosidade.getDescricao().equals(null)||curiosidade.getCategoriaCuriosidade().equals(null)){
             System.out.println("Algum campo não foi prenchido. A Curiosidade não foi cadastrada.");
             return null;}

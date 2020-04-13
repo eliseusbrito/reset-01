@@ -18,8 +18,8 @@ public class CurtidaMenu {
 
     public void opcoes() {
         char opcao = ' ';
-        while (opcao != 'X') {
-            opcao = MeuScannerCustomizado.nextChar("Digite qual item você quer curtir:\n [M] - Música\n [F] - Filmes\n [S] - Séries\n [J] - Jogos\n [E] - Esportes\n [C] - Curiosidades\n [X] - Sair\n > ");
+        while (opcao != 'V') {
+            opcao = MeuScannerCustomizado.nextChar("Digite qual item você quer curtir:\n [M] - Música\n [F] - Filmes\n [S] - Séries\n [J] - Jogos\n [E] - Esportes\n [C] - Curiosidades\n [V] - Voltar\n > ");
             switch (opcao) {
                 case 'M':
                     curtirMusica();
@@ -28,19 +28,19 @@ public class CurtidaMenu {
                     curtirFilme();
                     break;
                 case 'S':
-                    //avaliarSerie();
+                    curtirSerie();
                     break;
                 case 'J':
-                    //avaliarJogo();
+                    curtirJogo();
                     break;
                 case 'E':
-                    //avaliarEsporte();
+                    curtirEsporte();
                     break;
                 case 'C':
-                    //avaliarCuriosidade();
+                    curtirCuriosidade();
                     break;
-                case 'X':
-                    System.out.println("Saindo...");
+                case 'V':
+                    System.out.println("Voltando...");
                     break;
                 default:
             }
@@ -63,16 +63,13 @@ public class CurtidaMenu {
 //        return gerenciadorLikeDislikeUsuario.curtirMusica(musica,usuario);
 //}
 
-//Musisas
     public Usuario curtirMusica(){
         MusicaMenu musicaMenu = new MusicaMenu();
         musicaMenu.listar();
         int musica = MeuScannerCustomizado.nextInt("Digite a Música que quer Curtir \n  > ");
-
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
-
         return gerenciadorLikeDislike.curtirMusica(musica,usuario);
     }
 
@@ -83,29 +80,60 @@ public class CurtidaMenu {
             System.out.println(curtida);       }
         return curtidas;    }
 
-//Filmes
     public Usuario curtirFilme() {
         FilmeMenu filmeMenu = new FilmeMenu();
         filmeMenu.listar();
         int filme = MeuScannerCustomizado.nextInt("Digite o Filme que quer Curtir \n  > ");
-
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
         return gerenciadorLikeDislike.curtirFilme(filme,usuario);
     }
 
+//    public List<CurtidaFilme> listarFilmesCurtidas(){
+//        System.out.println("\nListagem de Avaliações...");
+//        List<CurtidaFilme> curtidas = gerenciador.listar();
+//        for (CurtidaFilme curtida : curtidas) {
+//            System.out.println(curtida);       }}
+
+    public Usuario curtirSerie() {
+        SerieMenu serieMenu = new SerieMenu();
+        serieMenu.listar();
+        int serie = MeuScannerCustomizado.nextInt("Digite a Série que quer Curtir \n  > ");
+        UsuarioMenu usuarioMenu = new UsuarioMenu();
+        usuarioMenu.listar();
+        int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        return gerenciadorLikeDislike.curtirSerie(serie,usuario);
+    }
 
 
-//Séries
-    public void curtirSerie() {
+    public Usuario curtirJogo() {
+        JogoMenu jogoMenu = new JogoMenu();
+        jogoMenu.listar();
+        int jogo = MeuScannerCustomizado.nextInt("Digite o Jogo que quer Curtir \n  > ");
+        UsuarioMenu usuarioMenu = new UsuarioMenu();
+        usuarioMenu.listar();
+        int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        return gerenciadorLikeDislike.curtirJogo(jogo,usuario);
+    }
+
+    public Usuario curtirEsporte(){
+        EsporteMenu esporteMenu = new EsporteMenu();
+        esporteMenu.listar();
+        int esporte = MeuScannerCustomizado.nextInt("Digite o Esporte que quer Curtir \n  > ");
+        UsuarioMenu usuarioMenu = new UsuarioMenu();
+        usuarioMenu.listar();
+        int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        return gerenciadorLikeDislike.curtirEsporte(esporte,usuario);
+    }
+
+    public Usuario curtirCuriosidade(){
+        CuriosidadeMenu curiosidadeMenu = new CuriosidadeMenu();
+        curiosidadeMenu.listar();
+        int curiosidade = MeuScannerCustomizado.nextInt("Digite a Curiosidade que quer Curtir \n  > ");
+        UsuarioMenu usuarioMenu = new UsuarioMenu();
+        usuarioMenu.listar();
+        int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        return gerenciadorLikeDislike.curtirCuriosidade(curiosidade,usuario);
     }
 }
-
-//### Curtidas
-//        - Um usuário poderá curtir uma música
-//        - Um usuário poderá curtir um filme
-//        - Um usuário poderá curtir uma série
-//        - Um usuário poderá curtir um jogo
-//        - Um usuário poderá curtir um esporte
-//        - Um usuário poderá definir uma curiosidade

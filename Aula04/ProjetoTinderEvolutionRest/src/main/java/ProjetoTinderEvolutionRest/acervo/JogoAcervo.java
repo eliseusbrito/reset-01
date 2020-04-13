@@ -7,7 +7,7 @@ import java.util.List;
 
 public class JogoAcervo {
     private static int contador = 1;
-    private static final List<Jogo> jogos = new ArrayList<>();
+    public static final List<Jogo> jogos = new ArrayList<>();
 
     public Jogo salvar(Jogo jogo) {
         jogo.setId(contador++);

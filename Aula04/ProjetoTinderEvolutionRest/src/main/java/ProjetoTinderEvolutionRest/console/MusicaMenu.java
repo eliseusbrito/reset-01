@@ -13,15 +13,6 @@ public class MusicaMenu {
         this.gerenciador = new MusicaGerenciador();
     }
 
-
-/*
-    public void opcoes(){
-        Opcoes opcoes = new Opcoes();
-        opcoes.listarOpcoes('M');
-    }
-*/
-
-
     public Musica cadastrar(){
           InputMusica inputMusica = new InputMusica();
           Musica abacate = inputMusica.entradaPrincipal();

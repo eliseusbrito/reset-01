@@ -1,146 +1,174 @@
 package ProjetoTinderEvolutionRest.console;
 
 import ProjetoTinderEvolutionRest.acervo.UsuarioAcervo;
-import ProjetoTinderEvolutionRest.dominio.LikeDislikeUsuario;
-import ProjetoTinderEvolutionRest.gerenciador.LikeDislikeGerenciador;
+import ProjetoTinderEvolutionRest.dominio.Musica;
+import ProjetoTinderEvolutionRest.dominio.Usuario;
+import ProjetoTinderEvolutionRest.gerenciador.MatchGerenciador;
+import ProjetoTinderEvolutionRest.gerenciador.UsuarioGerenciador;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static ProjetoTinderEvolutionRest.acervo.LikeDisUsuarioAcervo.avalUsuarios;
-import static ProjetoTinderEvolutionRest.acervo.UsuarioAcervo.usuarios;
-
 public class LikeDislikeUsuarioMenu {
 
-    private LikeDislikeGerenciador gerenciador = new LikeDislikeGerenciador();
-    private UsuarioAcervo usuarioAcervo = new UsuarioAcervo();
-    boolean avalUsuario;
-    List<String> listaTeste =  new ArrayList<>();
+    private MatchGerenciador gerenciadorMatch = new MatchGerenciador();
 
-    public void entradaDados(){
-    char opcao=' ';
-    while (opcao != 'X') {
-        opcao = MeuScannerCustomizado.nextChar("Digite a opção\n [A] - Avaliar Usuario com Like ou Dislike\n [M] - Listar Matches\n [U] - Usuario Comum\n [X] - Sair\n > ");
-        switch (opcao) {
-            case 'A':
-                salvar();
-                break;
-            case 'M':
-                matches();
-                break;
-            case 'U':
-               //usuariosComuns();
-                matchesTodos();
-                break;
-            case 'X':
-                System.out.println("Saindo...");
-                break;
-            default:
-                System.out.println("Opção inválida");
+    UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
+    List<Usuario> matches = new ArrayList<>();
+
+    public void entradaDados() {
+        char opcao = ' ';
+        while (opcao != 'V') {
+            opcao = MeuScannerCustomizado.nextChar("Digite a opção\n [L] - Like um Usuário \n [D] - Dislike um Usuário\n [U] - Listar Likes por usuario\n [T] - Listar todos Likes\n [M] - Listar Matches\n [C] - Usuario Comum\n [V] - Voltar\n > ");
+            switch (opcao) {
+                case 'L':
+                    likeUsuario();
+                    break;
+                case 'D':
+                    dislikeUsuario();
+                    break;
+                case 'U':
+                    listarLikes();
+                    break;
+                case 'T':
+                    listarTodosLikes();
+                    break;
+                case 'M':
+                    matches();
+                    break;
+                case 'C':
+                    usuariosComuns();
+                    break;
+                case 'V':
+                    System.out.println("Voltando...");
+                    break;
+                default:
+                    System.out.println("Opção inválida");
+            }
         }
-    }}
+    }
 
-    public LikeDislikeUsuario salvar() {
-            UsuarioMenu usuarioMenu = new UsuarioMenu();
-            usuarioMenu.listar();
+    public Usuario likeUsuario() {
+        int idUsuarioCurtido = MeuScannerCustomizado.nextInt("Digite o Usuário que quer dar Like \n  > ");
+        int idUsuarioQueCurtiu = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        salvarMatches(idUsuarioCurtido, idUsuarioQueCurtiu);
+        return gerenciadorMatch.curtirUsuario(idUsuarioCurtido, idUsuarioQueCurtiu);
+    }
 
-            int usuarioD = MeuScannerCustomizado.nextInt("Qual é seu usuário : \n  > ");
-            char opcaoLD=MeuScannerCustomizado.nextChar("Você gostaria de dar [L] Like ou [D] Dislike?");
+    public Usuario dislikeUsuario(){
+        int idUsuarioDescurtido = MeuScannerCustomizado.nextInt("Digite o Usuário que quer Descurtir \n  > ");
+        int idUsuarioQueDescurtiu = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        removerMatches(idUsuarioDescurtido,idUsuarioQueDescurtiu);
+        return gerenciadorMatch.descurtirUsuario(idUsuarioDescurtido,idUsuarioQueDescurtiu);
+    }
 
-            int usuarioR = MeuScannerCustomizado.nextInt("para quem? \n  > ");
+    public Usuario listarLikes() {
+        UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
+        int idUsuario = MeuScannerCustomizado.nextInt("Qual seu Usuario? Listara Usuários que receberam likes deste usuário:\n >");
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        usuario.listarUsuariosCurtidos(usuario.getId(),usuario.getNome());
+        return usuario;
+    };
 
-
-            if(opcaoLD=='L'){avalUsuario = true;}
-            if(opcaoLD=='D'){avalUsuario = false;}
-            LikeDislikeUsuario match = new LikeDislikeUsuario(usuarioD, usuarioR, avalUsuario);
-            System.out.println(match);
-            System.out.println("criou objeto curtidaUsuario");
-            return gerenciador.salvar(match);
-
+    public void listarTodosLikes() {
+        System.out.println("Listagem de todos os Likes");
+        for (int i = 1; i <= UsuarioAcervo.usuarios.size(); i++) {
+            Usuario usuario = usuarioGerenciador.pesquisar(i);
+            if(usuario.getUsuariosCurtidos().isEmpty()){
+            } else{usuario.listarUsuariosCurtidos(usuario.getId(), usuario.getNome());}
         }
+    }
 
-    public void matches() {
-        System.out.println("Lista Usuários");
-        for (int l = 0; l < usuarios.size(); l++) {
-            System.out.println(usuarios.get(l));
-        }
-        int idUsuEsc = MeuScannerCustomizado.nextInt("Digite qual usuario vc quer saber se tem matches: \n > ");
-        for (String x : listaTeste) {
-            System.out.println(x);
+    public void matches(){
+        int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        listarMatches(usuario);
+    }
 
-            //        System.out.println("Listagem de Matches do usuário "+usuarios.get(idUsuEsc-1).getNome()+" :");
-//        int a = avalUsuarios.get(idUsuEsc-1).getidUsuarioAvaliador();
-//        String aa = Integer.toString(a);
-//        int b = avalUsuarios.get(idUsuEsc-1).getidUsuarioAvaliado();
-//        String bb = Integer.toString(b);
-//        String cc = aa + bb;
-//        int c = Integer.parseInt(cc);
-//        System.out.println("c = "+c);
-//        for (int y = 0; y < avalUsuarios.size(); y++) {
-//            System.out.println("y = "+y);
-//            int d = avalUsuarios.get(y).getidUsuarioAvaliado();
-//            String dd = Integer.toString(d);
-//            int e = avalUsuarios.get(y).getidUsuarioAvaliador();
-//            String ee = Integer.toString(e);
-//            String ff = dd + ee;
-//            int f = Integer.parseInt(ff);
-//            if (c == f) {
-//                if (avalUsuarios.get(idUsuEsc).isAvalUsuario() == true) {
-//                    if (avalUsuarios.get(y).isAvalUsuario() == true) {
-//                        System.out.print("Match entre " + usuarios.get(avalUsuarios.get(idUsuEsc).getidUsuarioAvaliador() - 1).getNome());
-//                        System.out.println(" e " + usuarios.get(avalUsuarios.get(y).getidUsuarioAvaliador() - 1).getNome());
-//                    }}}}
+    public void salvarMatches(int idUsuarioCurtido, int idUsuarioQueCurtiu) {
+        Usuario usuarioCurtido = usuarioGerenciador.pesquisar(idUsuarioCurtido);
+        Usuario usuarioQueCurtiu = usuarioGerenciador.pesquisar(idUsuarioQueCurtiu);
+        for (int i = 0; i < usuarioCurtido.getUsuariosCurtidos().size(); i++) {
+        if(usuarioCurtido.getUsuariosCurtidos().get(i).getId()==idUsuarioQueCurtiu){
+            System.out.println("Criou um match entre "+usuarioCurtido.getNome()+" e "+usuarioQueCurtiu.getNome()+".");
+            usuarioCurtido.salvarMatch(usuarioQueCurtiu);
+            usuarioQueCurtiu.salvarMatch(usuarioCurtido);
+            }
         }
+    }
+
+    public void removerMatches(int idUsuarioDescurtido, int idUsuarioQueDescurtiu) {
+        Usuario usuarioDescurtido = usuarioGerenciador.pesquisar(idUsuarioDescurtido);
+        Usuario usuarioQueDescurtiu = usuarioGerenciador.pesquisar(idUsuarioQueDescurtiu);
+        for (int i = 0; i < usuarioDescurtido.getUsuariosCurtidos().size(); i++) {
+            if(usuarioDescurtido.getUsuariosCurtidos().get(i).getId()==idUsuarioQueDescurtiu){
+                System.out.println("Removeu um match entre "+usuarioDescurtido.getNome()+" e "+usuarioQueDescurtiu.getNome()+".");
+                usuarioDescurtido.removerMatch(usuarioQueDescurtiu);
+                usuarioQueDescurtiu.removerMatch(usuarioDescurtido);
+            }
+        }
+    }
+
+    public void listarMatches(int idUsuario){
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        System.out.println("Listagem de Matches do usuário "+usuario.getNome());
+        System.out.println(usuario.getMatches());
+    }
 
 //    public void usuariosComuns(){
 //
+//        int idUsuario = MeuScannerCustomizado.nextInt("Digite seu usuário:");
+//        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+//        System.out.println("i = usuarios.size= "+UsuarioAcervo.usuarios.size());
+//        System.out.println("x = getMusicasCurtidas().size() = "+usuario.getMusicasCurtidas().size());
 //
-   }
-
-        public void matchesTodos(){
-            System.out.println("Lista de Todos Matches");
-            for (int i = 0; i < avalUsuarios.size(); i++) {
-                //System.out.println(avalUsuarios.get(i));
-                int a = avalUsuarios.get(i).getidUsuarioAvaliador();
-                String aa = Integer.toString(a);
-                int b = avalUsuarios.get(i).getidUsuarioAvaliado();
-                String bb = Integer.toString(b);
-                String cc = aa + bb;
-                int c = Integer.parseInt(cc);
-                for (int y = 0; y < avalUsuarios.size(); y++) {
-                    //System.out.println("y = "+y);
-                    int d = avalUsuarios.get(y).getidUsuarioAvaliado();
-                    String dd = Integer.toString(d);
-                    int e = avalUsuarios.get(y).getidUsuarioAvaliador();
-                    String ee = Integer.toString(e);
-                    String ff = dd + ee;
-                    int f = Integer.parseInt(ff);
-                    if (c == f) {
-                        if (avalUsuarios.get(i).isAvalUsuario() == true) {
-                            if (avalUsuarios.get(y).isAvalUsuario() == true) {
-
-                                listaTeste.add(usuarios.get(avalUsuarios.get(i).getidUsuarioAvaliador() - 1).getNome() + "&" + usuarios.get(avalUsuarios.get(y).getidUsuarioAvaliador() - 1).getNome());
-                                System.out.print("Match entre " + usuarios.get(avalUsuarios.get(i).getidUsuarioAvaliador() - 1).getNome());
-                                System.out.println(" e " + usuarios.get(avalUsuarios.get(y).getidUsuarioAvaliador() - 1).getNome());
-                            }
-                        }
-                    }
-                }
-            }
-            for (String x : listaTeste) {
-                System.out.println(x);
-            }
-
-
+//        for (int i = 0; i < UsuarioAcervo.usuarios.size(); i++) {
+//            int contMusicaIguais=0;
+//            System.out.println("i (usuario) i= "+ i);
+//            for (int x = 0; x < usuario.getMusicasCurtidas().size(); x++) {
+//                System.out.println("  x (musica curtida) x= "+ x);
+//                System.out.println("    usuario.getMusicasCurtidas(i).get().getId()= "+usuario.getMusicasCurtidas().get(i).getNome());
+//                System.out.println("    UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().get(x).getId()= "+UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().get(x).getNome());
+//                if(usuario.getMusicasCurtidas().get(i).getId()==UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().get(x).getId()){
+//                    contMusicaIguais++;
+//                    System.out.println("contMusicaIguais= "+contMusicaIguais);
+//                }
+//            }
+//        }
+    public void usuariosComuns() {
+        int contMusicaIguais = 0;
+        int idUsuario = MeuScannerCustomizado.nextInt("Digite seu usuário:");
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        System.out.println("i = usuarios.size= " + UsuarioAcervo.usuarios.size());
+//        System.out.println("x = getMusicasCurtidas().size() = "+usuario.getMusicasCurtidas().size());
+        List<Musica> musicasCurtidasUsuarioPesquisado = usuario.getMusicasCurtidas();
+        System.out.println("musicasCurtidasUsuarioPesquisado.size(): " + musicasCurtidasUsuarioPesquisado.size());
+        for (int i = 0; i < musicasCurtidasUsuarioPesquisado.size(); i++) {
+            System.out.println(musicasCurtidasUsuarioPesquisado.get(i));
         }
+        for (int i = 0; i < UsuarioAcervo.usuarios.size(); i++) {
+            System.out.println("i (usuario) i= " + i);
+            System.out.println("x = UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().size() = " + UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().size());
+            for (int x = 0; x < UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().size(); x++) {
+                System.out.println("  x (musica curtida) x= " + x);
+                if(!musicasCurtidasUsuarioPesquisado.contains(UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().get(x).getNome())){
+//                if(!musicasCurtidasUsuarioPesquisado.contains(UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().get(x).getId())){
+//                if (musicasCurtidasUsuarioPesquisado.equals(UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().get(x).getId())) {
+                    System.out.println("UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().get(x).getNome()): " + UsuarioAcervo.usuarios.get(i).getMusicasCurtidas().get(x).getNome());
+                    contMusicaIguais++;
+                    System.out.println("        contMusicaIguais: " + contMusicaIguais);
+
+                }
+                ;
 
 
+            }
+        }
     }
+}
 
 
-//### Match
-//        - Permitir que um usuário dê "like" em outro usuário
-//        - Permitir que um usuário dê "dislike" em outro usuário
-//        - Quando dois usuários derem "like" entre si, deverá ser criado um match
-//        - Listar os matches de um determinado usuário (usuários que deram match entre si)
-//        - Obter o usuário com mais características em comum que já não tenha um match ou dislike
+        //Obter o usuário com mais características em comum que já não tenha um match ou dislike
+
+
+
+

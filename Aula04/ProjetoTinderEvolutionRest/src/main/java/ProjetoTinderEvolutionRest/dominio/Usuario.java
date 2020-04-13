@@ -14,15 +14,17 @@ public class Usuario {
     private String bio;
     private Double latitude;
     private Double longitude;
+    private String foto;
     private List<Musica> musicasCurtidas = new ArrayList<>();
     private List<Filme> filmesCurtidos = new ArrayList<>();
     private List<Serie> seriesCurtidas = new ArrayList<>();
     private List<Jogo> jogosCurtidos = new ArrayList<>();
     private List<Esporte> esportesCurtidos = new ArrayList<>();
-    private List<Curiosidade> curiosidades = new ArrayList<>();
+    private List<Curiosidade> curiosidadesCurtidas = new ArrayList<>();
     private List<Usuario> usuariosCurtidos = new ArrayList<>();
+    private List<Usuario> matches = new ArrayList<>();
 
-    public Usuario(String nome, String email, String telefone, LocalDate dataDeNascimento, String bio, Double latitude, Double longitude) {
+    public Usuario(String nome, String email, String telefone, LocalDate dataDeNascimento, String bio, Double latitude, Double longitude, String foto) {
         this.nome = nome;
         this.email = email;
         this.telefone = telefone;
@@ -30,12 +32,12 @@ public class Usuario {
         this.bio = bio;
         this.latitude = latitude;
         this.longitude = longitude;
+        this.foto = foto;
     }
 
     public Usuario(){
 
     }
-
 
     public int getId() {
         return id;
@@ -82,11 +84,19 @@ public class Usuario {
     }
 
     public List<Curiosidade> getCuriosidades() {
-        return curiosidades;
+        return curiosidadesCurtidas;
     }
 
     public void setCuriosidades(List<Curiosidade> curiosidades) {
-        this.curiosidades = curiosidades;
+        this.curiosidadesCurtidas = curiosidades;
+    }
+
+    public String getFoto() {
+        return foto;
+    }
+
+    public void setFoto(String foto) {
+        this.foto = foto;
     }
 
     public List<Usuario> getUsuariosCurtidos() {
@@ -157,34 +167,142 @@ public class Usuario {
         this.longitude = longitude;
     }
 
-    // Adiciona músicas curtidas
+    public List<Usuario> getMatches() {
+        return matches;
+    }
+
+    // Músicas
     public void salvarMusica(Musica musica) {
         musicasCurtidas.add(musica);
     }
 
-    // Adiciona filme curtidos
+    public void removerMusica(Musica musica) {
+        musicasCurtidas.remove(musica);
+    }
+
+    public void listarMusicasCurtidas(int idUsuario, String nome){
+        System.out.println("Músicas curtidas pelo usuário "+nome+ " - id["+idUsuario+"]:");
+        for (int i = 0; i < musicasCurtidas.size(); i++) {
+            System.out.println(musicasCurtidas.get(i));}
+    }
+
+    // Filmes
     public void salvarFilme(Filme filme) {
         filmesCurtidos.add(filme);
+    }
+    public void removerFilme(Filme filme) {
+        filmesCurtidos.remove(filme);
+    }
+    public void listarFilmesCurtidos(int idUsuario, String nome){
+        System.out.println("Filmes curtidos pelo usuário "+nome+ " - id["+idUsuario+"]:");
+        for (int i = 0; i < filmesCurtidos.size(); i++) {
+            System.out.println(filmesCurtidos.get(i));}
+    }
+
+    //Series
+    public void salvarSerie(Serie serie) {
+        seriesCurtidas.add(serie);
+    }
+
+    public void removerSerie(Serie serie) {
+        seriesCurtidas.remove(serie);
+    }
+
+    public void listarSeriesCurtidas(int idUsuario, String nome){
+        System.out.println("Séries curtidas pelo usuário "+nome+ " - id["+idUsuario+"]:");
+        for (int i = 0; i < seriesCurtidas.size(); i++) {
+            System.out.println(seriesCurtidas.get(i));}
+    }
+
+    //Jogos
+    public void salvarJogo(Jogo jogo) {
+        jogosCurtidos.add(jogo);
+    }
+
+    public void removerJogo(Jogo jogo) {
+        jogosCurtidos.remove(jogo);
+    }
+
+    public void listarJogosCurtidos(int idUsuario, String nome){
+        System.out.println("Jogos curtidos pelo usuário "+nome+ " - id["+idUsuario+"]:");
+        for (int i = 0; i < jogosCurtidos.size(); i++) {
+            System.out.println(jogosCurtidos.get(i));}
+    }
+
+    //Esporte
+    public void salvarEsporte(Esporte esporte) {
+        esportesCurtidos.add(esporte);
+    }
+
+    public void removerEsporte(Esporte esporte) {
+        esportesCurtidos.remove(esporte);
+    }
+
+    public void listarEsportesCurtidos(int idUsuario, String nome){
+        System.out.println("Esportes curtidos pelo usuário "+nome+ " - id["+idUsuario+"]:");
+        for (int i = 0; i < esportesCurtidos.size(); i++) {
+            System.out.println(esportesCurtidos.get(i));}
+    }
+
+    //Curiosidade
+    public void salvarCuriosidade(Curiosidade curiosidade) {
+        curiosidadesCurtidas.add(curiosidade);
+    }
+
+    public void removerCuriosidade(Curiosidade curiosidade) {
+        curiosidadesCurtidas.remove(curiosidade);
+    }
+
+    public void listarCuriosidadesCurtidas(int idUsuario, String nome){
+        System.out.println("Curiosidades curtidas pelo usuário "+nome+ " - id["+idUsuario+"]:");
+        for (int i = 0; i < curiosidadesCurtidas.size(); i++) {
+            System.out.println(curiosidadesCurtidas.get(i));}
+    }
+
+    //Usuarios
+    public void salvarUsuario(Usuario usuario) {
+        usuariosCurtidos.add(usuario);
+    }
+
+    public void removerUsuario(Usuario usuario) {
+        usuariosCurtidos.remove(usuario);
+    }
+
+    public void listarUsuariosCurtidos(int idUsuario, String nome){
+        System.out.println("Usuários que receberam likes do usuário "+nome+ " - id["+idUsuario+"]:");
+        for (int i = 0; i < usuariosCurtidos.size(); i++) {
+            System.out.println(usuariosCurtidos.get(i));}
+    }
+
+    //Match
+    public void salvarMatch(Usuario usuario) {
+        matches.add(usuario);
+    }
+
+    public void removerMatch(Usuario usuario) {
+        matches.remove(usuario);
+        System.out.println("removeu match de "+usuario.getNome());
     }
 
     @Override
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
-                ",\n nome='" + nome + '\'' +
+                ", nome='" + nome + '\'' +
                 ", email='" + email + '\'' +
                 ", telefone='" + telefone + '\'' +
-                ",\n dataDeNascimento=" + dataDeNascimento +
+                ", dataDeNascimento=" + dataDeNascimento +
                 ", bio='" + bio + '\'' +
-                ",\n latitude=" + latitude +
+                ", latitude=" + latitude +
                 ", longitude=" + longitude +
-                ",\n musicasCurtidas=" + musicasCurtidas +
-                ",\n filmesCurtidos=" + filmesCurtidos +
-                ",\n seriesCurtidas=" + seriesCurtidas +
-                ",\n jogosCurtidos=" + jogosCurtidos +
-                ",\n esportesCurtidos=" + esportesCurtidos +
-                ",\n curiosidades=" + curiosidades +
-                ",\n usuariosCurtidos=" + usuariosCurtidos +
+                ", foto=" + foto +
+                ", musicasCurtidas=" + musicasCurtidas +
+                ", filmesCurtidos=" + filmesCurtidos +
+                ", seriesCurtidas=" + seriesCurtidas +
+                ", jogosCurtidos=" + jogosCurtidos +
+                ", esportesCurtidos=" + esportesCurtidos +
+                ", curiosidadesCurtidas=" + curiosidadesCurtidas +
+//                ", usuariosCurtidos=" + usuariosCurtidos +
                 '}';
     }
 }
