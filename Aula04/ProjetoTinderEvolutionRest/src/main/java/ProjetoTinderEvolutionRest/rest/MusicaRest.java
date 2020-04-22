@@ -1,14 +1,10 @@
 package ProjetoTinderEvolutionRest.rest;
 
-import ProjetoTinderEvolutionRest.console.InputMusica;
-import ProjetoTinderEvolutionRest.console.MeuScannerCustomizado;
 import ProjetoTinderEvolutionRest.dominio.Musica;
 import ProjetoTinderEvolutionRest.gerenciador.MusicaGerenciador;
 import org.springframework.web.bind.annotation.*;
-import java.util.ArrayList;
 import java.util.List;
 
-import static ProjetoTinderEvolutionRest.acervo.MusicaAcervo.musicas;
 
 @RestController
 @RequestMapping("/musica")
@@ -72,6 +68,7 @@ public class MusicaRest {
 //  CODIGO ALTERADO PARA USAR REGRAS do Gerenciador
     @PostMapping
     public Musica cadastrar(@RequestBody Musica musica) {
+        System.out.println("RequestBody: "+musica);
         return gerenciador.salvar(musica);
     }
 

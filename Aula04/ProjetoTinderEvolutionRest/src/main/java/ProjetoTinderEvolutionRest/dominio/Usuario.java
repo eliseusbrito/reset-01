@@ -1,8 +1,12 @@
 package ProjetoTinderEvolutionRest.dominio;
 
+import ProjetoTinderEvolutionRest.acervo.UsuarioAcervo;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
 
 public class Usuario {
 
@@ -15,13 +19,14 @@ public class Usuario {
     private Double latitude;
     private Double longitude;
     private String foto;
+    private List<Usuario> usuariosCurtidos = new ArrayList<>();
     private List<Musica> musicasCurtidas = new ArrayList<>();
     private List<Filme> filmesCurtidos = new ArrayList<>();
     private List<Serie> seriesCurtidas = new ArrayList<>();
     private List<Jogo> jogosCurtidos = new ArrayList<>();
     private List<Esporte> esportesCurtidos = new ArrayList<>();
     private List<Curiosidade> curiosidadesCurtidas = new ArrayList<>();
-    private List<Usuario> usuariosCurtidos = new ArrayList<>();
+
     private List<Usuario> matches = new ArrayList<>();
 
     public Usuario(String nome, String email, String telefone, LocalDate dataDeNascimento, String bio, Double latitude, Double longitude, String foto) {
@@ -99,6 +104,7 @@ public class Usuario {
         this.foto = foto;
     }
 
+    @JsonIgnore
     public List<Usuario> getUsuariosCurtidos() {
         return usuariosCurtidos;
     }
@@ -174,6 +180,7 @@ public class Usuario {
     // Músicas
     public void salvarMusica(Musica musica) {
         musicasCurtidas.add(musica);
+//        acervo.musicasCurtidas.add(musica);
     }
 
     public void removerMusica(Musica musica) {

@@ -23,7 +23,7 @@ public class CadastroInicial {
         usuario();
         avaliacaoMusica();
         Usuarios();
-//        usuarioCurtido();
+//        usuarioLiked();
         curtirMusica();
         curtirFilme();
         curtirSerie();
@@ -175,16 +175,16 @@ public class CadastroInicial {
         usuarioAcervo.curtirCuriosidade(2,3);
     }
 
-    public void usuarioCurtido() {
-        Usuario usuarioCurtindoUsuario0 = UsuarioAcervo.usuarios.get(0);
-        Usuario usuarioCurtido1 =  UsuarioAcervo.usuarios.get(1);
-        usuarioCurtindoUsuario0.salvarUsuario(usuarioCurtido1);
-        Usuario usuarioCurtindoUsuario1 = UsuarioAcervo.usuarios.get(1);
-        Usuario usuarioCurtido0 =  UsuarioAcervo.usuarios.get(0);
-        usuarioCurtindoUsuario1.salvarUsuario(usuarioCurtido0);
-        Usuario usuarioCurtindoUsuario2 = UsuarioAcervo.usuarios.get(2);
-        Usuario usuarioCurtido3 =  UsuarioAcervo.usuarios.get(3);
-        usuarioCurtindoUsuario2.salvarUsuario(usuarioCurtido3);
+    public void usuarioLiked() {
+        Usuario usuarioLikingUsuario0 = UsuarioAcervo.usuarios.get(0);
+        Usuario usuarioLiked1 =  UsuarioAcervo.usuarios.get(1);
+        usuarioLikingUsuario0.salvarUsuario(usuarioLiked1);
+        Usuario usuarioLikingUsuario1 = UsuarioAcervo.usuarios.get(1);
+        Usuario usuarioLiked0 =  UsuarioAcervo.usuarios.get(0);
+        usuarioLikingUsuario1.salvarUsuario(usuarioLiked0);
+        Usuario usuarioLikingUsuario2 = UsuarioAcervo.usuarios.get(2);
+        Usuario usuarioLiked3 =  UsuarioAcervo.usuarios.get(3);
+        usuarioLikingUsuario2.salvarUsuario(usuarioLiked3);
     }
 
     //Estes eu utilizei quando estava fazendo semelhante a Banco de Dados

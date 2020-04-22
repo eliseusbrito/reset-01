@@ -74,6 +74,7 @@ public class UsuarioAcervo {
     }
 
     public Usuario curtirFilme(int idFilme, int idUsuario) {
+        System.out.println("Usuario Acervo -- CurtirFilme");
         System.out.println("idFilme: "+idFilme);
         System.out.println("idUsuario: "+idUsuario);
         Usuario usuarioCurtirFilme = pesquisar(idUsuario);
@@ -91,19 +92,25 @@ public class UsuarioAcervo {
         return usuarioDesCurtirFilme;
     }
 
-    public Usuario curtirUsuario(int idUsuarioCurtido, int idUsuarioCurtindo) {
-        Usuario usuarioCurtindoUsuario = pesquisar(idUsuarioCurtindo);
-        Usuario usuarioCurtido = pesquisar(idUsuarioCurtido);
-        usuarioCurtindoUsuario.salvarUsuario(usuarioCurtido);
-        return usuarioCurtido;
+    public Usuario likeUsuario(int idusuarioLiked, int idUsuarioCurtindo) {
+//        System.out.println("idusuarioLiked = "+idusuarioLiked);
+//        System.out.println("idUsuarioCurtindo = "+idUsuarioCurtindo);
+        Usuario usuarioLikingUsuario = pesquisar(idUsuarioCurtindo);
+//        System.out.println("usuarioLikingUsuario: "+usuarioLikingUsuario);
+        Usuario usuarioLiked = pesquisar(idusuarioLiked);
+//        System.out.println("usuarioLiked: "+usuarioLiked);
+        usuarioLikingUsuario.salvarUsuario(usuarioLiked);
+        return usuarioLiked;
     }
 
-    public Usuario descurtirUsuario(int idUsuarioDescurtido, int idUsuarioDescurtindo) {
-        Usuario usuarioDescurtindoUsuario = pesquisar(idUsuarioDescurtindo);
-        Usuario usuarioDescurtido = pesquisar(idUsuarioDescurtido);
-        usuarioDescurtindoUsuario.removerUsuario(usuarioDescurtido);
-        return usuarioDescurtido;
+    public Usuario dislikeUsuario(int idusuarioDisliked, int idUsuarioDescurtindo) {
+        System.out.println("idusuarioDisliked: "+idusuarioDisliked);
+        Usuario usuarioDeslikingUsuario = pesquisar(idUsuarioDescurtindo);
+        Usuario usuarioDisliked = pesquisar(idusuarioDisliked);
+        usuarioDeslikingUsuario.removerUsuario(usuarioDisliked);
+        return usuarioDisliked;
     }
+
     public Usuario curtirSerie(int idSerie, int idUsuario) {
         Usuario usuarioCurtirSerie = pesquisar(idUsuario);
         Serie serieCurtida = gerenciadorSerie.pesquisar(idSerie);

@@ -77,15 +77,15 @@ public class LikeDislikeGerenciador {
 
 //    Curtir Filme
     public Usuario curtirFilme(int idFilme, int idUsuario) {
-        UsuarioAcervo usuarioAcervo = new UsuarioAcervo();
-        usuarioAcervo.pesquisar(idUsuario);
-        Filme filmeCurtido = gerenciadorFilme.pesquisar(idFilme);
-        for (Filme filmeExistente : filmes) {
-            if (filmeCurtido.getNome().equals(filmeExistente.getNome())) {
-                System.out.println("Nome já existente. O filme não foi cadastrado. ");
-                return null;
-            }
-        }
+//        UsuarioAcervo usuarioAcervo = new UsuarioAcervo();
+//        usuarioAcervo.pesquisar(idUsuario);
+//        Filme filmeCurtido = gerenciadorFilme.pesquisar(idFilme);
+//        for (Filme filmeExistente : filmes) {
+//            if (filmeCurtido.getNome().equals(filmeExistente.getNome())) {
+//                System.out.println("Nome já existente. O filme não foi cadastrado. ");
+//                return null;
+//            }
+//        }
         return acervoCurtirFilme.curtirFilme(idFilme,idUsuario);
     }
 

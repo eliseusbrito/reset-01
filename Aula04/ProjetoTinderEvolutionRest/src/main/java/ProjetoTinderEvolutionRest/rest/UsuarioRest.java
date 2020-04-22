@@ -1,6 +1,8 @@
 package ProjetoTinderEvolutionRest.rest;
 
+import ProjetoTinderEvolutionRest.acervo.UsuarioAcervo;
 import ProjetoTinderEvolutionRest.dominio.Usuario;
+import ProjetoTinderEvolutionRest.gerenciador.UsuarioGerenciador;
 import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -14,10 +16,13 @@ public class UsuarioRest {
 
     private List<Usuario> listaUsuarios = new ArrayList<>();
 
+    private UsuarioGerenciador gerenciador = new UsuarioGerenciador();
+
     @GetMapping
     public List<Usuario> listarTodosUsuarios() {
         System.out.println("listou todos os usuarios");
-        return listaUsuarios;
+        return gerenciador.listar();
+//        return listaUsuarios;
     }
 
     @GetMapping("{id}")
@@ -38,13 +43,20 @@ public class UsuarioRest {
 //    }//este codigo também funciona, somenteé pior porque quando pele para listar id inexistente dá erro no postman, se usar o if retorna lista null
 
 
+//    @PostMapping
+//    public Usuario cadastrar(@RequestBody Usuario usuario) {
+//        usuario.setId(contador);
+//        listaUsuarios.add(usuario);
+//        System.out.println("Adicionou usuario: "+ contador);
+//        contador++;
+//        return usuario;
+//    }
+
     @PostMapping
     public Usuario cadastrar(@RequestBody Usuario usuario) {
-        usuario.setId(contador);
-        listaUsuarios.add(usuario);
-        System.out.println("Adicionou usuario: "+ contador);
-        contador++;
-        return usuario;
+        System.out.println("Entrou em PostMApping Usuario Cadastrar");
+        System.out.println("RequestBoby: "+ usuario);
+        return gerenciador.salvar(usuario);
     }
 
     @PutMapping("{id}")

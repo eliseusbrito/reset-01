@@ -11,6 +11,7 @@ public class UsuarioGerenciador {
     private UsuarioAcervo acervo = new UsuarioAcervo();
 
     public Usuario salvar(Usuario usuario){
+        System.out.println("Entrou em Usuario Salvar");
         List<Usuario> usuarios = acervo.listar();
         for (Usuario usuarioExistente : usuarios) {
             if (usuario.getEmail().equals(usuarioExistente.getEmail())) {

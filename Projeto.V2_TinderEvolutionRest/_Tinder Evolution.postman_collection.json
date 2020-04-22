@@ -1,0 +1,1350 @@
+{
+	"info": {
+		"_postman_id": "7d0ea1c8-d08e-440d-b416-8f97563d5a52",
+		"name": "_Tinder Evolution",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Like_Dislike_Usuarios_MATCHES",
+			"item": [
+				{
+					"name": "LikeUsuario_1Like2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/usuario/1/avaliador/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"usuario",
+								"1",
+								"avaliador",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LikeUsuario_2Like1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/2/avaliador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"2",
+								"avaliador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LikeUsuario_1Like3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/2/avaliador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"2",
+								"avaliador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarLikesUsuario1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/curtidas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"curtidas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarLikesUsuario2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/curtidas/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"curtidas",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Curtir_Descurtir_Itens",
+			"item": [
+				{
+					"name": "CurtirMusica1_Usuario1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/likes/musica/1/Eliseu/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica",
+								"1",
+								"Eliseu",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurtirMusica2_Usuario1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica",
+								"2",
+								"avaliador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurtirMusica1_Usuario2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica",
+								"2",
+								"avaliador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListaMusicasCurtidas_Usuario1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/likes/musica/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurtirFilme1_Usuario1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/likes/filme/1/avaliador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"filme",
+								"1",
+								"avaliador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurtirFilme2_Usuario1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"musica",
+								"2",
+								"avaliador",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CurtirFilme1_Usuario2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/likes/filme/1/avaliador/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"filme",
+								"1",
+								"avaliador",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListaFilmesCurtidos_Usuario1 Copy",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/likes/filme/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"likes",
+								"filme",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Usuario",
+			"item": [
+				{
+					"name": "BuscarTodosUsuarios",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Eliseu\",\n\t\"email\":\"eliseubrito@gmail.com\",\n\t\"telefone\":\"35750630\",\n\t\"dataDeNascimento\":\"1936-06-24\",\n\t\"bio\":\"eng\",\n\t\"latitude\":\"1.556\",\n\t\"longitude\":\"5.226\",\n\t\"foto\":\"https://imagens.canaltech.com.br/236607.471195-Lua.jpg\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionarOutroUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Robson Rosa\",\r\n  \"email\": \"robsonrosa@cwi.com.br\",\r\n  \"telefone\": \"51981938496\",\r\n  \"dataNascimento\": \"2020-02-15\",\r\n  \"bio\": \"bio\",\r\n  \"latitude\": 1,\r\n  \"longitude\": 1,\r\n}",
+							"options": {
+								"raw": {
+									"language": "javascript"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionarOutroUsuario Copy",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Davi\",\r\n  \"email\": \"davi@guilherme.com.br\",\r\n  \"telefone\": \"35750630\",\r\n  \"dataDeNascimento\": \"2004-11-20\",\r\n  \"bio\": \"bio\",\r\n  \"latitude\": 1,\r\n  \"longitude\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaUsuarioPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaUsuario",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": 1,\r\n    \"nome\": \"Lucas\",\r\n    \"email\": \"lucas@gmail.com\",\r\n    \"telefone\": \"35750630\",\r\n    \"dataDeNascimento\": \"2010-01-12\",\r\n    \"bio\": \"est\",\r\n    \"localizacao\": \"1.556, 45.226\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/usuario/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarUsuarioPorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Musica",
+			"item": [
+				{
+					"name": "BuscarTodasMusicas",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/musica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaMusica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Balão Mágico\",\n\t\"artista\":\"Turma\",\n\t\"autor\":\"Simoni\",\n\t\"dataDeLancamento\":\"1980-08-21\",\n\t\"estiloMusical\":\"FUNK\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/musica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaOutraMusica",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"nome\": \"Chlorine\",\r\n  \"artista\": \"Twenty One Pilots\",\r\n  \"autor\": \"Robson\",\r\n  \"dataDeLancamento\": \"2019-01-22\",\r\n  \"estiloMusical\": \"FUNK\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/musica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musica"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaMusicaPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/musica/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musica",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaMusica",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\":\"Balão Mágico\",\r\n\t\"artista\":\"Turma\",\r\n\t\"autor\":\"Simoni\",\r\n\t\"dataDeLancamento\":\"1980-08-21\",\r\n\t\"estiloMusical\":\"PAGODE\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/musica/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musica",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarMusicaPorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/musica/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musica",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaComErro",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Falta estiloMusical\",\n\t\"artista\":\"Balao Mágico\",\n\t\"autor\":\"Simoni\",\n\t\"dataDeLancamento\":\"1980-08-21\"\n\t}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/musica",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"musica"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Filme",
+			"item": [
+				{
+					"name": "BuscarTodosFilmes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filme",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filme"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaFilme",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"O Vento Levou\",\n\t\"diretor\":\"Antunes\",\n\t\"dataDeLancamento\":\"1970-03-14\",\n\t\"categoriaFilme\":\"DRAMA\",\n\t\"sinopse\":\"escrever\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/filme",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filme"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaOutroFilme",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"O Vento Levou\",\n\t\"diretor\":\"Antunes\",\n\t\"dataDeLancamento\":\"1970-03-14\",\n\t\"categoriaFilme\":\"DRAMA\",\n\t\"sinopse\":\"escrever\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/filme",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filme"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaFilmePorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filme/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filme",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaFilme",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"O Vento Levou\",\n\t\"diretor\":\"Antunes\",\n\t\"dataDeLancamento\":\"1970-03-14\",\n\t\"categoriaFilme\":\"MUSICAL\",\n\t\"sinopse\":\"escrever\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/filme/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filme",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarFilmePorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/filme/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"filme",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Serie",
+			"item": [
+				{
+					"name": "BuscarTodosSeries",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/serie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"serie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaSerie",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"La Casa de Papel\",\n\t\"diretor\":\"Antunes\",\n\t\"dataDeLancamento\":\"1970-03-14\",\n\t\"numeroDeTemporadas\":\"3\",\n\t\"numeroDeEpisodios\":\"10\",\n\t\"categoriaSerie\":\"DRAMA\",\n\t\"sinopse\":\"escrever\"\n}\n\n\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/serie",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"serie"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaSeriePorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/serie/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"serie",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaSerie",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"La Casa de Papel\",\n\t\"diretor\":\"Antunes\",\n\t\"dataDeLancamento\":\"1970-03-14\",\n\t\"numeroDeTemporadas\":\"3\",\n\t\"numeroDeEpisodios\":\"10\",\n\t\"categoriaSerie\":\"SITCOM\",\n\t\"sinopse\":\"escrito\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/serie/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"serie",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarSeriePorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/serie/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"serie",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Jogo",
+			"item": [
+				{
+					"name": "BuscarTodosJogos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jogo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaJogo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"FIFA\",\n\t\"publisher\":\"publisher\",\n\t\"dataDeLancamento\":\"1995-04-05\",\n\t\"categoriaJogo\":\"ACAO\",\n\t\"plataformaJogo\":\"X-BOX\"\n}\n\n   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jogo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaJogoPorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jogo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaJogo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"FIFA\",\n\t\"publisher\":\"publisher\",\n\t\"dataDeLancamento\":\"1995-04-15\",\n\t\"categoriaJogo\":\"ACAO\",\n\t\"plataformaJogo\":\"X-BOX\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jogo/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogo",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarJogoPorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/jogo/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogo",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Esporte",
+			"item": [
+				{
+					"name": "BuscarTodosEsportes",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/esporte",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esporte"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaEsporte",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Futebol\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/esporte",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esporte"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaEsportePorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/esporte/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esporte",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaEsporte",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n\t\"nome\":\"Futebol\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/esporte/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esporte",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarEsportePorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/esporte/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"esporte",
+								"2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
+			"name": "Curiosidade",
+			"item": [
+				{
+					"name": "BuscarTodasCuriosidades",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/usuario",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"usuario"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaCuriosidade",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"nome\": \"Vegan\",\n  \"categoria\": \"ALIMENTACAO\"\n}\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/curiosidade",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"curiosidade"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "BuscaCuriosidadePorId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/curiosidade/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"curiosidade",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditaCuriosidade",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"descricao\": \"Vegano\",\n  \"categoriaCuriosidade\": \"ALIMENTACAO\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/curiosidade/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"curiosidade",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DeletarCuriosidadePorId",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/curiosidade/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"curiosidade",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		}
+	],
+	"protocolProfileBehavior": {}
+}
