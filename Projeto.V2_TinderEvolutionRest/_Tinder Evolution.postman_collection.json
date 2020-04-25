@@ -6,10 +6,98 @@
 	},
 	"item": [
 		{
+			"name": "Matches",
+			"item": [
+				{
+					"name": "GetMatchesUsuario1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetMatchesUsuario2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBestUsuario1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/1/best",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"1",
+								"best"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetBestUsuario2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/2/best",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"2",
+								"best"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"protocolProfileBehavior": {}
+		},
+		{
 			"name": "Like_Dislike_Usuarios_MATCHES",
 			"item": [
 				{
-					"name": "LikeUsuario_1Like2",
+					"name": "LikeUsuario_1noUsuario2",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -32,12 +120,12 @@
 					"response": []
 				},
 				{
-					"name": "LikeUsuario_2Like1",
+					"name": "LikeUsuario_2noUsuario1",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/matches/2/avaliador/1",
+							"raw": "http://localhost:8080/matches/1/avaliador/2/like",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -45,21 +133,68 @@
 							"port": "8080",
 							"path": [
 								"matches",
-								"2",
+								"1",
 								"avaliador",
-								"1"
+								"2",
+								"like"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "LikeUsuario_1Like3",
+					"name": "LikeUsuario_1noUsuario3",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/matches/2/avaliador/1",
+							"raw": "http://localhost:8080/matches/3/avaliador/1/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"3",
+								"avaliador",
+								"1",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LikeUsuario_3noUsuario1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/1/avaliador/3/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"1",
+								"avaliador",
+								"3",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "LikeUsuario_3noUsuario2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/2/avaliador/3/like",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -69,7 +204,54 @@
 								"matches",
 								"2",
 								"avaliador",
-								"1"
+								"3",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DesfazLikeUsuario_1noUsuario2",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/1/avaliador/2/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"1",
+								"avaliador",
+								"2",
+								"like"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DesfazLikeUsuario_1noUsuario3",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/3/avaliador/1/like",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"3",
+								"avaliador",
+								"1",
+								"like"
 							]
 						}
 					},
@@ -81,7 +263,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/matches/curtidas/1",
+							"raw": "http://localhost:8080/matches/liked/1",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -89,7 +271,7 @@
 							"port": "8080",
 							"path": [
 								"matches",
-								"curtidas",
+								"liked",
 								"1"
 							]
 						}
@@ -102,7 +284,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "http://localhost:8080/matches/curtidas/1",
+							"raw": "http://localhost:8080/matches/liked/2",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -110,8 +292,140 @@
 							"port": "8080",
 							"path": [
 								"matches",
-								"curtidas",
+								"liked",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarLikesUsuario3",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/liked/3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"liked",
+								"3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DislikeUsuario_1Dislike2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/1/avaliador/2/dislike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"1",
+								"avaliador",
+								"2",
+								"dislike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DislikeUsuario_2Dislike1",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/2/avaliador/1/dislike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"2",
+								"avaliador",
+								"1",
+								"dislike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DesfazDislikeUsuario_1Like",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/1/avaliador/2/dislike",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"1",
+								"avaliador",
+								"2",
+								"dislike"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarDislikesUsuario1",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/disliked/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"disliked",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarDislikesUsuario2",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/matches/disliked/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"matches",
+								"disliked",
+								"2"
 							]
 						}
 					},
@@ -124,229 +438,1073 @@
 			"name": "Curtir_Descurtir_Itens",
 			"item": [
 				{
-					"name": "CurtirMusica1_Usuario1",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+					"name": "Musica",
+					"item": [
+						{
+							"name": "CurtirMusica1_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/1/Eliseu/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"1",
+										"Eliseu",
+										"1"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/likes/musica/1/Eliseu/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"likes",
-								"musica",
-								"1",
-								"Eliseu",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CurtirMusica2_Usuario1",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "DescurtirMusica1_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"1",
+										"avaliador",
+										"1"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"likes",
-								"musica",
-								"2",
-								"avaliador",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CurtirMusica1_Usuario2",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "CurtirMusica2_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"2",
+										"avaliador",
+										"1"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"likes",
-								"musica",
-								"2",
-								"avaliador",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "ListaMusicasCurtidas_Usuario1",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/likes/musica/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"likes",
-								"musica",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CurtirFilme1_Usuario1",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/likes/filme/1/avaliador/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"likes",
-								"filme",
-								"1",
-								"avaliador",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CurtirFilme2_Usuario1",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "DescurtirMusica2_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"2",
+										"avaliador",
+										"1"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"likes",
-								"musica",
-								"2",
-								"avaliador",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "CurtirFilme1_Usuario2",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
+						{
+							"name": "CurtirMusica1_Usuario2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"2",
+										"avaliador",
+										"1"
+									]
 								}
-							}
+							},
+							"response": []
 						},
-						"url": {
-							"raw": "http://localhost:8080/likes/filme/1/avaliador/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"likes",
-								"filme",
-								"1",
-								"avaliador",
-								"2"
-							]
+						{
+							"name": "DescurtirMusica1_Usuario2",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/1/avaliador/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"1",
+										"avaliador",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirMusica1_Usuario3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/1/avaliador/3",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"1",
+										"avaliador",
+										"3"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				},
 				{
-					"name": "ListaFilmesCurtidos_Usuario1 Copy",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/likes/filme/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"likes",
-								"filme",
-								"1"
-							]
+					"name": "Filme",
+					"item": [
+						{
+							"name": "CurtirFilme1_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/likes/filme/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"filme",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirFilme1_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/likes/filme/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"filme",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirFilme2_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"2",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirFilme2_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/filme/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"filme",
+										"2",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirFilme1_Usuario2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/filme/1/avaliador/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"filme",
+										"1",
+										"avaliador",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirFilme1_Usuario2",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/filme/1/avaliador/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"filme",
+										"1",
+										"avaliador",
+										"2"
+									]
+								}
+							},
+							"response": []
 						}
-					},
-					"response": []
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Serie",
+					"item": [
+						{
+							"name": "CurtirSerie1_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/serie/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"serie",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirSerie1_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/serie/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"serie",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirSerie2_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/serie/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"serie",
+										"2",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirSerie2_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"2",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirSerie1_Usuario3",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/serie/3/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"serie",
+										"3",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Jogo",
+					"item": [
+						{
+							"name": "CurtirJogo1_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/jogo/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"jogo",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirJogo1_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/jogo/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"jogo",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirJogo2_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/jogo/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"jogo",
+										"2",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirJogo2_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/jogo/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"jogo",
+										"2",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirJogo1_Usuario2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/musica/2/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"musica",
+										"2",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirJogo1_Usuario2",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/jogo/1/avaliador/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"jogo",
+										"1",
+										"avaliador",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Esporte",
+					"item": [
+						{
+							"name": "ListaEsporteCurtido_Usuario1",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/likes/esporte/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"esporte",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirEsporte1_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/esporte/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"esporte",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirEsporte1_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/esporte/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"esporte",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirEsporte1_Usuario2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/esporte/1/avaliador/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"esporte",
+										"1",
+										"avaliador",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirEsporte1_Usuario2",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/jogo/1/avaliador/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"jogo",
+										"1",
+										"avaliador",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Curiosidade",
+					"item": [
+						{
+							"name": "CurtirCuriosidade1_Usuario1",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/curiosidade/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"curiosidade",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirCuriosidade1_Usuario1",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/curiosidade/1/avaliador/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"curiosidade",
+										"1",
+										"avaliador",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "CurtirCuriosidade1_Usuario2",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/curiosidade/1/avaliador/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"curiosidade",
+										"1",
+										"avaliador",
+										"2"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "DescurtirCuriosidade1_Usuario2",
+							"request": {
+								"method": "DELETE",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"usuario\"=\"1\",\n\t\"musica\"=\"1\",\n\t\"avalMusica\"=\"true\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/likes/curiosidade/1/avaliador/2",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"likes",
+										"curiosidade",
+										"1",
+										"avaliador",
+										"2"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"protocolProfileBehavior": {},
+					"_postman_isSubFolder": true
 				}
 			],
 			"protocolProfileBehavior": {}
@@ -374,7 +1532,7 @@
 					"response": []
 				},
 				{
-					"name": "AdicionaUsuario",
+					"name": "AdicionaUsuario1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -402,7 +1560,7 @@
 					"response": []
 				},
 				{
-					"name": "AdicionarOutroUsuario",
+					"name": "AdicionarUsuario2",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -430,7 +1588,7 @@
 					"response": []
 				},
 				{
-					"name": "AdicionarOutroUsuario Copy",
+					"name": "AdicionarUsuario3",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -552,7 +1710,7 @@
 					"response": []
 				},
 				{
-					"name": "AdicionaMusica",
+					"name": "AdicionaMusica1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -580,7 +1738,7 @@
 					"response": []
 				},
 				{
-					"name": "AdicionaOutraMusica",
+					"name": "AdicionaMusica2",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -730,7 +1888,7 @@
 					"response": []
 				},
 				{
-					"name": "AdicionaFilme",
+					"name": "AdicionaFilme1",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -758,7 +1916,7 @@
 					"response": []
 				},
 				{
-					"name": "AdicionaOutroFilme",
+					"name": "AdicionaFilme2",
 					"request": {
 						"method": "POST",
 						"header": [],
@@ -1002,13 +2160,41 @@
 					"response": []
 				},
 				{
-					"name": "AdicionaJogo",
+					"name": "AdicionaJogo1",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\":\"FIFA\",\n\t\"publisher\":\"publisher\",\n\t\"dataDeLancamento\":\"1995-04-05\",\n\t\"categoriaJogo\":\"ACAO\",\n\t\"plataformaJogo\":\"X-BOX\"\n}\n\n   ",
+							"raw": "{\n\t\"nome\":\"FIFA\",\n\t\"publisher\":\"publisher\",\n\t\"dataDeLancamento\":\"1995-04-05\",\n\t\"categoriaJogo\":\"ACAO\",\n\t\"plataformaJogo\":\"XBOX\"\n}\n\n   ",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/jogo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"jogo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AdicionaJogo2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"nome\":\"Simpsons\",\n\t\"publisher\":\"publisher\",\n\t\"dataDeLancamento\":\"1990-10-07\",\n\t\"categoriaJogo\":\"ACAO\",\n\t\"plataformaJogo\":\"XBOX\"\n}\n\n   ",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -1056,7 +2242,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n\t\"nome\":\"FIFA\",\n\t\"publisher\":\"publisher\",\n\t\"dataDeLancamento\":\"1995-04-15\",\n\t\"categoriaJogo\":\"ACAO\",\n\t\"plataformaJogo\":\"X-BOX\"\n}",
+							"raw": "{\n\t\"nome\":\"FIFA2020\",\n\t\"publisher\":\"publisher\",\n\t\"dataDeLancamento\":\"1995-04-15\",\n\t\"categoriaJogo\":\"ACAO\",\n\t\"plataformaJogo\":\"XBOX\"\n}",
 							"options": {
 								"raw": {
 									"language": "json"

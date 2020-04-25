@@ -1,7 +1,6 @@
 package ProjetoTinderEvolutionRest.acervo;
 
 import ProjetoTinderEvolutionRest.dominio.Musica;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -42,9 +41,7 @@ public class MusicaAcervo {
         musicaParaEditar.setAutor(musicaAtualizada.getAutor());
         musicaParaEditar.setDataDeLancamento(musicaAtualizada.getDataDeLancamento());
         musicaParaEditar.setEstiloMusical(musicaAtualizada.getEstiloMusical());
-
         return musicaParaEditar;
-
     }
 }
 

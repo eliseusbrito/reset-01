@@ -1,6 +1,8 @@
 package ProjetoTinderEvolutionRest.rest;
 
 import ProjetoTinderEvolutionRest.dominio.Esporte;
+import ProjetoTinderEvolutionRest.dominio.Esporte;
+import ProjetoTinderEvolutionRest.gerenciador.EsporteGerenciador;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -9,59 +11,36 @@ import java.util.List;
 @RestController
 @RequestMapping("/esporte")
 public class EsporteRest {
-    private static int contador = 1;
-
-    private List<Esporte> listaEsportes = new ArrayList<>();
+    private EsporteGerenciador gerenciador = new EsporteGerenciador();
 
     @GetMapping
-    public List<Esporte> listarTodosEsportes() {
-        System.out.println("listou todos os esportes");
-        return listaEsportes;
+    public List<Esporte> listar(){
+        System.out.println("listou todas os Esportes");
+        return gerenciador.listar();
     }
 
     @GetMapping("{id}")
     public Esporte buscarPorId(@PathVariable("id") int id) {
-        for (Esporte esporte : listaEsportes) {
-            if (esporte.getId() == id) {
-                System.out.println("buscou esporte específico: [" + id + "]");
-                return esporte;
-            }
-        }
-        System.out.println("Esporte informado não existe: [" + id + "]");
-        return null;
+        System.out.println("Buscou esporte por Id");
+        return gerenciador.pesquisar(id);
     }
 
     @PostMapping
     public Esporte cadastrar(@RequestBody Esporte esporte) {
-        esporte.setId(contador);
-        listaEsportes.add(esporte);
-        System.out.println("Adicionou esporte: "+ contador);
-        contador++;
-        return esporte;
+        System.out.println("Salvou um esporte");
+        return gerenciador.salvar(esporte);
     }
 
     @PutMapping("{id}")
     public Esporte editar(@PathVariable("id") int id, @RequestBody Esporte body) {
-        for (Esporte esporte : listaEsportes) {
-            if (esporte.getId() == id) {
-                esporte.setNome(body.getNome());
-                System.out.println("atualizado o esporte informada: [" + id + "] - " + esporte);
-                return esporte;
-            }
-        }
-        System.out.println("Não havia esporte para atualizar: [" + id + "]");
-        return null;
+        System.out.println("Editou um esporte");
+        return gerenciador.editar(id, body);
     }
 
     @DeleteMapping("{id}")
     public void excluir(@PathVariable("id") int id) {
-        for (Esporte esporte : listaEsportes) {
-            if (esporte.getId() == id) {
-                listaEsportes.remove(esporte.getId()-1);
-                System.out.println("deletou o esporte informado: [" + id + "]");
-            }
-        }
-        System.out.println("Não havia esporte para deletar");
+        gerenciador.deletar(id);
+        System.out.println("Deletou o esporte informado: [" + id + "]");
     }
 
 }

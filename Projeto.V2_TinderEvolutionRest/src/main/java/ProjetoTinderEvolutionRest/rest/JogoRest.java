@@ -1,71 +1,44 @@
 package ProjetoTinderEvolutionRest.rest;
 
 import ProjetoTinderEvolutionRest.dominio.Jogo;
+import ProjetoTinderEvolutionRest.gerenciador.JogoGerenciador;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/jogo")
 public class JogoRest {
-    private static int contador = 1;
 
-    private List<Jogo> listaJogos = new ArrayList<>();
+    private JogoGerenciador gerenciador = new JogoGerenciador();
 
     @GetMapping
-    public List<Jogo> listarTodosJogos() {
-        System.out.println("listou todos os jogos");
-        return listaJogos;
+    public List<Jogo> listar(){
+        System.out.println("listou todos os jogo");
+        return gerenciador.listar();
     }
 
     @GetMapping("{id}")
     public Jogo buscarPorId(@PathVariable("id") int id) {
-        for (Jogo jogo : listaJogos) {
-            if (jogo.getId() == id) {
-                System.out.println("buscou jogo específico: [" + id + "]");
-                return jogo;
-            }
-        }
-        System.out.println("Jogo informado não existe: [" + id + "]");
-        return null;
+        System.out.println("Buscou jogo por Id");
+        return gerenciador.pesquisar(id);
     }
 
     @PostMapping
     public Jogo cadastrar(@RequestBody Jogo jogo) {
-        jogo.setId(contador);
-        listaJogos.add(jogo);
-        System.out.println("Adicionou jogo: "+ contador);
-        contador++;
-        return jogo;
+        System.out.println("Salvou um jogo");
+        return gerenciador.salvar(jogo);
     }
 
     @PutMapping("{id}")
     public Jogo editar(@PathVariable("id") int id, @RequestBody Jogo body) {
-        for (Jogo jogo : listaJogos) {
-            if (jogo.getId() == id) {
-                jogo.setNome(body.getNome());
-                jogo.setPublisher(body.getPublisher());
-                jogo.setDataDeLancamento(body.getDataDeLancamento());
-                jogo.setCategoriaJogo(body.getCategoriaJogo());
-                jogo.setPlataformaJogo(body.getPlataformaJogo());
-                System.out.println("atualizado o jogo informado: [" + id + "] - " + jogo);
-                return jogo;
-            }
-        }
-        System.out.println("Não havia jogo para atualizar: [" + id + "]");
-        return null;
+        System.out.println("Editou um jogo");
+        return gerenciador.editar(id, body);
     }
 
     @DeleteMapping("{id}")
     public void excluir(@PathVariable("id") int id) {
-        for (Jogo jogo : listaJogos) {
-            if (jogo.getId() == id) {
-                listaJogos.remove(jogo.getId()-1);
-                System.out.println("deletou a jogo informado: [" + id + "]");
-            }
-        }
-        System.out.println("Não havia jogo para deletar");
+        gerenciador.deletar(id);
+        System.out.println("Deletou o jogo informada: [" + id + "]");
     }
 
 

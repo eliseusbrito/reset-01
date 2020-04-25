@@ -57,7 +57,4 @@ public class JogoGerenciador {
         return false;
     }
 
-
 }
-
-//- Todos os campos, exceto publisher, são obrigatórios

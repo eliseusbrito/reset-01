@@ -1,7 +1,6 @@
 package ProjetoTinderEvolutionRest.acervo;
 
 import ProjetoTinderEvolutionRest.dominio.Filme;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,13 +36,11 @@ public class FilmeAcervo {
     }
 
     public Filme editar(final Filme filmeParaEditar, final Filme filmeAtualizada) {
-
         filmeParaEditar.setNome(filmeAtualizada.getNome());
         filmeParaEditar.setDiretor(filmeAtualizada.getDiretor());
         filmeParaEditar.setDataDeLancamento(filmeAtualizada.getDataDeLancamento());
         filmeParaEditar.setCategoriaFilme(filmeAtualizada.getCategoriaFilme());
         filmeParaEditar.setSinopse(filmeAtualizada.getSinopse());
         return filmeParaEditar;
-
     }
 }

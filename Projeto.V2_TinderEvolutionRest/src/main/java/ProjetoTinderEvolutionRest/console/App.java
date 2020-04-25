@@ -8,11 +8,8 @@ public class App {
         Opcoes opcoes = new Opcoes();
         CurtidaMenu avaliacao = new CurtidaMenu();
         DesCurtidaMenu desavaliacao = new DesCurtidaMenu();
-
         ListaMenu pesquisa = new ListaMenu();
-//        LikeDislikeUsuarioMenuTipoBancoDados matchMenu = new LikeDislikeUsuarioMenuTipoBancoDados();
-        LikeDislikeUsuarioMenu matchMenu = new LikeDislikeUsuarioMenu();
-
+        MatchMenu matchMenu = new MatchMenu();
 
         System.out.println("\n********* Bem vindo ao Tinder Evolution *********\n");
         System.out.println("Aqui você pode conhecer pessoas novas baseada nos gostos em comum.");
@@ -25,7 +22,7 @@ public class App {
         char opcao=' ';
         while (opcao != 'X') {
             System.out.println("Bem vindo a Tela Inicial do Tinder Evolution");
-            System.out.println("Digite a opção:\n [C] - CURTIR ITENS  \n [L] - LISTAR ITENS\n [D] - DESCURTIR ITENS\n [M] - LikeDisLike USUARIOS & MATCH \n Cadastros:");
+            System.out.println("Digite a opção:\n [C] - CURTIR ITENS  \n [L] - LISTAR ITENS\n [D] - DESCURTIR ITENS\n [M] - MATCH & LikeDisLike USUARIOS  \n Cadastros:");
 
             opcao = MeuScannerCustomizado.nextChar("   [U] - Usuário\n   [m] - Música\n   [F] - Filmes\n   [S] - Séries\n   [J] - Jogos\n   [E] - Esportes\n   [I] - Curiosidades\n [X] - Sair\n > ");
             switch (opcao) {
@@ -39,14 +36,12 @@ public class App {
                     desavaliacao.opcoes();
                     break;
                 case 'M':
-//                  matchMenu.entradaDados();
                   matchMenu.entradaDados();
                     break;
                 case 'U':
                     opcoes.listarOpcoes('U');
                     break;
                 case 'm':
- //                 musicaMenu.opcoes();
                     opcoes.listarOpcoes('m');
                     break;
                 case 'F':
@@ -71,6 +66,5 @@ public class App {
                     System.out.println("Opção inválida");
             }
         }
-
     }
 }

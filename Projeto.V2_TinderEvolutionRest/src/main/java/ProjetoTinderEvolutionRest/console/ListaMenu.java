@@ -37,24 +37,11 @@ public class ListaMenu {
         }
     }
 
-//    public void listaMusica() {
-//        UsuarioMenu usuarioMenu = new UsuarioMenu();
-//        usuarioMenu.listar();
-//        CurtidaMusicaAcervo avaliacaoMusicaAcervo = new CurtidaMusicaAcervo();
-//        System.out.println("\nLista músicas curtidas de determinado usuário");
-//        int idUsuario = MeuScannerCustomizado.nextInt("Digite o Usuario:\n >");
-//        for (int f = 0; f < UsuarioAcervo.usuarios.size(); f++) {
-//            if (UsuarioAcervo.usuarios.get(f).getId() == idUsuario){
-//            System.out.println("Listagem de Músicas do Usuario " + UsuarioAcervo.usuarios.get(f).getNome());
-//        }}
-//        avaliacaoMusicaAcervo.listaPorUsuario(idUsuario);
-//    }
-
     public Usuario listaMusica() {
         UsuarioGerenciador usuarioGerenciador = new UsuarioGerenciador();
         int idUsuario = MeuScannerCustomizado.nextInt("Digite o Usuario:\n >");
         Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
-        usuario.listarMusicasCurtidas(usuario.getId(),usuario.getNome());
+        usuario.listarMusicasCurtidas(usuario.getId());
         return usuario;
             };
 

@@ -1,7 +1,6 @@
 package ProjetoTinderEvolutionRest.acervo;
 
 import ProjetoTinderEvolutionRest.dominio.Jogo;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,15 +36,11 @@ public class JogoAcervo {
     }
 
     public Jogo editar(final Jogo jogoParaEditar, final Jogo jogoAtualizada) {
-
         jogoParaEditar.setNome(jogoAtualizada.getNome());
         jogoParaEditar.setPublisher(jogoAtualizada.getPublisher());
         jogoParaEditar.setDataDeLancamento(jogoAtualizada.getDataDeLancamento());
         jogoParaEditar.setCategoriaJogo(jogoAtualizada.getCategoriaJogo());
         jogoParaEditar.setPlataformaJogo(jogoAtualizada.getPlataformaJogo());
-
         return jogoParaEditar;
-
     }
-
 }

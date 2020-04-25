@@ -1,11 +1,15 @@
 package ProjetoTinderEvolutionRest.dominio;
 
+import ProjetoTinderEvolutionRest.acervo.UsuarioAcervo;
+import ProjetoTinderEvolutionRest.gerenciador.UsuarioGerenciador;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+
+import static ProjetoTinderEvolutionRest.acervo.UsuarioAcervo.usuarios;
 
 @Service
 public class Usuario {
@@ -19,15 +23,14 @@ public class Usuario {
     private Double latitude;
     private Double longitude;
     private String foto;
-//    @JsonManagedReference
-    private List<Usuario> usuariosCurtidos = new ArrayList<>();
+    private List<Usuario> usuariosLiked = new ArrayList<>();
+    private List<Usuario> usuariosDisliked = new ArrayList<>();
     private List<Musica> musicasCurtidas = new ArrayList<>();
     private List<Filme> filmesCurtidos = new ArrayList<>();
     private List<Serie> seriesCurtidas = new ArrayList<>();
     private List<Jogo> jogosCurtidos = new ArrayList<>();
     private List<Esporte> esportesCurtidos = new ArrayList<>();
     private List<Curiosidade> curiosidadesCurtidas = new ArrayList<>();
-
     private List<Usuario> matches = new ArrayList<>();
 
     public Usuario(String nome, String email, String telefone, LocalDate dataDeNascimento, String bio, Double latitude, Double longitude, String foto) {
@@ -42,7 +45,6 @@ public class Usuario {
     }
 
     public Usuario(){
-
     }
 
     public int getId() {
@@ -106,12 +108,21 @@ public class Usuario {
     }
 
     @JsonIgnore
-    public List<Usuario> getUsuariosCurtidos() {
-        return usuariosCurtidos;
+    public List<Usuario> getUsuariosLiked() {
+        return usuariosLiked;
     }
 
-    public void setUsuariosCurtidos(List<Usuario> usuariosCurtidos) {
-        this.usuariosCurtidos = usuariosCurtidos;
+    public void setUsuariosLiked(List<Usuario> usuariosLiked) {
+        this.usuariosLiked = usuariosLiked;
+    }
+
+    @JsonIgnore
+    public List<Usuario> getUsuariosDisliked() {
+        return usuariosDisliked;
+    }
+
+    public void setUsuariosDisliked(List<Usuario> usuariosDisliked) {
+        this.usuariosDisliked = usuariosDisliked;
     }
 
     public void setId(int id) {
@@ -174,6 +185,7 @@ public class Usuario {
         this.longitude = longitude;
     }
 
+    @JsonIgnore
     public List<Usuario> getMatches() {
         return matches;
     }
@@ -181,18 +193,19 @@ public class Usuario {
     // Músicas
     public void salvarMusica(Musica musica) {
         musicasCurtidas.add(musica);
-//        acervo.musicasCurtidas.add(musica);
     }
 
     public void removerMusica(Musica musica) {
         musicasCurtidas.remove(musica);
     }
 
-    public void listarMusicasCurtidas(int idUsuario, String nome){
+    public Usuario listarMusicasCurtidas(int idUsuario){
         System.out.println("Músicas curtidas pelo usuário "+nome+ " - id["+idUsuario+"]:");
+
         for (int i = 0; i < musicasCurtidas.size(); i++) {
             System.out.println(musicasCurtidas.get(i));}
-    }
+        return null;
+        }
 
     // Filmes
     public void salvarFilme(Filme filme) {
@@ -268,25 +281,60 @@ public class Usuario {
     }
 
     //Usuarios
-    public void salvarUsuario(Usuario usuario) {
-        usuariosCurtidos.add(usuario);
+    public void salvarUsuarioLiked(Usuario usuario) {
+        usuariosLiked.add(usuario);
     }
 
-    public void removerUsuario(Usuario usuario) {
-        usuariosCurtidos.remove(usuario);
+    public void removerUsuarioLiked(Usuario usuario) {
+        usuariosLiked.remove(usuario);
     }
 
-    public Usuario listarUsuariosCurtidos(int idUsuario, String nome){
+    public List<Usuario> listarUsuariosLiked(int idUsuario, String nome){
         System.out.println("Usuários que receberam likes do usuário "+nome+ " - id["+idUsuario+"]:");
-        for (int i = 0; i < usuariosCurtidos.size(); i++) {
-            System.out.println(usuariosCurtidos.get(i));
-            return usuariosCurtidos.get(i);}
+        for (int i = 0; i < usuariosLiked.size(); i++) {
+            System.out.println(usuariosLiked.get(i));
+            }
+        return usuariosLiked;
+    }
 
-        return null;
-//        return usuariosCurtidos;
+    public void salvarUsuarioDisliked(Usuario usuario) {
+        usuariosDisliked.add(usuario);
+    }
+
+    public void removerUsuarioDisliked(Usuario usuario) {
+        usuariosDisliked.remove(usuario);
+    }
+
+    public List<Usuario> listarUsuariosDisliked(int idUsuario, String nome){
+        System.out.println("Usuários que receberam Dislikes do usuário "+nome+ " - id["+idUsuario+"]:");
+        for (int i = 0; i < usuariosDisliked.size(); i++) {
+            System.out.println(usuariosDisliked.get(i));
+        }
+        return usuariosDisliked;
+        }
+
+    public List<Usuario> listarDislike(){
+        for (int i = 0; i < usuariosDisliked.size(); i++) {
+            System.out.println(usuariosDisliked.get(i));
+        }
+        return usuariosDisliked;
     }
 
     //Match
+    public List<Usuario> listarMatch(Usuario usuario) {
+        System.out.println("Listagem de Matches do usuário "+usuario.getNome()+" - id="+usuario.getId());
+        for (int i = 0; i < matches.size(); i++) {
+            System.out.println(matches.get(i));}
+        return matches;
+    }
+
+    public List<Usuario> listarMatches() {
+        for (int i = 0; i < matches.size(); i++) {
+            System.out.println(matches.get(i));}
+        return matches;
+    }
+
+
     public void salvarMatch(Usuario usuario) {
         matches.add(usuario);
     }
@@ -314,7 +362,6 @@ public class Usuario {
                 ", jogosCurtidos=" + jogosCurtidos +
                 ", esportesCurtidos=" + esportesCurtidos +
                 ", curiosidadesCurtidas=" + curiosidadesCurtidas +
-//                ", usuariosCurtidos=" + usuariosCurtidos +
                 '}';
     }
 }

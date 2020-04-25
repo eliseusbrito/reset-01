@@ -1,7 +1,6 @@
 package ProjetoTinderEvolutionRest.acervo;
 
 import ProjetoTinderEvolutionRest.dominio.Curiosidade;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,11 +36,8 @@ public class CuriosidadeAcervo {
     }
 
     public Curiosidade editar(final Curiosidade curiosidadeParaEditar, final Curiosidade curiosidadeAtualizada) {
-
         curiosidadeParaEditar.setDescricao(curiosidadeAtualizada.getDescricao());
         curiosidadeParaEditar.setCategoriaCuriosidade(curiosidadeAtualizada.getCategoriaCuriosidade());
-
         return curiosidadeParaEditar;
-
-
-    }}
+    }
+}

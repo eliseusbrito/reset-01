@@ -1,7 +1,6 @@
 package ProjetoTinderEvolutionRest.acervo;
 
 import ProjetoTinderEvolutionRest.dominio.Esporte;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -37,12 +36,7 @@ public class EsporteAcervo {
     }
 
     public Esporte editar(final Esporte esporteParaEditar, final Esporte esporteAtualizada) {
-
         esporteParaEditar.setNome(esporteAtualizada.getNome());
-
         return esporteParaEditar;
-
     }
-
-
 }

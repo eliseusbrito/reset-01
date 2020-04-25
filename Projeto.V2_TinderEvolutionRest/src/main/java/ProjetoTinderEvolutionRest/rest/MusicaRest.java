@@ -41,5 +41,4 @@ public class MusicaRest {
         gerenciador.deletar(id);
         System.out.println("Deletou a musica informada: [" + id + "]");
     }
-
 }

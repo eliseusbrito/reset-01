@@ -23,6 +23,3 @@ public class InputUsuario {
     }
 }
 
-//Graus, minutos e segundos (DMS, na sigla em inglês): 41°24'12.2"N 2°10'26.5"L
-//Graus e minutos decimais (DMM, na sigla em inglês): 41 24.2028, 2 10.4418
-//Graus decimais (DD, na sigla em inglês): 41.40338, 2.17403 --> Digita no teclado PT com virgula

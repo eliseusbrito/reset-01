@@ -1,13 +1,11 @@
 package ProjetoTinderEvolutionRest.console;
 
 import ProjetoTinderEvolutionRest.dominio.Usuario;
-import ProjetoTinderEvolutionRest.gerenciador.LikeDislikeGerenciador;
-
-import java.util.List;
+import ProjetoTinderEvolutionRest.gerenciador.CurtirDescurtirGerenciador;
 
 public class CurtidaMenu {
 
-    private LikeDislikeGerenciador gerenciadorLikeDislike = new LikeDislikeGerenciador();
+    private CurtirDescurtirGerenciador gerenciadorCurtirDescurtir = new CurtirDescurtirGerenciador();
 
 
     public void opcoes() {
@@ -41,21 +39,6 @@ public class CurtidaMenu {
         }
     }
 
-//    public CurtidaMusica curtirMusica() {
-//        UsuarioMenu usuarioMenu = new UsuarioMenu();
-//        usuarioMenu.listar();
-//        int usuario = MeuScannerCustomizado.nextInt("Digite o Usuário que esta curtindo: \n  > ");
-//
-//        MusicaMenu musicaMenu = new MusicaMenu();
-//        musicaMenu.listar();
-//        int musica = MeuScannerCustomizado.nextInt("Digite a Música que quer Curtir \n  > ");
-//
-////        boolean avalMusica = true;
-////        CurtidaMusica curtidaMusica = new CurtidaMusica(usuario, musica, avalMusica);
-////        return gerenciador.salvar(curtidaMusica);
-//
-//        return gerenciadorLikeDislikeUsuario.curtirMusica(musica,usuario);
-//}
 
     public Usuario curtirMusica(){
         MusicaMenu musicaMenu = new MusicaMenu();
@@ -64,15 +47,8 @@ public class CurtidaMenu {
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
-        return gerenciadorLikeDislike.curtirMusica(musica,usuario);
+        return gerenciadorCurtirDescurtir.curtirMusica(musica,usuario);
     }
-
-//    public List<CurtidaMusica> listarMusicasCurtidas(){
-//        System.out.println("\nListagem de Avaliações...");
-//        List<CurtidaMusica> curtidas = gerenciador.listar();
-//        for (CurtidaMusica curtida : curtidas) {
-//            System.out.println(curtida);       }
-//        return curtidas;    }
 
     public Usuario curtirFilme() {
         FilmeMenu filmeMenu = new FilmeMenu();
@@ -81,14 +57,8 @@ public class CurtidaMenu {
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
-        return gerenciadorLikeDislike.curtirFilme(filme,usuario);
+        return gerenciadorCurtirDescurtir.curtirFilme(filme,usuario);
     }
-
-//    public List<CurtidaFilme> listarFilmesCurtidas(){
-//        System.out.println("\nListagem de Avaliações...");
-//        List<CurtidaFilme> curtidas = gerenciador.listar();
-//        for (CurtidaFilme curtida : curtidas) {
-//            System.out.println(curtida);       }}
 
     public Usuario curtirSerie() {
         SerieMenu serieMenu = new SerieMenu();
@@ -97,9 +67,8 @@ public class CurtidaMenu {
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
-        return gerenciadorLikeDislike.curtirSerie(serie,usuario);
+        return gerenciadorCurtirDescurtir.curtirSerie(serie,usuario);
     }
-
 
     public Usuario curtirJogo() {
         JogoMenu jogoMenu = new JogoMenu();
@@ -108,7 +77,7 @@ public class CurtidaMenu {
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
-        return gerenciadorLikeDislike.curtirJogo(jogo,usuario);
+        return gerenciadorCurtirDescurtir.curtirJogo(jogo,usuario);
     }
 
     public Usuario curtirEsporte(){
@@ -118,7 +87,7 @@ public class CurtidaMenu {
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
-        return gerenciadorLikeDislike.curtirEsporte(esporte,usuario);
+        return gerenciadorCurtirDescurtir.curtirEsporte(esporte,usuario);
     }
 
     public Usuario curtirCuriosidade(){
@@ -128,6 +97,6 @@ public class CurtidaMenu {
         UsuarioMenu usuarioMenu = new UsuarioMenu();
         usuarioMenu.listar();
         int usuario = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
-        return gerenciadorLikeDislike.curtirCuriosidade(curiosidade,usuario);
+        return gerenciadorCurtirDescurtir.curtirCuriosidade(curiosidade,usuario);
     }
 }

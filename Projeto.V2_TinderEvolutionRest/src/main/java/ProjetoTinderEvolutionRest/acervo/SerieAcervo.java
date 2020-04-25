@@ -1,7 +1,6 @@
 package ProjetoTinderEvolutionRest.acervo;
 
 import ProjetoTinderEvolutionRest.dominio.Serie;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +24,7 @@ public class SerieAcervo {
                 return serie;
             }
         }
+        System.out.println("return serie null");
         return null;
     }
 
@@ -37,7 +37,6 @@ public class SerieAcervo {
     }
 
     public Serie editar(final Serie serieParaEditar, final Serie serieAtualizada) {
-
         serieParaEditar.setNome(serieAtualizada.getNome());
         serieParaEditar.setDiretor(serieAtualizada.getDiretor());
         serieParaEditar.setDataDeLancamento(serieAtualizada.getDataDeLancamento());
@@ -46,7 +45,6 @@ public class SerieAcervo {
         serieParaEditar.setCategoriaSerie(serieAtualizada.getCategoriaSerie());
         serieParaEditar.setSinopse(serieAtualizada.getSinopse());
         return serieParaEditar;
-
     }
 }
 

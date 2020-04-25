@@ -5,8 +5,16 @@ public class Esporte {
     private int id;
     private String nome;
 
+    public Esporte(int id, String nome) {
+        this.id = id;
+        this.nome = nome;
+    }
+
     public Esporte(String nome) {
         this.nome = nome;
+    }
+
+    public Esporte() {
     }
 
     public int getId() {

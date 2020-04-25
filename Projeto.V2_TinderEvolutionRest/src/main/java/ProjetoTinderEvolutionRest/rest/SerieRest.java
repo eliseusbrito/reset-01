@@ -1,75 +1,44 @@
 package ProjetoTinderEvolutionRest.rest;
 
 import ProjetoTinderEvolutionRest.dominio.Serie;
+import ProjetoTinderEvolutionRest.gerenciador.SerieGerenciador;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
 @RequestMapping("/serie")
-public class SerieRest {
-    private static int contador = 1;
 
-    private List<Serie> listaSeries = new ArrayList<>();
+public class SerieRest {
+
+    private SerieGerenciador gerenciador = new SerieGerenciador();
 
     @GetMapping
     public List<Serie> listarTodosSeries() {
         System.out.println("listou todos as series");
-        System.out.println(listaSeries);
-        return listaSeries;
+        return gerenciador.listar();
     }
 
     @GetMapping("{id}")
     public Serie buscarPorId(@PathVariable("id") int id) {
-        for (Serie serie : listaSeries) {
-            if (serie.getId() == id) {
-                System.out.println("buscou serie específica: [" + id + "]");
-                return serie;
-            }
-        }
-        System.out.println("Serie informada não existe: [" + id + "]");
-        return null;
+        System.out.println("Buscou série por Id");
+        return gerenciador.pesquisar(id);
     }
 
     @PostMapping
     public Serie cadastrar(@RequestBody Serie serie) {
-        serie.setId(contador);
-        listaSeries.add(serie);
-        System.out.println("Adicionou serie: "+ contador);
-        contador++;
-        return serie;
+        System.out.println("Salvou uma série");
+        return gerenciador.salvar(serie);
     }
 
     @PutMapping("{id}")
     public Serie editar(@PathVariable("id") int id, @RequestBody Serie body) {
-        for (Serie serie : listaSeries) {
-            if (serie.getId() == id) {
-                serie.setNome(body.getNome());
-                serie.setDiretor(body.getDiretor());
-                serie.setDataDeLancamento(body.getDataDeLancamento());
-                serie.setNumeroDeTemporadas(body.getNumeroDeTemporadas());
-                serie.setNumeroDeEpisodios(body.getNumeroDeEpisodios());
-                serie.setCategoriaSerie(body.getCategoriaSerie());
-                serie.setSinopse(body.getSinopse());
-                System.out.println("atualizado a serie informada: [" + id + "] - " + serie);
-                return serie;
-            }
-        }
-        System.out.println("Não havia serie para atualizar: [" + id + "]");
-        return null;
+        System.out.println("Editou uma série");
+        return gerenciador.editar(id, body);
     }
 
     @DeleteMapping("{id}")
     public void excluir(@PathVariable("id") int id) {
-        for (Serie serie : listaSeries) {
-            System.out.println(listaSeries);
-            if (serie.getId() == id) {
-                listaSeries.remove(serie.getId()-1);
-                System.out.println("deletou a serie informada: [" + id + "]");
-            }
-        }
-        System.out.println("Não havia serie para deletar");
+        gerenciador.deletar(id);
+        System.out.println("Deletou a série informada: [" + id + "]");
     }
-
 }

@@ -173,13 +173,13 @@ public class CadastroInicial {
     public void usuarioLiked() {
         Usuario usuarioLikingUsuario0 = UsuarioAcervo.usuarios.get(0);
         Usuario usuarioLiked1 =  UsuarioAcervo.usuarios.get(1);
-        usuarioLikingUsuario0.salvarUsuario(usuarioLiked1);
+        usuarioLikingUsuario0.salvarUsuarioLiked(usuarioLiked1);
         Usuario usuarioLikingUsuario1 = UsuarioAcervo.usuarios.get(1);
         Usuario usuarioLiked0 =  UsuarioAcervo.usuarios.get(0);
-        usuarioLikingUsuario1.salvarUsuario(usuarioLiked0);
+        usuarioLikingUsuario1.salvarUsuarioLiked(usuarioLiked0);
         Usuario usuarioLikingUsuario2 = UsuarioAcervo.usuarios.get(2);
         Usuario usuarioLiked3 =  UsuarioAcervo.usuarios.get(3);
-        usuarioLikingUsuario2.salvarUsuario(usuarioLiked3);
+        usuarioLikingUsuario2.salvarUsuarioLiked(usuarioLiked3);
     }
 
 }

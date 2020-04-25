@@ -15,7 +15,6 @@ public  class MeuScannerCustomizado {
 
     public static String nextLine(String s){
         System.out.print(s);
-       // scanner.nextLine();
         String valor = scanner.nextLine();
         return valor;
     }
@@ -34,14 +33,5 @@ public  class MeuScannerCustomizado {
         return valor;
     }
 
-
-
-
 }
 
-
-//Scanner scanner = new Scanner(System.in)
-//System.out.print("Valor: ");
-//int valor = scanner.nextInt();
-
-//inv valor = MeuScannerCustomizado.nextInt("Valor: ");
