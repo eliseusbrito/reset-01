@@ -3,7 +3,6 @@ package ProjetoTinderEvolutionRest.gerenciador;
 import ProjetoTinderEvolutionRest.acervo.*;
 import ProjetoTinderEvolutionRest.dominio.*;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -11,13 +10,18 @@ import java.util.List;
 public class CurtirDescurtirGerenciador {
 
     private MusicaGerenciador gerenciadorMusica = new MusicaGerenciador();
+    private FilmeGerenciador gerenciadorFilme = new FilmeGerenciador();
+    private SerieGerenciador gerenciadorSerie = new SerieGerenciador();
+    private JogoGerenciador gerenciadorJogo = new JogoGerenciador();
+    private EsporteGerenciador gerenciadorEsporte = new EsporteGerenciador();
+    private CuriosidadeGerenciador gerenciadorCuriosidade = new CuriosidadeGerenciador();
+    private UsuarioGerenciador gerenciadorUsuario = new UsuarioGerenciador();
     private UsuarioAcervo acervoCurtirMusica = new UsuarioAcervo();
     private UsuarioAcervo acervoCurtirFilme = new UsuarioAcervo();
     private UsuarioAcervo acervoCurtirSerie = new UsuarioAcervo();
     private UsuarioAcervo acervoCurtirJogo = new UsuarioAcervo();
     private UsuarioAcervo acervoCurtirEsporte = new UsuarioAcervo();
     private UsuarioAcervo acervoCurtirCuriosidade = new UsuarioAcervo();
-    private MusicaAcervo acervoMusica = new MusicaAcervo();
     private FilmeAcervo acervoFilme = new FilmeAcervo();
     private SerieAcervo acervoSerie = new SerieAcervo();
     private JogoAcervo acervoJogo = new JogoAcervo();
@@ -25,20 +29,14 @@ public class CurtirDescurtirGerenciador {
     private CuriosidadeAcervo acervoCuriosidade = new CuriosidadeAcervo();
 
     public Usuario curtirMusica(int idMusica, int idUsuario) {
-        UsuarioAcervo usuarioAcervo = new UsuarioAcervo();
-        usuarioAcervo.pesquisar(idUsuario);
-        Usuario usuario = new Usuario();
+        Usuario usuario = gerenciadorUsuario.pesquisar(idUsuario);
         Musica musicaCurtida = gerenciadorMusica.pesquisar(idMusica);
-        System.out.println("musicaCurtida: "+musicaCurtida);
         for (int i = 0; i < usuario.getMusicasCurtidas().size(); i++) {
-            System.out.println(usuario.getMusicasCurtidas().get(i));
-            if (musicaCurtida.getNome().equals(usuario.getMusicasCurtidas().get(i))) {
-                System.out.println("Nome já existente. A música não foi cadastrada. ");
+            if (musicaCurtida.getNome().equals(usuario.getMusicasCurtidas().get(i).getNome())) {
+                System.out.println("A música "+musicaCurtida.getNome()+" já foi curtida pelo usuário "+usuario.getNome()+". Solicitação desconsiderada. ");
                 return null;
             }
         }
-        System.out.println("idMusica: "+idMusica);
-        System.out.println("idUsuario: "+idUsuario);
         return acervoCurtirMusica.curtirMusica(idMusica, idUsuario);
     }
 
@@ -51,6 +49,14 @@ public class CurtirDescurtirGerenciador {
     }
 
     public Usuario curtirFilme(int idFilme, int idUsuario) {
+        Usuario usuario = gerenciadorUsuario.pesquisar(idUsuario);
+        Filme filmeCurtido = gerenciadorFilme.pesquisar(idFilme);
+        for (int i = 0; i < usuario.getFilmesCurtidos().size(); i++) {
+            if (filmeCurtido.getNome().equals(usuario.getFilmesCurtidos().get(i).getNome())) {
+                System.out.println("O filme "+filmeCurtido.getNome()+" já foi curtido pelo usuário "+usuario.getNome()+". Solicitação desconsiderada. ");
+                return null;
+            }
+        }
         return acervoCurtirFilme.curtirFilme(idFilme,idUsuario);
     }
 
@@ -63,6 +69,14 @@ public class CurtirDescurtirGerenciador {
     }
 
     public Usuario curtirSerie(int idSerie, int idUsuario) {
+        Usuario usuario = gerenciadorUsuario.pesquisar(idUsuario);
+        Serie serieCurtida = gerenciadorSerie.pesquisar(idSerie);
+        for (int i = 0; i < usuario.getSeriesCurtidas().size(); i++) {
+            if (serieCurtida.getNome().equals(usuario.getSeriesCurtidas().get(i).getNome())) {
+                System.out.println("A série "+serieCurtida.getNome()+" já foi curtida pelo usuário "+usuario.getNome()+". Solicitação desconsiderada. ");
+                return null;
+            }
+        }
         return acervoCurtirSerie.curtirSerie(idSerie,idUsuario);
     }
 
@@ -75,6 +89,14 @@ public class CurtirDescurtirGerenciador {
     }
 
     public Usuario curtirJogo(int idJogo, int idUsuario) {
+        Usuario usuario = gerenciadorUsuario.pesquisar(idUsuario);
+        Jogo jogoCurtido = gerenciadorJogo.pesquisar(idJogo);
+        for (int i = 0; i < usuario.getJogosCurtidos().size(); i++) {
+            if (jogoCurtido.getNome().equals(usuario.getJogosCurtidos().get(i).getNome())) {
+                System.out.println("O jogo "+jogoCurtido.getNome()+" já foi curtido pelo usuário "+usuario.getNome()+". Solicitação desconsiderada. ");
+                return null;
+            }
+        }
         return acervoCurtirJogo.curtirJogo(idJogo,idUsuario);
     }
 
@@ -87,6 +109,14 @@ public class CurtirDescurtirGerenciador {
     }
 
     public Usuario curtirEsporte(int idEsporte, int idUsuario) {
+        Usuario usuario = gerenciadorUsuario.pesquisar(idUsuario);
+        Esporte esporteCurtido = gerenciadorEsporte.pesquisar(idEsporte);
+        for (int i = 0; i < usuario.getEsportesCurtidos().size(); i++) {
+            if (esporteCurtido.getNome().equals(usuario.getEsportesCurtidos().get(i).getNome())) {
+                System.out.println("O esporte "+esporteCurtido.getNome()+" já foi curtido pelo usuário "+usuario.getNome()+". Solicitação desconsiderada. ");
+                return null;
+            }
+        }
         return acervoCurtirEsporte.curtirEsporte(idEsporte,idUsuario);
     }
 
@@ -99,6 +129,14 @@ public class CurtirDescurtirGerenciador {
     }
 
     public Usuario curtirCuriosidade(int idCuriosidade, int idUsuario) {
+        Usuario usuario = gerenciadorUsuario.pesquisar(idUsuario);
+        Curiosidade curiosidadeCurtida = gerenciadorCuriosidade.pesquisar(idCuriosidade);
+        for (int i = 0; i < usuario.getCuriosidadesCurtidas().size(); i++) {
+            if (curiosidadeCurtida.getDescricao().equals(usuario.getCuriosidadesCurtidas().get(i).getDescricao())) {
+                System.out.println("A curiosidade "+curiosidadeCurtida.getDescricao()+" já foi curtida pelo usuário "+usuario.getNome()+". Solicitação desconsiderada. ");
+                return null;
+            }
+        }
         return acervoCurtirCuriosidade.curtirCuriosidade(idCuriosidade,idUsuario);
     }
 

@@ -25,6 +25,7 @@ public class CadastroInicial {
         curtirJogo();
         curtirEsporte();
         curtirCuriosidade();
+        System.out.println("  # Banco de Dados Carregado com Sucesso! #\n");
     }
 
     public void musica(){

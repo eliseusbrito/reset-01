@@ -3,7 +3,6 @@ package ProjetoTinderEvolutionRest.gerenciador;
 import ProjetoTinderEvolutionRest.acervo.UsuarioAcervo;
 import ProjetoTinderEvolutionRest.dominio.*;
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 
 @Service
@@ -11,25 +10,70 @@ import java.util.List;
 public class MatchGerenciador {
 
     UsuarioAcervo usuarioAvervo = new UsuarioAcervo();
+    private UsuarioAcervo usuarioGerenciador = new UsuarioAcervo();
 
-    public Usuario likeUsuario(int usuarioLiked, int idUsuario) {
-        return usuarioAvervo.likeUsuario(usuarioLiked,idUsuario);
+    public Usuario likeUsuario(int idUsuarioLiked, int idUsuario) {
+        Usuario usuarioLiked = usuarioGerenciador.pesquisar(idUsuarioLiked);
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        for (int i = 0; i < usuario.getUsuariosLiked().size(); i++) {
+            if (usuarioLiked.getNome().equals(usuario.getUsuariosLiked().get(i).getNome())) {
+                System.out.println("O usuário "+usuarioLiked.getNome()+" já foi liked pelo usuário "+usuario.getNome()+". Solicitação desconsiderada. ");
+                return null;
+            }
+        }
+        for (int i = 0; i < usuario.getUsuariosDisliked().size(); i++) {
+            if (usuarioLiked.getNome().equals(usuario.getUsuariosDisliked().get(i).getNome())) {
+                System.out.println("O usuário "+usuarioLiked.getNome()+" tem um dislike do usuário "+usuario.getNome()+". Você precisa desfazer este Dislike para depois ser possivel dar um Like. Solicitação desconsiderada.");
+                return null;
+            }
+        }
+        return usuarioAvervo.likeUsuario(idUsuarioLiked,idUsuario);
     }
 
-    public Usuario desfazerlikeUsuario (int usuarioDisliked, int idUsuario) {
-        return usuarioAvervo.desfazerlikeUsuario(usuarioDisliked,idUsuario);
+    public Usuario desfazerlikeUsuario (int idUsuarioDisliked, int idUsuario) {
+        Usuario usuarioLiked = usuarioGerenciador.pesquisar(idUsuarioDisliked);
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        for (int i = 0; i < usuario.getUsuariosLiked().size(); i++) {
+            if (usuarioLiked.getNome().equals(usuario.getUsuariosLiked().get(i).getNome())) {
+                return usuarioAvervo.desfazerlikeUsuario(idUsuarioDisliked,idUsuario);
+            }
+        }
+        System.out.println("O usuário "+usuarioLiked.getNome()+" não tinha recebido like do usuário "+usuario.getNome()+" para ser desfeito. Solicitação desconsiderada. ");
+        return null;
     }
 
     public List<Usuario> listarUsuariosLiked(int id){
         return usuarioAvervo.listarUsuariosLiked(id);
     }
 
-    public Usuario dislikeUsuario(int usuarioDisliked, int idUsuario) {
-        return usuarioAvervo.dislikeUsuario(usuarioDisliked,idUsuario);
+    public Usuario dislikeUsuario(int idUsuarioDisliked, int idUsuario) {
+        Usuario usuarioDisliked = usuarioGerenciador.pesquisar(idUsuarioDisliked);
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        for (int i = 0; i < usuario.getUsuariosDisliked().size(); i++) {
+            if (usuarioDisliked.getNome().equals(usuario.getUsuariosDisliked().get(i).getNome())) {
+                System.out.println("O usuário "+usuarioDisliked.getNome()+" já foi disliked pelo usuário "+usuario.getNome()+". Solicitação desconsiderada. ");
+                return null;
+            }
+        }
+        for (int i = 0; i < usuario.getUsuariosLiked().size(); i++) {
+            if (usuarioDisliked.getNome().equals(usuario.getUsuariosLiked().get(i).getNome())) {
+                System.out.println("O usuário "+usuarioDisliked.getNome()+" tem um like do usuário "+usuario.getNome()+". Você precisa desfazer este like para depois ser possivel dar um dislike. Solicitação desconsiderada.");
+                return null;
+            }
+        }
+        return usuarioAvervo.dislikeUsuario(idUsuarioDisliked,idUsuario);
     }
 
-    public Usuario desfazerDislikeUsuario (int usuarioDisliked, int idUsuario) {
-        return usuarioAvervo.desfazerDislikeUsuario(usuarioDisliked,idUsuario);
+    public Usuario desfazerDislikeUsuario (int idUsuarioDisliked, int idUsuario) {
+        Usuario usuarioDisliked = usuarioGerenciador.pesquisar(idUsuarioDisliked);
+        Usuario usuario = usuarioGerenciador.pesquisar(idUsuario);
+        for (int i = 0; i < usuario.getUsuariosDisliked().size(); i++) {
+            if (usuarioDisliked.getNome().equals(usuario.getUsuariosDisliked().get(i).getNome())) {
+            return usuarioAvervo.desfazerDislikeUsuario(idUsuarioDisliked,idUsuario);
+            }
+        }
+        System.out.println("O usuário "+usuarioDisliked.getNome()+" não tinha recebido dislike do usuário "+usuario.getNome()+" para ser desfeito. Solicitação desconsiderada. ");
+        return null;
     }
 
     public List<Usuario> listarUsuariosDisliked(int id){

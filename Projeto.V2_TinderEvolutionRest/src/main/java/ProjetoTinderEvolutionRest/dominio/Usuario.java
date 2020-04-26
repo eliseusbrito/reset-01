@@ -1,15 +1,10 @@
 package ProjetoTinderEvolutionRest.dominio;
 
-import ProjetoTinderEvolutionRest.acervo.UsuarioAcervo;
-import ProjetoTinderEvolutionRest.gerenciador.UsuarioGerenciador;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import org.springframework.stereotype.Service;
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
-
-import static ProjetoTinderEvolutionRest.acervo.UsuarioAcervo.usuarios;
 
 @Service
 public class Usuario {
@@ -91,11 +86,11 @@ public class Usuario {
         this.esportesCurtidos = esportesCurtidos;
     }
 
-    public List<Curiosidade> getCuriosidades() {
+    public List<Curiosidade> getCuriosidadesCurtidas() {
         return curiosidadesCurtidas;
     }
 
-    public void setCuriosidades(List<Curiosidade> curiosidades) {
+    public void setCuriosidadesCurtidas(List<Curiosidade> curiosidades) {
         this.curiosidadesCurtidas = curiosidades;
     }
 
@@ -201,7 +196,6 @@ public class Usuario {
 
     public Usuario listarMusicasCurtidas(int idUsuario){
         System.out.println("Músicas curtidas pelo usuário "+nome+ " - id["+idUsuario+"]:");
-
         for (int i = 0; i < musicasCurtidas.size(); i++) {
             System.out.println(musicasCurtidas.get(i));}
         return null;

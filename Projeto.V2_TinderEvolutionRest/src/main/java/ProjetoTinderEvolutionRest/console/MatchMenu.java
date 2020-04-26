@@ -58,14 +58,14 @@ public class MatchMenu {
     }
 
     public Usuario likeUsuario() {
-        int idusuarioLiked = MeuScannerCustomizado.nextInt("Digite o Usuário que quer dar Like \n  > ");
-        int idUsuarioQueCurtiu = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        int idusuarioLiked = MeuScannerCustomizado.nextInt("Digite o Usuário que irá receber um Like: \n  > ");
+        int idUsuarioQueCurtiu = MeuScannerCustomizado.nextInt("Digite o usuário que esta dando o Like: \n  > ");
         return gerenciadorMatch.likeUsuario(idusuarioLiked, idUsuarioQueCurtiu);
     }
 
     public Usuario desfazerlikeUsuario() {
-        int idusuarioDisliked = MeuScannerCustomizado.nextInt("Digite o Usuário que quer Desfazer o Like \n  > ");
-        int idUsuarioQueDescurtiu = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        int idusuarioDisliked = MeuScannerCustomizado.nextInt("Digite o Usuário que irá perder o Like: \n  > ");
+        int idUsuarioQueDescurtiu = MeuScannerCustomizado.nextInt("Digite o usuário que esta desfazendo o Like: \n  > ");
         return gerenciadorMatch.desfazerlikeUsuario(idusuarioDisliked,idUsuarioQueDescurtiu);
     }
 
@@ -75,7 +75,7 @@ public class MatchMenu {
     };
 
     public void listarTodosUsuariosLiked() {
-        System.out.println("Listagem de todos os Likes");
+        System.out.println("Listagem de todos os Likes:");
         for (int i = 1; i <= UsuarioAcervo.usuarios.size(); i++) {
             Usuario usuario = usuarioGerenciador.pesquisar(i);
             if(usuario.getUsuariosLiked().isEmpty()){
@@ -84,14 +84,14 @@ public class MatchMenu {
     }
 
     public Usuario dislikeUsuario() {
-        int idusuarioDisliked = MeuScannerCustomizado.nextInt("Digite o Usuário que quer dar um Dislike \n  > ");
-        int idUsuarioQueDesliked = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
-        return gerenciadorMatch.dislikeUsuario(idusuarioDisliked, idUsuarioQueDesliked);
+        int idusuarioDisliked = MeuScannerCustomizado.nextInt("Digite o Usuário que irá receber um Dislike: \n  > ");
+        int idUsuarioQueDisliked = MeuScannerCustomizado.nextInt("Digite o usuário que esta dando o Dislike: \n  > ");
+        return gerenciadorMatch.dislikeUsuario(idusuarioDisliked, idUsuarioQueDisliked);
     }
 
     public Usuario desfazerdislikeUsuario(){
-        int idusuarioDisliked = MeuScannerCustomizado.nextInt("Digite o Usuário que quer Desfazer o Dislike \n  > ");
-        int idUsuarioQueDescurtiu = MeuScannerCustomizado.nextInt("Digite seu usuário: \n  > ");
+        int idusuarioDisliked = MeuScannerCustomizado.nextInt("Digite o Usuário irá perder o Dislike: \n  > ");
+        int idUsuarioQueDescurtiu = MeuScannerCustomizado.nextInt("Digite o usuário que esta desfazendo o Dislike: \n  > ");
         return gerenciadorMatch.desfazerDislikeUsuario(idusuarioDisliked,idUsuarioQueDescurtiu);
     }
 
@@ -101,7 +101,7 @@ public class MatchMenu {
     };
 
     public void listarTodosDislikes() {
-        System.out.println("Listagem de todos os Dislikes");
+        System.out.println("Listagem de todos os Dislikes:");
         for (int i = 1; i <= UsuarioAcervo.usuarios.size(); i++) {
             Usuario usuario = usuarioGerenciador.pesquisar(i);
             if(usuario.getUsuariosDisliked().isEmpty()){

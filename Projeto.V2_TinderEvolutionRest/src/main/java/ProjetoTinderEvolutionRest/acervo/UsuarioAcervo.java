@@ -59,16 +59,17 @@ public class UsuarioAcervo {
         Usuario usuarioLikingUsuario = pesquisar(idUsuarioCurtindo);
         Usuario usuarioLiked = pesquisar(idusuarioLiked);
         usuarioLikingUsuario.salvarUsuarioLiked(usuarioLiked);
+        System.out.println("O usuário "+usuarioLiked.getNome()+" recebeu um Like do usuário "+usuarioLikingUsuario.getNome()+".");
         salvarMatches(idusuarioLiked, idUsuarioCurtindo);
         return usuarioLiked;
     }
 
     public Usuario desfazerlikeUsuario(int idusuarioDisliked, int idUsuarioDescurtindo) {
-        System.out.println("idusuarioDisliked: "+idusuarioDisliked);
         Usuario usuarioDeslikingUsuario = pesquisar(idUsuarioDescurtindo);
         Usuario usuarioDisliked = pesquisar(idusuarioDisliked);
         usuarioDeslikingUsuario.removerUsuarioLiked(usuarioDisliked);
         removerMatches(idusuarioDisliked,idUsuarioDescurtindo);
+        System.out.println("O usuário "+usuarioDeslikingUsuario.getNome()+" desfez um Like no usuário "+usuarioDisliked.getNome()+".");
         return usuarioDisliked;
     }
 
@@ -77,18 +78,19 @@ public class UsuarioAcervo {
         return usuariosLiked.listarUsuariosLiked(id,usuariosLiked.getNome());
     }
 
-    public Usuario dislikeUsuario(int idusuarioDisliked, int idUsuarioLiking) {
-        Usuario usuarioLikingUsuario = pesquisar(idUsuarioLiking);
+    public Usuario dislikeUsuario(int idusuarioDisliked, int idUsuarioDisliking) {
+        Usuario usuarioDislikingUsuario = pesquisar(idUsuarioDisliking);
         Usuario usuarioDisliked = pesquisar(idusuarioDisliked);
-        usuarioLikingUsuario.salvarUsuarioDisliked(usuarioDisliked);
+        usuarioDislikingUsuario.salvarUsuarioDisliked(usuarioDisliked);
+        System.out.println("O usuario "+usuarioDisliked.getNome()+" recebeu um Dislike do usuário "+usuarioDislikingUsuario.getNome()+".");
         return usuarioDisliked;
     }
 
     public Usuario desfazerDislikeUsuario(int idusuarioDisliked, int idUsuarioDescurtindo) {
-        System.out.println("idusuarioDisliked: "+idusuarioDisliked);
         Usuario usuarioDeslikingUsuario = pesquisar(idUsuarioDescurtindo);
         Usuario usuarioDisliked = pesquisar(idusuarioDisliked);
         usuarioDeslikingUsuario.removerUsuarioDisliked(usuarioDisliked);
+        System.out.println("O usuário "+usuarioDeslikingUsuario.getNome()+" desfez um Dislike no usuário "+usuarioDisliked.getNome()+".");
         return usuarioDisliked;
     }
 
@@ -108,7 +110,7 @@ public class UsuarioAcervo {
         Usuario usuarioQueCurtiu = pesquisar(idUsuarioQueCurtiu);
         for (int i = 0; i < usuarioLiked.getUsuariosLiked().size(); i++) {
             if(usuarioLiked.getUsuariosLiked().get(i).getId()==idUsuarioQueCurtiu){
-                System.out.println("Criou um match entre "+usuarioLiked.getNome()+" e "+usuarioQueCurtiu.getNome()+".");
+                System.out.println("#### Criou um match entre "+usuarioLiked.getNome()+" e "+usuarioQueCurtiu.getNome()+" ####.");
                 usuarioLiked.salvarMatch(usuarioQueCurtiu);
                 usuarioQueCurtiu.salvarMatch(usuarioLiked);
             }
@@ -132,6 +134,7 @@ public class UsuarioAcervo {
     public Usuario curtirMusica(int idMusica, int idUsuario) {
         Usuario usuarioCurtirMusica = pesquisar(idUsuario);
         Musica musicaCurtida = gerenciadorMusica.pesquisar(idMusica);
+        System.out.println("Usuario "+usuarioCurtirMusica.getNome()+" curtiu a música "+musicaCurtida.getNome()+".");
         usuarioCurtirMusica.salvarMusica(musicaCurtida);
         return usuarioCurtirMusica;
     }
@@ -140,6 +143,7 @@ public class UsuarioAcervo {
         Usuario usuarioDesCurtirMusica = pesquisar(idUsuario);
         Musica musicaDesCurtida = gerenciadorMusica.pesquisar(idMusica);
         usuarioDesCurtirMusica.removerMusica(musicaDesCurtida);
+        System.out.println("Usuario "+usuarioDesCurtirMusica.getNome()+" decurtiu a música "+musicaDesCurtida.getNome()+".");
         return usuarioDesCurtirMusica;
     }
 
@@ -151,6 +155,7 @@ public class UsuarioAcervo {
     public Usuario curtirFilme(int idFilme, int idUsuario) {
         Usuario usuarioCurtirFilme = pesquisar(idUsuario);
         Filme filmeCurtido = gerenciadorFilme.pesquisar(idFilme);
+        System.out.println("Usuario "+usuarioCurtirFilme.getNome()+" curtiu o filme "+filmeCurtido.getNome()+".");
         usuarioCurtirFilme.salvarFilme(filmeCurtido);
         return usuarioCurtirFilme;
     }
@@ -159,6 +164,7 @@ public class UsuarioAcervo {
         Usuario usuarioDesCurtirFilme = pesquisar(idUsuario);
         Filme filmeDesCurtido = gerenciadorFilme.pesquisar(idFilme);
         usuarioDesCurtirFilme.removerFilme(filmeDesCurtido);
+        System.out.println("Usuario "+usuarioDesCurtirFilme.getNome()+" descurtiu o filme "+filmeDesCurtido.getNome()+".");
         return usuarioDesCurtirFilme;
     }
 
@@ -166,6 +172,7 @@ public class UsuarioAcervo {
     public Usuario curtirSerie(int idSerie, int idUsuario) {
         Usuario usuarioCurtirSerie = pesquisar(idUsuario);
         Serie serieCurtida = gerenciadorSerie.pesquisar(idSerie);
+        System.out.println("Usuario "+usuarioCurtirSerie.getNome()+" curtiu a série "+serieCurtida.getNome()+".");
         usuarioCurtirSerie.salvarSerie(serieCurtida);
         return usuarioCurtirSerie;
     }
@@ -174,36 +181,41 @@ public class UsuarioAcervo {
         Usuario usuarioDesCurtirSerie = pesquisar(idUsuario);
         Serie serieDesCurtida = gerenciadorSerie.pesquisar(idSerie);
         usuarioDesCurtirSerie.removerSerie(serieDesCurtida);
+        System.out.println("Usuario "+usuarioDesCurtirSerie.getNome()+" descurtiu a série "+serieDesCurtida.getNome()+".");
         return usuarioDesCurtirSerie;
     }
 
     //Jogo
     public Usuario curtirJogo(int idJogo, int idUsuario) {
         Usuario usuarioCurtirJogo = pesquisar(idUsuario);
-        Jogo jogoCurtida = gerenciadorJogo.pesquisar(idJogo);
-        usuarioCurtirJogo.salvarJogo(jogoCurtida);
+        Jogo jogoCurtido = gerenciadorJogo.pesquisar(idJogo);
+        System.out.println("Usuario "+usuarioCurtirJogo.getNome()+" curtiu o jogo "+jogoCurtido.getNome()+".");
+        usuarioCurtirJogo.salvarJogo(jogoCurtido);
         return usuarioCurtirJogo;
     }
 
     public Usuario descurtirJogo(int idJogo, int idUsuario) {
         Usuario usuarioDesCurtirJogo = pesquisar(idUsuario);
-        Jogo jogoDesCurtida = gerenciadorJogo.pesquisar(idJogo);
-        usuarioDesCurtirJogo.removerJogo(jogoDesCurtida);
+        Jogo jogoDesCurtido = gerenciadorJogo.pesquisar(idJogo);
+        usuarioDesCurtirJogo.removerJogo(jogoDesCurtido);
+        System.out.println("Usuario "+usuarioDesCurtirJogo.getNome()+" descurtiu o jogo "+jogoDesCurtido.getNome()+".");
         return usuarioDesCurtirJogo;
     }
 
     //Esporte
     public Usuario curtirEsporte(int idEsporte, int idUsuario) {
         Usuario usuarioCurtirEsporte = pesquisar(idUsuario);
-        Esporte esporteCurtida = gerenciadorEsporte.pesquisar(idEsporte);
-        usuarioCurtirEsporte.salvarEsporte(esporteCurtida);
+        Esporte esporteCurtido = gerenciadorEsporte.pesquisar(idEsporte);
+        System.out.println("Usuario "+usuarioCurtirEsporte.getNome()+" curtiu o esporte "+esporteCurtido.getNome()+".");
+        usuarioCurtirEsporte.salvarEsporte(esporteCurtido);
         return usuarioCurtirEsporte;
     }
 
     public Usuario descurtirEsporte(int idEsporte, int idUsuario) {
         Usuario usuarioDesCurtirEsporte = pesquisar(idUsuario);
-        Esporte esporteDesCurtida = gerenciadorEsporte.pesquisar(idEsporte);
-        usuarioDesCurtirEsporte.removerEsporte(esporteDesCurtida);
+        Esporte esporteDesCurtido = gerenciadorEsporte.pesquisar(idEsporte);
+        usuarioDesCurtirEsporte.removerEsporte(esporteDesCurtido);
+        System.out.println("Usuario "+usuarioDesCurtirEsporte.getNome()+" descurtiu o esporte "+esporteDesCurtido.getNome()+".");
         return usuarioDesCurtirEsporte;
     }
 
@@ -211,6 +223,7 @@ public class UsuarioAcervo {
     public Usuario curtirCuriosidade(int idCuriosidade, int idUsuario) {
         Usuario usuarioCurtirCuriosidade = pesquisar(idUsuario);
         Curiosidade curiosidadeCurtida = gerenciadorCuriosidade.pesquisar(idCuriosidade);
+        System.out.println("Usuario "+usuarioCurtirCuriosidade.getNome()+" curtiu a curiosidade "+curiosidadeCurtida.getDescricao()+".");
         usuarioCurtirCuriosidade.salvarCuriosidade(curiosidadeCurtida);
         return usuarioCurtirCuriosidade;
     }
@@ -219,6 +232,7 @@ public class UsuarioAcervo {
         Usuario usuarioDesCurtirCuriosidade = pesquisar(idUsuario);
         Curiosidade curiosidadeDesCurtida = gerenciadorCuriosidade.pesquisar(idCuriosidade);
         usuarioDesCurtirCuriosidade.removerCuriosidade(curiosidadeDesCurtida);
+        System.out.println("Usuario "+usuarioDesCurtirCuriosidade.getNome()+" descurtiu a curiosidade "+curiosidadeDesCurtida.getDescricao()+".");
         return usuarioDesCurtirCuriosidade;
     }
 }
